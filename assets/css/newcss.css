@@ -1,0 +1,632 @@
+
+.invoicePDF .col-md-6 iframe,
+.invoicePDF .col-md-6 .invoicePDFImg {
+    width: 100%;
+    height: calc(100dvh - 90px);
+    display: block;
+    overflow: auto;
+}
+.invoicePDF .col-md-7 .invoicePDFform{
+    overflow: auto;
+    height: calc(100dvh - 155px);
+}
+.invoicePDF .btn-close {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    z-index: 77;
+    width: 1.5em;
+    height: 1.5em;
+}
+.invoicePDFformBtn {
+    padding-top: 10px;
+    border-top: 1px solid #dee2e6;
+}
+
+
+.inbox-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  margin: 20px 0;
+}
+
+.inbox-table thead th {
+  text-align: left;
+  padding: 12px 16px;
+  color: #555;
+  font-size: 14px;
+}
+
+.inbox-table tbody tr {
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.inbox-table tbody tr:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #f7fbff;
+}
+
+.inbox-table td {
+  padding: 6px 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #333;
+}
+
+.inbox-table.dataTable thead>tr>th {
+  padding: 6px 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  font-size: 14x;
+  color: #333;
+  padding-right: 26px;
+}
+
+table.dataTable>tbody>tr.duplicateInvoice {
+        background-color: #eaf7b4;
+}
+.inbox-table .dropdown-menu{
+        z-index: 7777;
+}
+.inbox-table tbody tr:hover {
+    position: relative;
+    z-index: 777;
+}
+
+.iframe-magnifier-container {
+  position: relative;
+  overflow: hidden;
+}
+
+#iframe-zoom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.iframe-magnifier-glass {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border: 3px solid #000;
+  border-radius: 50%;
+  overflow: hidden;
+  display: none;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.view-details .select2-container {
+    width: 100% !important;
+}
+.iframe-magnifier-glass iframe {
+  position: absolute;
+  transform: scale(2); /* adjust zoom level */
+  transform-origin: top left;
+}
+.select2width .select2-container{
+    width: 100% !important;
+}
+.select2width .select2-container {
+    border-radius: 7px;
+    border: 1px solid #c2c2c2;
+    background-color: #fff;
+    color: #726F6E;
+    padding: 5px 10px;
+    font-size: 14px;
+    width: 100%;
+    text-align: left;
+}
+.select2width .select2-container::after {
+    display: inline-block;
+    margin-left: 0;
+    vertical-align: 0;
+    content: "";
+    border-top: 0;
+    border-right: 2px solid #383e44;
+    border-bottom: 2px solid #383e44;
+    border-left: 0;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    transform: rotate(45deg);
+}
+.select2width .select2-container--default .select2-selection--multiple{
+    border: 0;
+}
+.select2width .select2-container--default .select2-search--inline:first-child .select2-search__field{
+    width: 100% !important;
+}
+
+.ticketSystemMain .select2height .select2-container--default .select2-selection--single {
+    height: 32px;
+}
+.ticketSystemMain .select2height .select2-container--default .select2-selection--single .select2-selection__rendered {
+    padding: 4px 12px;
+    line-height: 20px;
+}
+.ticketSystemMain .select2height .select2-container--default .select2-selection--single .select2-selection__arrow b {
+    top: 12px;
+}
+
+/*.w1366 .col-md-6 {
+        flex: 0 0 auto;
+        width: 33.33%;
+    }
+.w540 .col-md-6 {
+        flex: 0 0 auto;
+        width: 100%;
+    }*/
+
+#resizer {
+  min-width: 20px;
+cursor: col-resize;
+background: #ccc;
+height: calc(100dvh - 90px);
+position: relative;
+z-index: 1;
+  transition: background-color 0.2s;
+}
+
+#resizer:hover {
+  background-color: #999;
+}
+
+#resizer::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 50px;
+  background-image: radial-gradient(#666 1.5px, transparent 1.5px);
+  background-size: 100% 6px;
+  background-repeat: repeat-y;
+  opacity: 0.6;
+}
+#rightPane{
+    width: calc(41.66666667% - 20px);
+}
+.leftTicketList .btn-outline-secondary{
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+.leftTicketList .btn-outline-secondary:hover{
+    border-color: var(--primary-color);
+    color: #fff;
+    background-color: var(--primary-color);
+}
+.emailBox{
+/*    display: none;*/
+    height: 0px;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+.email-open .emailBox{
+    height: 200px;
+    transition: all 0.3s ease-in-out;
+/*    display: block;*/
+    overflow: auto;
+}
+.invoicePDF .col-md-6.email-open iframe,
+.invoicePDF .col-md-6.email-open .invoicePDFImg {
+    height: calc(100dvh - 290px);
+    transition: all 0.3s ease-in-out;
+}
+
+  .emailContent h6 {
+    font-size: 15px;
+    color: #0d6efd;
+    font-weight: 600;
+  }
+
+  .email-body p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: #343a40;
+    margin-bottom: 12px;
+  }
+
+  .email-body strong {
+    color: #212529;
+  }
+.auditLogModal{
+    background-color: rgba(0, 0, 0, 0.5);
+
+  }
+.auditLogModal .ticketSystem main {
+    width: 100%;
+    position: relative;
+    right: 0;
+    z-index: 0;
+    display: inline-block;
+    padding: 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: calc(100dvh - 115px);
+}
+.auditLogModal .ticketSystem main .ticketMain {
+    height: calc(100dvh - 240px);
+}   
+
+
+.auditLogModal .ticketSystem .btn-primary {
+    padding: 6px 11px;
+    min-width: unset;
+    font-size: 14px;
+}
+
+.invoiceTable .bg-warning {
+    background-color: #6647BF !important;
+    color: #fff !important;
+}
+.invoiceTable .bg-danger {
+    background-color: #F27944 !important;
+    color: #fff !important;
+}
+.invoiceTable .bg-success {
+    background-color: #70B944 !important;
+    color: #fff !important;
+}
+
+.ticketSystemMain #collapseFive .select2height .select2-container--default .select2-selection--single .select2-selection__rendered {
+    padding: 4px 24px 40px 12px;
+    line-height: 20px;
+}
+
+header .navbar .navbar-nav .d-sm-inline-block .nav-link img{
+    height: 40px !important;
+}
+header .navbar.navbar-expand-lg{
+    padding: 13px 0 !important;
+}
+.select2height .select2-container--open .select2-dropdown--below{
+    max-width: 240px;
+}
+.text-primary{
+    color: var(--primary-color) !important;
+}
+.reconciled .lucide.lucide-x-circle path{
+    color: red;
+}
+.reconciled .lucide.lucide-check-circle path + path{
+    color: green;
+}
+.reconciled svg{
+    height: 18px;
+    width: 18px;
+}
+/* Adjust space between tooltip and button (10px) */
+.tooltip-inner {
+  padding: 5px 10px;
+  margin-top: 5px;
+  background-color: #187cab !important;
+  color: white !important;
+}
+
+.tooltip.bs-tooltip-bottom .tooltip-arrow {
+  margin-top: 5px;
+}
+.bs-tooltip-bottom .tooltip-arrow::before{
+   border-bottom-color: #187cab !important;
+}
+.approvalModal .text-success{
+    width: 50px;
+    height: 50px;
+}
+
+.addVendorModal .modal-lg{
+    min-width: 1200px;
+    width: 95%;
+}
+
+.form-select .ms-choice{
+    border: 0;
+    background: transparent;
+}
+.form-select .ms-choice .icon-caret{
+    display: none;
+}
+.form-select .ms-choice>span.placeholder {
+    color: #999;
+    background: transparent;
+    padding: 0 7px;
+}
+.form-select .ms-drop {
+    margin-left: -13px;
+}
+.form-select .ms-choice>span {
+    top: 12px;
+    left: 7px;
+    right: 20px;
+    cursor: default;
+}
+.form-select .ms-drop ul>li.multiple{
+    width: 100% !important;
+    padding-left: 30px;
+}
+
+.entityPropertyTreeInv .form-select{
+    padding-top: 2px !important; 
+    padding-bottom: 2px !important;
+}
+.entityPropertyTreeInv .form-select .ms-choice>span {
+    top: 3px;
+    left: 5px;
+    right: 20px;
+}
+
+footer {
+    background-color: #fff !important;
+    width: unset !important;
+    float: none !important;
+    margin: 0 -24px -24px -24px !important;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}   
+
+.tree ul{
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+.tree > ul li{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.tree > ul li li{
+    padding-left: 10px;
+}
+.tree ul > li svg{
+    height: 18px;
+    width: 18px;
+}
+.tree > ul li.active{
+    background-color: var(--primary-color);
+    color: #fff;
+}
+.card h5{
+    margin: 0;
+    font-size: 18px;
+    color: var(--primary-color);
+}
+
+
+
+.tree li div{
+  position: relative;
+  padding-right: 60px; /* space for buttons */
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 8px;
+  border-radius: 5px;
+}
+
+.tree li div:hover{
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.tree li div .btn-group {
+  display: none;
+  position: absolute;
+  right: 5px;
+  top: 0;
+}
+
+.tree li div:hover .btn-group {
+  display: inline;
+    color: #fff;
+}
+.tree li div:hover .btn-group a{
+    color: #fff;
+}
+.tree li li div{
+  padding-left: 18px;
+  position: relative;
+}
+/*.tree li li div:before {
+    content: '';
+    display: inline-block;
+    height: 23px;
+    width: 16px;
+    border-bottom: 2px solid #6d737a;
+    border-left: 2px solid #6d737a;
+    margin-left: 0;
+    margin-top: 0;
+    position: absolute;
+    left: 2px;
+    top: -10px;
+}*/
+#addFolderModal,
+#folderModal{
+        z-index: 1056;
+}
+
+#entityPropertyTree ~ .ms-parent.form-select{
+    display: block;
+}
+#entityPropertyTree ~ .ms-parent.form-select.ms-offscreen{
+    display: none;
+}
+
+#authorized-person-details .table .card {
+    border: 1px solid #D1D1D1;
+    box-shadow: unset;
+}
+#authorized-person-details .table .card .card-header {
+    background: #f9f9f9;
+    border-bottom: 1px solid #D1D1D1;
+}
+
+ #dropArea {
+      border: 2px dashed #ccc;
+      padding: 80px;
+      text-align: center;
+      cursor: pointer;
+/*      margin-bottom: 20px;*/
+color: var(--primary-color);
+font-size: 16px;
+    }
+
+    #dropArea.dragover {
+      background-color: #f0f8ff;
+    }
+
+    .folder-tree-container {
+      border: 1px solid #ccc;
+      padding: 5px;
+      max-height: 100%;
+/*      overflow-y: auto;*/
+      position: relative;
+      width: 100%;
+    }
+
+   .folder-tree {
+    list-style: none;
+    padding-left: 0;
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    z-index: 77;
+    border: 1px solid lightgray;
+    left: -1px;
+    max-height: 200px;
+    overflow: auto;
+}
+    .folder-tree li {
+      cursor: pointer;
+    }
+.folder-tree ul{
+    list-style: none;
+}
+.folder-tree > ul{
+    padding-left: 10px;
+}
+    .folder-label {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .folder-label:hover {
+      background-color: #e0f0ff;
+    }
+
+    .folder-label.active {
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+    }
+
+    .selected-folder {
+/*      margin-bottom: 5px;*/
+      font-weight: bold;
+      background-color: #f8f9fa;
+      padding: 5px;
+      border: 1px dashed #ccc;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .selected-folder span {
+      display: inline-block;
+    }
+.uploadDocument .modal-dialog{
+        max-width: 750px;
+}
+.uploadDocument.uploadDocumentwidth .modal-dialog{
+    min-width: 95%;
+}
+.folder-label svg{
+    height: 18px;
+    width: 18px;
+}
+.uploadDocument .table .form-select .ms-choice>span {
+    top: 8px;
+    left: 7px;
+    right: 20px;
+    cursor: default;
+}
+.uploadDocument .table .form-select.ms-parent {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    padding: 8px 7px;
+}
+.fundfolder {
+    list-style: none;
+    padding-left: 0;
+}
+.fundfolder li svg{
+    height: 18px;
+    width: 18px;
+}
+.folderBox{
+    height: calc(100dvh - 80px);
+    display: flex;
+}
+.folderBoxLeft{
+    max-width: 300px;
+    width: 100%;
+    border-right: 1px solid #ddd;
+}
+.folderBoxRight{
+    width: 100%;
+    padding: 20px;
+     overflow: auto;
+}
+  ul#categoryList {
+    list-style: none;
+    padding: 0;
+    max-width: 400px;
+  }
+
+ ul#categoryList li {
+    padding: 6px 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 0;
+    cursor: pointer;
+    border-radius: 0;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+  ul#categoryList li:hover {
+    background-color: #f0f8ff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  }
+
+  ul#categoryList li.checked {
+    background-color: #d1e7dd;
+    border-color: #0f5132;
+    color: #0f5132;
+  }
+
+  ul#categoryList input[type="checkbox"] {
+    margin-right: 8px;
+  }
+.editModalNew svg {
+    stroke: var(--primary-color);
+    height: 20px;
+}
+#deleteDocumentModal{
+    z-index: 2000;
+}
+
+
+#investor-document-table_wrapper.dataTables_wrapper div.dataTables_filter input {
+    margin-left: .5em;
+    display: inline-block;
+    width: auto;
+    width: 385px;
+}

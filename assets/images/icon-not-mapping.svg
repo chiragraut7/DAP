@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44" height="44" viewBox="0 0 44 44">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_851" data-name="Path 851" d="M0,0H44V44H0Z" transform="translate(-9 -9)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="icon-not-mapping" transform="translate(9 9)" clip-path="url(#clip-path)">
+    <g id="File_Approve" transform="translate(-13.4 -10.467)">
+      <g id="Group_3969" data-name="Group 3969">
+        <path id="Path_849" data-name="Path 849" d="M38.133,35.2a1.466,1.466,0,0,0-1.467,1.467v5.867h-26.4V4.4H24.933V14.667A1.466,1.466,0,0,0,26.4,16.133H36.667V22A1.467,1.467,0,0,0,39.6,22V14.809c0-.048.029-.092.029-.142a1.464,1.464,0,0,0-.617-1.2L27.437,1.9a1.47,1.47,0,0,0-.428-.286,1.085,1.085,0,0,0-.142-.05,1.388,1.388,0,0,0-.371-.073c-.032,0-.063-.021-.1-.021H8.8A1.466,1.466,0,0,0,7.333,2.933V44A1.466,1.466,0,0,0,8.8,45.467H38.133A1.466,1.466,0,0,0,39.6,44V36.667A1.466,1.466,0,0,0,38.133,35.2Zm-10.267-22V6.474L34.593,13.2Z" fill="#fff"/>
+        <g id="Group_3970" data-name="Group 3970" transform="translate(30.871 22.809)">
+          <path id="Path_850" data-name="Path 850" d="M40.51,22.338A1.068,1.068,0,0,0,39,22.288l-10.677,9.99c.985,1.418-.465.432.731,2.24L40.462,23.845A1.067,1.067,0,0,0,40.51,22.338Z" transform="translate(-27.597 -22)" fill="#fff"/>
+          <path id="Path_852" data-name="Path 852" d="M12.186.338a1.068,1.068,0,0,0-1.509-.05L0,10.278c.985,1.418-.465.432.731,2.24L12.138,1.845A1.067,1.067,0,0,0,12.186.338Z" transform="translate(12.474 12.518) rotate(180)" fill="#fff"/>
+        </g>
+        <g id="Group_3971" data-name="Group 3971" transform="translate(43.731 22.467) rotate(90)">
+          <path id="Path_850-2" data-name="Path 850" d="M12.186.338a1.068,1.068,0,0,0-1.509-.05L0,10.278c.985,1.418-.465.432.731,2.24L12.138,1.845A1.067,1.067,0,0,0,12.186.338Z" transform="translate(0.728 0)" fill="#fff"/>
+          <path id="Path_852-2" data-name="Path 852" d="M12.186.338a1.068,1.068,0,0,0-1.509-.05L0,10.278c.985,1.418-.465.432.731,2.24L12.138,1.845A1.067,1.067,0,0,0,12.186.338Z" transform="translate(12.474 12.518) rotate(180)" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

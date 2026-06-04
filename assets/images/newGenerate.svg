@@ -1,0 +1,24 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Document outline -->
+  <rect x="20" y="15" width="60" height="90" rx="10" ry="10" stroke="#000" stroke-width="8" fill="none"/>
+  <!-- Folded corner -->
+  <polyline points="80,15 100,35 80,35" stroke="#000" stroke-width="8" fill="none"/>
+  <!-- Document text lines -->
+  <rect x="38" y="38" width="36" height="8" rx="4" fill="#000"/>
+  <rect x="38" y="56" width="28" height="8" rx="4" fill="#000"/>
+  <rect x="38" y="74" width="28" height="8" rx="4" fill="#000"/>
+  <!-- Gear icon -->
+  <circle cx="90" cy="90" r="20" fill="#000"/>
+  <circle cx="90" cy="90" r="10" fill="#fff"/>
+  <!-- Gear spokes -->
+  <g stroke="#fff" stroke-width="4">
+    <line x1="90" y1="74" x2="90" y2="68"/>
+    <line x1="90" y1="106" x2="90" y2="112"/>
+    <line x1="106" y1="90" x2="112" y2="90"/>
+    <line x1="74" y1="90" x2="68" y2="90"/>
+    <line x1="102" y1="78" x2="107" y2="73"/>
+    <line x1="78" y1="102" x2="73" y2="107"/>
+    <line x1="78" y1="78" x2="73" y2="73"/>
+    <line x1="102" y1="102" x2="107" y2="107"/>
+  </g>
+</svg>

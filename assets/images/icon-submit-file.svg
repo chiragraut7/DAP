@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 25 25">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_1234" data-name="Rectangle 1234" width="25" height="25" transform="translate(5.393 45)" fill="#187cab" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="icon-submit-file" transform="translate(-5.393 -45)" clip-path="url(#clip-path)">
+    <g id="Page-1" transform="translate(5.393 45)">
+      <g id="Dribbble-Light-Preview" transform="translate(-338.636 -1680.682)">
+        <g id="icons" transform="translate(63.636 181.818)">
+          <path id="file_done-_1705_" data-name="file_done-[#1705]" d="M278.783,1514.6c-.015,0-.031-.011-.047-.011s-.01.011-.017.011Zm21.1-9.091-5.888-6.148c-.212-.2-.5-.5-.8-.5H280.017a2.617,2.617,0,0,0-2.5,2.4l-.253.17v12.386c0,.6.845.773,1.468.773s.8-.159.8-.773V1502.58c0-.625,1.015-1.466,1.642-1.466h9.7v4.864c0,1.227,1.51,1.875,2.749,1.875h4.058v10.466c0,.614,0,.773-.627.773H285.717c-.612,0-1.586.648-1.632,1.25.045.6,1.019,1,1.632,1h12.508c1.238,0,1.734-.648,1.734-1.875V1506.4c0-.307.133-.682-.081-.886Zm-15.8,14.875c0-.011.008-.023.009-.045s-.009-.023-.009-.034Zm-1.606-2.818a1.1,1.1,0,0,1,0,1.58l-4.756,4.716-.1-.1h0l-2.286-2.261a1.12,1.12,0,0,1,0-1.591,1.156,1.156,0,0,1,1.6,0l.778.773,3.151-3.114a1.134,1.134,0,0,1,1.6,0Z" fill="#187cab" fill-rule="evenodd"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

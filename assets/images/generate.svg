@@ -1,0 +1,25 @@
+<svg width="225" height="225" viewBox="0 0 225 225" xmlns="http://www.w3.org/2000/svg">
+  <!-- Document outline -->
+  <path d="M40 20 Q30 20 30 40 L30 180 Q30 200 50 200 L130 200 Q150 200 150 180 L150 80 L110 40 Q110 20 90 20 Z"
+        stroke="#000" stroke-width="10" fill="none"/>
+  <!-- Document folded corner -->
+  <path d="M150 80 L110 40 L150 40 Z" fill="none" stroke="#000" stroke-width="10"/>
+  <!-- Document text lines -->
+  <rect x="60" y="70" width="60" height="15" rx="6" fill="#000"/>
+  <rect x="60" y="100" width="60" height="15" rx="6" fill="#000"/>
+  <rect x="60" y="130" width="60" height="15" rx="6" fill="#000"/>
+  <!-- Gear icon -->
+  <circle cx="165" cy="175" r="38" fill="#000"/>
+  <circle cx="165" cy="175" r="18" fill="#fff"/>
+  <!-- Gear spokes: 8 equally spaced lines -->
+  <g stroke="#fff" stroke-width="6">
+    <line x1="165" y1="137" x2="165" y2="120"/>
+    <line x1="165" y1="213" x2="165" y2="230"/>
+    <line x1="203" y1="175" x2="220" y2="175"/>
+    <line x1="127" y1="175" x2="110" y2="175"/>
+    <line x1="192" y1="148" x2="204" y2="136"/>
+    <line x1="138" y1="202" x2="126" y2="214"/>
+    <line x1="138" y1="148" x2="126" y2="136"/>
+    <line x1="192" y1="202" x2="204" y2="214"/>
+  </g>
+</svg>

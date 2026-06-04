@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44" height="44" viewBox="0 0 44 44">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_887" data-name="Rectangle 887" width="44" height="44" transform="translate(-9 -9)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="icon-files" transform="translate(9 9)" clip-path="url(#clip-path)">
+    <path id="files-svgrepo-com" d="M29.928,28.277h-14.1v1.6h14.1Zm0,5.286h-14.1V35.27h14.1ZM21.174,7.077v5.315H15.831v5.315h-5.2V51.077H35.242V45.736h5.2V40.559H45.76V7.078H21.174ZM33.535,49.367h-21.2V19.3h21.2Zm5.2-5.232h-3.5V17.7h-17.7V14.1h21.2V44.136Zm5.315-5.286H40.446V12.389H22.879V8.782H44.053ZM29.928,44.107h-14.1v1.707h14.1Zm0-5.313h-14.1V40.5h14.1Zm.026-15.859h-14.1V24.7h14.1Z" transform="translate(-15.193 -16.077)" fill="#fff"/>
+  </g>
+</svg>
