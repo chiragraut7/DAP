@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Funds - Rule Engine Management Dashboard</title>
+  <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome/css/fontawesome-all.css">
+  <link href="assets/css/merged.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="page-loader">
+    <div class="spinner"></div>
+    <div class="txt"><img src="assets/images/logo.svg" width="200" alt="Logo"></div>
+  </div>
+
+  <header class="container-fluid">
+    <nav class="navbar navbar-expand-lg">
+      <ul class="navbar-nav">
+        <li class="nav-item "><a class="nav-link ps-0 pe-4 toggle_nav" data-widget="pushmenu" href="#" role="button" id="menu"><img src="assets/images/bars.gif" alt="Bars"></a></li>
+        <li class="nav-item d-sm-inline-block"> <a class="nav-link h-auto p-0" href="#"><img src="assets/images/logo.svg" style="height: 70px;" alt="Logo"> </a></li>
+      </ul>
+      <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-2 mt-1 notification">
+            <a class="nav-link notification" href="#" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fas fa-bell fa-fw"></i></a>
+            <div class="dropdown-menu p-2">
+              <div class="row m-0 justify-content-between">
+                <div class="col-auto px-2"><a href="">Mark as read</a></div>
+                <div class="col-auto px-2"><a href="notification.html">View all</a></div>
+              </div>
+              <div class="row m-0">
+                <div class="col-12 py-2 px-3 notificationBox my-2">
+                  <h4>Notification Title</h4>
+                  <p>Notification Content</p>
+                  <p class="notificationDate">notification Date</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item ml-2 btn-group userMenu">
+            <div class="userProfile" data-bs-toggle="dropdown" aria-expanded="false">
+              <a href="#" class="nav-link profile"> <span>John Doe</span> <span>Admin</span> </a>
+              <div class="userArrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="assets/images/arrow.svg" alt="Arrow">
+              </div>
+            </div>
+            <div class="dropdown-menu">
+              <ul class="p-0">
+                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#profile">Profile</a></li>
+                <li><hr class="dropdown-divider m-0"></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#changePassword">Change Password</a></li>
+                <li><hr class="dropdown-divider m-0"></li>
+                <li><a class="dropdown-item impersonatebtn" data-bs-toggle="modal" data-bs-target="#impersonate">Impersonate</a></li>
+                <li><hr class="dropdown-divider m-0"></li>
+                <li><a class="dropdown-item" href="index.html">Log Out</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="d-flex">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4 leftMenu">
+      <div class="sidebar" id="sidebar">
+        <nav class="sidebar py-2 mb-4 scrollbar" id="navscrollbar">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard me-2">
+                  <rect width="7" height="9" x="3" y="3" rx="1"></rect>
+                  <rect width="7" height="5" x="14" y="3" rx="1"></rect>
+                  <rect width="7" height="9" x="14" y="12" rx="1"></rect>
+                  <rect width="7" height="5" x="3" y="16" rx="1"></rect>
+                </svg>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="rulesSet.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu-rule-engine me-2" style="vertical-align: middle;">
+                  <path d="M6 4H4v16h2" />
+                  <path d="M18 4h2v16h-2" />
+                  <path d="M9 9h2a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H9" />
+                  <path d="M15 9h-2a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h2" />
+                  <rect x="10" y="10" width="4" height="4" rx="0.5" fill="currentColor" fill-opacity="0.2" />
+                </svg>
+                <span>Rule Engine</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="lookupValue.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database-lookup me-2" style="vertical-align: middle;">
+                  <path d="M3 5h18" />
+                  <path d="M3 10h11" />
+                  <path d="M3 15h11" />
+                  <path d="M3 20h18" />
+                  <path d="M8 5v15" />
+                  <circle cx="17" cy="12" r="3" fill="currentColor" fill-opacity="0.1" />
+                  <path d="M17 9v6" />
+                  <path d="M14 12h6" />
+                </svg>
+                <span>Lookup Value</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <div class="main p-4 container-fluid">
+      <div class="row">
+        <div class="col">
+          <h1>Rule Engine</h1>
+        </div>
+        <div class="col text-end">
+          <button type="button" class="btn btn-primary" id="addRuleBtn">Add Rule</button>
+        </div>
+      </div>
+      <hr>
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="card mt-4">
+            <div class="card-body pt-3">
+              <div class="table-responsive">
+                <table class="table table-bordered align-middle" id="advancedRuleTable">
+                  <thead>
+                    <tr>
+                      <th>Rule</th>
+                      <th>Error Message</th>
+                      <th>Rule Type</th>
+                      <th style="width: 100px;">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Example 1 -->
+                    <tr data-error-message="Aggregate investor deployment metrics fail to fulfill current target standards." data-rule-type="Hard">
+                      <td>{Sum}{InvestorAppetite}{Equals}{Positive}{100}{Average}{Up-frontEquity}{LessThan}{70%ormore}{200}</td>
+                      <td>Aggregate investor deployment metrics fail to fulfill current target standards.</td>
+                      <td>Hard</td>
+                      <td class="text-center">
+                        <div class="btn-group">
+                          <div class="w-auto" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="-6 0 16 16" version="1.1">    
+                              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g transform="translate(-1051.000000, -750.000000)" fill="var(--primary-color)">
+                                  <g transform="translate(1041.000000, 746.000000)">
+                                    <path d="M12,4 C10.8954305,4 10,4.8954305 10,6 C10,7.1045695 10.8954305,8 12,8 C13.1045695,8 14,7.1045695 14,6 C14,4.8954305 13.1045695,4 12,4 Z"></path>
+                                    <path d="M12,10 C10.8954305,10 10,10.8954305 10,12 C10,13.1045695 10.8954305,14 12,14 C13.1045695,14 14,13.1045695 14,12 C14,10.8954305 13.1045695,10 12,10 Z"></path>
+                                    <path d="M12,16 C10.8954305,16 10,16.8954305 10,18 C10,19.1045695 10.8954305,20 12,20 C13.1045695,20 14,19.1045695 14,18 C14,16.8954305 13.1045695,16 12,16 Z"></path>
+                                  </g>
+                                </g>
+                              </g>
+                            </svg>
+                          </div>    
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item edit-rule-btn" href="#"><i class="fas fa-edit me-2"></i>Edit</a></li>
+                            <li><a class="dropdown-item delete-rule-btn text-danger" href="#"><i class="fas fa-trash me-2"></i>Delete</a></li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <!-- Example 2 -->
+                    <tr data-error-message="Forecasted IRR does not meet corporate return thresholds." data-rule-type="Hard">
+                      <td>{ForecastedIRR}{GreaterThan}{AboveSAIBOR+2%}{50}</td>
+                      <td>Forecasted IRR does not meet corporate return thresholds.</td>
+                      <td>Hard</td>
+                      <td class="text-center">
+                        <div class="btn-group">
+                          <div class="w-auto" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="-6 0 16 16" version="1.1">    
+                              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g transform="translate(-1051.000000, -750.000000)" fill="var(--primary-color)">
+                                  <g transform="translate(1041.000000, 746.000000)">
+                                    <path d="M12,4 C10.8954305,4 10,4.8954305 10,6 C10,7.1045695 10.8954305,8 12,8 C13.1045695,8 14,7.1045695 14,6 C14,4.8954305 13.1045695,4 12,4 Z"></path>
+                                    <path d="M12,10 C10.8954305,10 10,10.8954305 10,12 C10,13.1045695 10.8954305,14 12,14 C13.1045695,14 14,13.1045695 14,12 C14,10.8954305 13.1045695,10 12,10 Z"></path>
+                                    <path d="M12,16 C10.8954305,16 10,16.8954305 10,18 C10,19.1045695 10.8954305,20 12,20 C13.1045695,20 14,19.1045695 14,18 C14,16.8954305 13.1045695,16 12,16 Z"></path>
+                                  </g>
+                                </g>
+                              </g>
+                            </svg>
+                          </div>    
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item edit-rule-btn" href="#"><i class="fas fa-edit me-2"></i>Edit</a></li>
+                            <li><a class="dropdown-item delete-rule-btn text-danger" href="#"><i class="fas fa-trash me-2"></i>Delete</a></li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <!-- Example 3 -->
+                    <tr data-error-message="Lender criteria needs allocation reviews." data-rule-type="Soft">
+                      <td>{Count}{LenderAppetite}{NotEquals}{Negative}{300}</td>
+                      <td>Lender criteria needs allocation reviews.</td>
+                      <td>Soft</td>
+                      <td class="text-center">
+                        <div class="btn-group">
+                          <div class="w-auto" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="-6 0 16 16" version="1.1">    
+                              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g transform="translate(-1051.000000, -750.000000)" fill="var(--primary-color)">
+                                  <g transform="translate(1041.000000, 746.000000)">
+                                    <path d="M12,4 C10.8954305,4 10,4.8954305 10,6 C10,7.1045695 10.8954305,8 12,8 C13.1045695,8 14,7.1045695 14,6 C14,4.8954305 13.1045695,4 12,4 Z"></path>
+                                    <path d="M12,10 C10.8954305,10 10,10.8954305 10,12 C10,13.1045695 10.8954305,14 12,14 C13.1045695,14 14,13.1045695 14,12 C14,10.8954305 13.1045695,10 12,10 Z"></path>
+                                    <path d="M12,16 C10.8954305,16 10,16.8954305 10,18 C10,19.1045695 10.8954305,20 12,20 C13.1045695,20 14,19.1045695 14,18 C14,16.8954305 13.1045695,16 12,16 Z"></path>
+                                  </g>
+                                </g>
+                              </g>
+                            </svg>
+                          </div>    
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item edit-rule-btn" href="#"><i class="fas fa-edit me-2"></i>Edit</a></li>
+                            <li><a class="dropdown-item delete-rule-btn text-danger" href="#"><i class="fas fa-trash me-2"></i>Delete</a></li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <!-- Example 4 -->
+                    <tr data-error-message="Off plan distribution risks identified." data-rule-type="Hard">
+                      <td>{Average}{Off-PlanSales}{LessThan}{35%orless}{150}</td>
+                      <td>Off plan distribution risks identified.</td>
+                      <td>Hard</td>
+                      <td class="text-center">
+                        <div class="btn-group">
+                          <div class="w-auto" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="-6 0 16 16" version="1.1">    
+                              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g transform="translate(-1051.000000, -750.000000)" fill="var(--primary-color)">
+                                  <g transform="translate(1041.000000, 746.000000)">
+                                    <path d="M12,4 C10.8954305,4 10,4.8954305 10,6 C10,7.1045695 10.8954305,8 12,8 C13.1045695,8 14,7.1045695 14,6 C14,4.8954305 13.1045695,4 12,4 Z"></path>
+                                    <path d="M12,10 C10.8954305,10 10,10.8954305 10,12 C10,13.1045695 10.8954305,14 12,14 C13.1045695,14 14,13.1045695 14,12 C14,10.8954305 13.1045695,10 12,10 Z"></path>
+                                    <path d="M12,16 C10.8954305,16 10,16.8954305 10,18 C10,19.1045695 10.8954305,20 12,20 C13.1045695,20 14,19.1045695 14,18 C14,16.8954305 13.1045695,16 12,16 Z"></path>
+                                  </g>
+                                </g>
+                              </g>
+                            </svg>
+                          </div>    
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item edit-rule-btn" href="#"><i class="fas fa-edit me-2"></i>Edit</a></li>
+                            <li><a class="dropdown-item delete-rule-btn text-danger" href="#"><i class="fas fa-trash me-2"></i>Delete</a></li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <!-- Example 5 -->
+                    <tr data-error-message="High exposure regional capital mismatch warning." data-rule-type="Soft">
+                      <td>{Sum}{AssetLocation}{GreaterThan}{Above1million}{500}</td>
+                      <td>High exposure regional capital mismatch warning.</td>
+                      <td>Soft</td>
+                      <td class="text-center">
+                        <div class="btn-group">
+                          <div class="w-auto" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="-6 0 16 16" version="1.1">    
+                              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g transform="translate(-1051.000000, -750.000000)" fill="var(--primary-color)">
+                                  <g transform="translate(1041.000000, 746.000000)">
+                                    <path d="M12,4 C10.8954305,4 10,4.8954305 10,6 C10,7.1045695 10.8954305,8 12,8 C13.1045695,8 14,7.1045695 14,6 C14,4.8954305 13.1045695,4 12,4 Z"></path>
+                                    <path d="M12,10 C10.8954305,10 10,10.8954305 10,12 C10,13.1045695 10.8954305,14 12,14 C13.1045695,14 14,13.1045695 14,12 C14,10.8954305 13.1045695,10 12,10 Z"></path>
+                                    <path d="M12,16 C10.8954305,16 10,16.8954305 10,18 C10,19.1045695 10.8954305,20 12,20 C13.1045695,20 14,19.1045695 14,18 C14,16.8954305 13.1045695,16 12,16 Z"></path>
+                                  </g>
+                                </g>
+                              </g>
+                            </svg>
+                          </div>    
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item edit-rule-btn" href="#"><i class="fas fa-edit me-2"></i>Edit</a></li>
+                            <li><a class="dropdown-item delete-rule-btn text-danger" href="#"><i class="fas fa-trash me-2"></i>Delete</a></li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rule Creator Modal Element -->
+          <div class="modal fade ruleSet" id="ruleModal" tabindex="-1" aria-labelledby="ruleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ruleModalLabel">Add Rule</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="ruleForm">
+                    <input type="hidden" id="editingRowIndex" value="">
+                    
+                    <!-- Form Columns Mapping: Aggregate -> Fields -> Operations -> Custom Value -> Number -->
+                    <div class="row g-3">
+                      <div class="col-md-3">
+                        <label for="aggregateSelect" class="form-label">Aggregate</label>
+                        <select id="aggregateSelect" class="form-select">
+                          <option value="">Select Aggregate</option>
+                          <option value="Sum">Sum</option>
+                          <option value="Average">Average</option>
+                          <option value="Count">Count</option>
+                        </select>
+                      </div>
+                      <div class="col-md-3">
+                        <label for="fieldSelect" class="form-label">Fields</label>
+                        <select id="fieldSelect" class="form-select">
+                          <option value="">Select Fields</option>
+                          <option value="Forecasted IRR">Forecasted IRR</option>
+                          <option value="Investor Appetite">Investor Appetite</option>
+                          <option value="Lender Appetite">Lender Appetite</option>
+                          <option value="Up-front Equity">Up-front Equity</option>
+                          <option value="Off-Plan Sales">Off-Plan Sales</option>
+                          <option value="Asset Location">Asset Location</option>
+                        </select>
+                      </div>
+                      <div class="col-md-3">
+                        <label for="operationSelect" class="form-label">Operations</label>
+                        <select id="operationSelect" class="form-select">
+                          <option value="">Select Operations</option>
+                          <option value="Greater Than">Greater Than</option>
+                          <option value="Less Than">Less Than</option>
+                          <option value="Equals">Equals</option>
+                          <option value="Not Equals">Not Equals</option>
+                        </select>
+                      </div>
+                      <div class="col-md-3">
+                        <label for="customValueSelect" class="form-label">Custom Value</label>
+                        <select id="customValueSelect" class="form-select">
+                          <option value="">Select Custom Value</option>
+                        </select>
+                      </div>
+                      <div class="col-md-3">
+                        <label for="numberInput" class="form-label">Number</label>
+                        <input type="text" id="numberInput" class="form-control" placeholder="Press Enter">
+                      </div>
+                    </div>
+
+                    <div class="mt-3">
+                      <div class="alert alert-danger d-none" id="ruleErrorMessage" role="alert"></div>
+                    </div>
+
+                    <div class="row g-3 mt-1 align-items-end">
+                      <div class="col-md-6">
+                        <label for="modalRulePreview" class="form-label">Rule Preview</label>
+                        <textarea id="modalRulePreview" class="form-control" rows="3" placeholder="Generated tokens will render here side-by-side..." readonly></textarea>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="errorMessageInput" class="form-label">Error Message</label>
+                        <textarea id="errorMessageInput" class="form-control" rows="3" placeholder="Enter baseline execution validation text..."></textarea>
+                      </div>
+                      <div class="col-md-4">
+                        <label class="form-label d-block">Hard Rule / Soft Rule</label>
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="ruleTypeSwitch">
+                          <label class="form-check-label" for="ruleTypeSwitch"><span id="ruleTypeLabel">Hard Rule</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" id="resetRuleBtn">Reset</button>
+                  <button type="button" class="btn btn-primary" id="saveRule">Submit Rule</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/jquery-3.5.1.js"></script>
+  <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    $(window).on("load", function () {
+      $(".page-loader").fadeOut(300);
+    });
+
+    $(document).ready(function () {
+      const customValuesMapping = {
+        "Forecasted IRR": ["Above SAIBOR + 2%", "From SAIBOR to SAIBOR + 2%", "Below SAIBOR"],
+        "Investor Appetite": ["Positive", "Negative", "Neutral"],
+        "Lender Appetite": ["Positive", "Negative", "Neutral"],
+        "Up-front Equity": ["70% or more", "50% to 69%", "Less than 50%"],
+        "Off-Plan Sales": ["35% or less", "36% to 50%", "More than 50%"],
+        "Asset Location": ["Above 1 million", "700K to 1 million", "Below 700K"]
+      };
+
+      const bsRuleModal = new bootstrap.Modal(document.getElementById('ruleModal'));
+
+      function populateCustomValues(field, selectedValue = "") {
+        const $customValue = $("#customValueSelect");
+        $customValue.empty().append('<option value="">Select Custom Value</option>');
+        if (field && customValuesMapping[field]) {
+          customValuesMapping[field].forEach(function (value) {
+            const isSelected = (value === selectedValue) ? "selected" : "";
+            $customValue.append(`<option value="${value}" ${isSelected}>${value}</option>`);
+          });
+        }
+      }
+
+      // Single Rule Preview Engine (Appends tokens directly to string baseline on choice layout)
+      function updateRulePreview(chosenToken) {
+        if (!chosenToken) return;
+        
+        // Strip out spaces inside individual selection options
+        const sanitizedToken = chosenToken.replace(/\s/g, "");
+        const formattedToken = `{${sanitizedToken}}`;
+        
+        const historicalBase = $("#modalRulePreview").val().trim();
+        $("#modalRulePreview").val(historicalBase + formattedToken);
+      }
+
+      function showError(message) {
+        $("#ruleErrorMessage").text(message).removeClass("d-none");
+      }
+
+      function hideError() {
+        $("#ruleErrorMessage").addClass("d-none").text("");
+      }
+
+      function resetModalForm() {
+        $("#ruleForm")[0].reset();
+        $("#customValueSelect").empty().append('<option value="">Select Custom Value</option>');
+        $("#editingRowIndex").val("");
+        $("#ruleModalLabel").text("Add Rule");
+        $("#saveRule").text("Submit Rule");
+        $("#ruleTypeLabel").text("Hard Rule");
+        hideError();
+        $("#modalRulePreview").val("");
+      }
+
+      // Input Event Interceptors: Captures choice, formats it, and instantly resets drop-down input
+      $("#aggregateSelect, #operationSelect, #customValueSelect").on("change", function() {
+        const val = $(this).val();
+        if (val) {
+          updateRulePreview(val);
+          $(this).prop('selectedIndex', 0); // Reset input immediately
+        }
+      });
+
+      $("#fieldSelect").on("change", function () {
+        const val = $(this).val();
+        if (val) {
+          populateCustomValues(val);
+          updateRulePreview(val);
+          $(this).prop('selectedIndex', 0); // Reset input immediately
+        }
+      });
+
+      // Captures numerical tokens on Enter key submission
+      $("#numberInput").on("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          const val = $(this).val().trim();
+          if (val) {
+            updateRulePreview(val);
+            $(this).val(""); // Clear numeric input tracking frame
+          }
+        }
+      });
+
+      $("#ruleTypeSwitch").on("change", function () {
+        $("#ruleTypeLabel").text($(this).is(":checked") ? "Soft Rule" : "Hard Rule");
+      });
+
+      $("#addRuleBtn").on("click", function () {
+        resetModalForm();
+        bsRuleModal.show();
+      });
+
+      $("#resetRuleBtn").on("click", function () {
+        resetModalForm();
+      });
+
+      // Submit Orchestration Handler Track
+      $("#saveRule").on("click", function () {
+        hideError();
+        
+        const errorMessage = $("#errorMessageInput").val().trim();
+        const isSoft = $("#ruleTypeSwitch").is(":checked");
+        const ruleTypeText = isSoft ? "Soft" : "Hard";
+        const editingIndex = $("#editingRowIndex").val();
+        const finalizedRuleString = $("#modalRulePreview").val().trim();
+
+        if (!finalizedRuleString) { showError("Rule preview string is completely empty."); return; }
+        if (!errorMessage) { showError("Error Message validation text notification context is required."); return; }
+
+        if (editingIndex !== "") {
+          const $row = $("#advancedRuleTable tbody tr").eq(parseInt(editingIndex, 10));
+          $row.attr('data-error-message', errorMessage);
+          $row.attr('data-rule-type', ruleTypeText);
+          
+          $row.find("td").eq(0).text(finalizedRuleString);
+          $row.find("td").eq(1).text(errorMessage);
+          $row.find("td").eq(2).text(ruleTypeText);
+          
+          bsRuleModal.hide();
+        } else {
+          const newRowHtml = `
+            <tr data-error-message="${errorMessage}" data-rule-type="${ruleTypeText}">
+              <td>${finalizedRuleString}</td>
+              <td>${errorMessage}</td>
+              <td>${ruleTypeText}</td>
+              <td class="text-center">
+                <div class="btn-group">
+                  <div class="w-auto" data-bs-toggle="dropdown" style="cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="-6 0 16 16" version="1.1">    
+                      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g transform="translate(-1051.000000, -750.000000)" fill="var(--primary-color)">
+                          <g transform="translate(1041.000000, 746.000000)">
+                            <path d="M12,4 C10.8954305,4 10,4.8954305 10,6 C10,7.1045695 10.8954305,8 12,8 C13.1045695,8 14,7.1045695 14,6 C14,4.8954305 13.1045695,4 12,4 Z"></path>
+                            <path d="M12,10 C10.8954305,10 10,10.8954305 10,12 C10,13.1045695 10.8954305,14 12,14 C13.1045695,14 14,13.1045695 14,12 C14,10.8954305 13.1045695,10 12,10 Z"></path>
+                            <path d="M12,16 C10.8954305,16 10,16.8954305 10,18 C10,19.1045695 10.8954305,20 12,20 C13.1045695,20 14,19.1045695 14,18 C14,16.8954305 13.1045695,16 12,16 Z"></path>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+                  </div>      
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item edit-rule-btn" href="#"><i class="fas fa-edit me-2"></i>Edit</a></li>
+                    <li><a class="dropdown-item delete-rule-btn text-danger" href="#"><i class="fas fa-trash me-2"></i>Delete</a></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>`;
+          
+          $("#advancedRuleTable tbody").append(newRowHtml);
+          bsRuleModal.hide();
+        }
+      });
+
+      // Delegated Grid Action Mappings: Edit Flow
+      $("#advancedRuleTable").on("click", ".edit-rule-btn", function (e) {
+        e.preventDefault();
+        resetModalForm();
+
+        const $row = $(this).closest("tr");
+        const rowIndex = $row.index();
+        
+        const errorMessage = $row.attr("data-error-message") || "";
+        const ruleType = $row.attr("data-rule-type") || "Hard";
+        const textPreview = $row.find("td").eq(0).text().trim();
+
+        $("#editingRowIndex").val(rowIndex);
+        $("#ruleModalLabel").text("Edit Rule");
+        $("#saveRule").text("Update Rule");
+
+        $("#errorMessageInput").val(errorMessage);
+
+        const isSoft = (ruleType === "Soft");
+        $("#ruleTypeSwitch").prop("checked", isSoft);
+        $("#ruleTypeLabel").text(isSoft ? "Soft Rule" : "Hard Rule");
+
+        $("#modalRulePreview").val(textPreview);
+        bsRuleModal.show();
+      });
+
+      // Delegated Grid Action Mappings: Delete Flow
+      $("#advancedRuleTable").on("click", ".delete-rule-btn", function (e) {
+        e.preventDefault();
+        const $row = $(this).closest("tr");
+        if (confirm("Are you sure you want to completely delete this rule evaluation parameter data mapping row?")) {
+          $row.remove();
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

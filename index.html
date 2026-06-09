@@ -389,7 +389,7 @@
     <div class="txt"><img src="assets/images/logo.svg" width="200"></div>
   </div>
 
-  <!--Nav-start-->
+       <!--Nav-start-->
   <header class="container-fluid">
     <nav class="navbar navbar-expand-lg">
       <ul class="navbar-nav">
@@ -461,7 +461,7 @@
         <nav class="sidebar py-2 mb-4 scrollbar" id="navscrollbar">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link active" href="../dashboard.html">
+              <a class="nav-link active" href="index.html">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                   data-lucide="layout-dashboard" class="lucide lucide-layout-dashboard me-2">
@@ -470,7 +470,33 @@
                   <rect width="7" height="9" x="14" y="12" rx="1"></rect>
                   <rect width="7" height="5" x="3" y="16" rx="1"></rect>
                 </svg>
-                <span>Funds Dashboard</span>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="rulesSet.html">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu-rule-engine me-2" style="vertical-align: middle;">
+                  <path d="M6 4H4v16h2" />
+                  <path d="M18 4h2v16h-2" />
+                  <path d="M9 9h2a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H9" />
+                  <path d="M15 9h-2a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h2" />
+                  <rect x="10" y="10" width="4" height="4" rx="0.5" fill="currentColor" fill-opacity="0.2" />
+                </svg>
+                <span>Rule Engine</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="lookupValue.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  data-lucide="layout-dashboard" class="lucide lucide-layout-dashboard me-2">
+                  <rect width="7" height="9" x="3" y="3" rx="1"></rect>
+                  <rect width="7" height="5" x="14" y="3" rx="1"></rect>
+                  <rect width="7" height="9" x="14" y="12" rx="1"></rect>
+                  <rect width="7" height="5" x="3" y="16" rx="1"></rect>
+                </svg>
+                <span>Lookup Value</span>
               </a>
             </li>
           </ul>
@@ -1348,6 +1374,20 @@
                 <div class="leftTicketList">
                   <h3>All Funds</h3>
                 </div>
+                <div class="ticket-summary p-3 mb-3 bg-white rounded-3 shadow-sm">
+                  <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div>
+                      <h5 class="mb-1" id="viewFundSidebarId">FND-001</h5>
+                      <p class="mb-1 text-muted" id="viewFundSidebarName">Riyadh Commercial REIT</p>
+                      <p class="mb-0 text-muted" id="viewFundSidebarCreatedDate">Created on Jan 15, 2025</p>
+                    </div>
+                    <span id="viewFundSidebarStatusBadge" class="badge badge-approved align-self-start">Approved</span>
+                  </div>
+                  <div class="small text-muted">
+                    <p class="mb-1"><strong>Type:</strong> <span id="viewFundSidebarType">Qualitative</span></p>
+                    <p class="mb-0"><strong>Review Period:</strong> <span id="viewFundSidebarReviewPeriod">Q1 2025</span></p>
+                  </div>
+                </div>
                 <div class="selectPropertyTickets" id="accordionExample">
                   <ul class="nav nav-tabs border-0" role="tablist">
                     <li>
@@ -1470,11 +1510,260 @@
                         </div>
                       </a>
                     </li>
+                    <li id="dynamic-fund-tab-li" style="display:none">
+                      <a class="nav-link" id="dynamic-fund-tab-link" data-bs-toggle="tab" href="#nav-tab-dynamic">
+                        <div class="row">
+                          <div class="col">
+                            <div><span>Selected Fund</span></div>
+                            <p class="text-truncate" style="max-width:130px;margin:0;font-size:11px">Live fund preview</p>
+                          </div>
+                          <div class="col-auto text-end">
+                            <span class="badge badge-new">Selected</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
                   </ul>
                 </div>
               </aside>
               <main class="pt-0">
                 <div class="tab-content" id="nav-tabContent">
+                  <div class="tab-pane fade" id="nav-tab-dynamic">
+                    <div class="row">
+                      <div class="col-12 mb-3 p-0">
+                        <div class="card rounded-0">
+                          <div class="card-body px-3 py-2">
+                            <div class="row align-items-center">
+                              <div class="col-md-8">
+                                <h2><span id="viewFundId">FND-000</span></h2>
+                                <p class="dateBox mb-0" id="viewFundCreatedDateLabel">Created on N/A</p>
+                              </div>
+                              <div class="col-md-4 text-md-end">
+                                <span id="viewFundStatusBadge" class="badge badge-approved">Status</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ticketMain">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="status-bar" style="background:#EAF3DE;border-color:#3B6D11">
+                            <i class="fas fa-check-circle" style="color:#3B6D11"></i>
+                            <span style="color:#3B6D11;font-size:13px;font-weight:600">Live fund details and review overview.</span>
+                          </div>
+                          <div class="card mb-3">
+                            <div class="card-body pt-3">
+                              <div class="review-section-title"><i class="fas fa-info-circle" style="color:var(--primary-color)"></i> Fund Information</div>
+                              <div class="row view-details">
+                                <div class="col-lg-4 col-md-6 mb-3">
+                                  <label class="col-form-label">Fund Name</label>
+                                  <h6 id="viewFundName">N/A</h6>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                                  <label class="col-form-label">Review Period</label>
+                                  <h6 id="viewReviewPeriod">N/A</h6>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                                  <label class="col-form-label">Fund Type</label>
+                                  <h6 id="viewFundType">N/A</h6>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                                  <label class="col-form-label">Fund Currency</label>
+                                  <h6 id="viewFundCurrency">N/A</h6>
+                                </div>
+                                <div class="col-12 mb-2">
+                                  <label class="col-form-label">Fund Description</label>
+                                  <h6 id="viewFundDescription" style="font-weight:400">N/A</h6>
+                                </div>
+                                <div class="col-12 mb-1">
+                                  <label class="col-form-label">Application Types</label>
+                                  <div id="viewApplicationTypes" class="d-flex flex-wrap gap-2 mt-1"><span class="text-muted">N/A</span></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card mb-3">
+                            <div class="card-body pt-3">
+                              <div class="review-section-title"><i class="fas fa-users" style="color:var(--primary-color)"></i> Stakeholders</div>
+                              <div class="row view-details">
+                                <div class="col-lg-4 col-md-6 mb-3">
+                                  <label class="col-form-label">Custodian</label>
+                                  <h6 id="viewCustodian">N/A</h6>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                                  <label class="col-form-label">Auditor</label>
+                                  <h6 id="viewAuditor">N/A</h6>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                                  <label class="col-form-label">Legal Counsel</label>
+                                  <h6 id="viewLegalCounsel">N/A</h6>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                                  <label class="col-form-label">Property Appraisers</label>
+                                  <h6 id="viewPropertyAppraisers">N/A</h6>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                                  <label class="col-form-label">Tax Advisor</label>
+                                  <h6 id="viewTaxAdvisor">N/A</h6>
+                                </div>
+                                <div class="col-12 mb-1">
+                                  <label class="col-form-label">Fund Board Members</label>
+                                  <div id="viewBoardMembers" class="d-flex flex-wrap gap-2 mt-1"><span class="text-muted">N/A</span></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card mb-3">
+                            <div class="card-body pt-3">
+                              <div class="review-section-title"><i class="fas fa-file-alt" style="color:var(--primary-color)"></i> Documentation</div>
+                              <div class="row row-cols-1 row-cols-md-2 g-3">
+                                <div class="col">
+                                  <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                      <div class="small text-muted">ENBDC</div>
+                                      <div id="viewUploadEnbdc" class="mt-1"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                      <div class="small text-muted">Compliance</div>
+                                      <div id="viewUploadCompliance" class="mt-1"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                      <div class="small text-muted">Risk</div>
+                                      <div id="viewUploadRisk" class="mt-1"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                      <div class="small text-muted">Sharia</div>
+                                      <div id="viewUploadSharia" class="mt-1"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                      <div class="small text-muted">Insurance</div>
+                                      <div id="viewUploadInsurance" class="mt-1"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                      <div class="small text-muted">ZATCA</div>
+                                      <div id="viewUploadZatca" class="mt-1"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                      <div class="small text-muted">Civil Defense</div>
+                                      <div id="viewUploadCivilDefense" class="mt-1"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                      <div class="small text-muted">Building Compliance</div>
+                                      <div id="viewUploadBuildingCompliance" class="mt-1"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card mb-3">
+                            <div class="card-body pt-3">
+                              <div class="review-section-title"><i class="fas fa-chart-line" style="color:var(--primary-color)"></i> Investment Logic</div>
+                              <div class="row view-details">
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                  <label class="col-form-label">Forecasted IRR</label>
+                                  <h6 id="viewForecastIrr">N/A</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                  <label class="col-form-label">Investor Appetite</label>
+                                  <h6 id="viewInvestorAppetite">N/A</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                  <label class="col-form-label">Lender Appetite</label>
+                                  <h6 id="viewLenderAppetite">N/A</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                  <label class="col-form-label">Sensitivity Analysis</label>
+                                  <h6 id="viewSensitivityAnalysis">N/A</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                  <label class="col-form-label">Up-front Equity</label>
+                                  <h6 id="viewUpFrontEquity">N/A</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                  <label class="col-form-label">Additional Equity</label>
+                                  <h6 id="viewAdditionalEquity">N/A</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                  <label class="col-form-label">Off-Plan Sales</label>
+                                  <h6 id="viewOffPlanSales">N/A</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                  <label class="col-form-label">Asset Location</label>
+                                  <h6 id="viewAssetLocation">N/A</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card mb-3">
+                            <div class="card-body pt-3">
+                              <div class="review-section-title"><i class="fas fa-gavel" style="color:var(--primary-color)"></i> Procedural</div>
+                              <div class="row view-details">
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                  <label class="col-form-label">Investor Complaints</label>
+                                  <h6 id="viewInvestorComplaints">N/A</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                  <label class="col-form-label">Tenant Complaints</label>
+                                  <h6 id="viewTenantComplaints">N/A</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                  <label class="col-form-label">Legal Disputes</label>
+                                  <h6 id="viewLegalDisputes">N/A</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                  <label class="col-form-label">Sell-side Advisor</label>
+                                  <h6 id="viewSellSideAdvisor">N/A</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                  <label class="col-form-label">SPV Termination</label>
+                                  <h6 id="viewSpvTermination">N/A</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                  <label class="col-form-label">ZATCA Deregistration</label>
+                                  <h6 id="viewZatcaDeregistration">N/A</h6>
+                                </div>
+                              </div>
+                              <div class="col-12 mt-3">
+                                <label class="col-form-label view-details">Maker Notes</label>
+                                <div id="viewMakerNotes" class="p-3 mt-1" style="background:#f5f6fa;border-radius:7px;border:1px solid #dee2e6;font-size:13px">—</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <div class="tab-pane fade active show" id="nav-tab-f001">
                     <div class="row">
                       <div class="col-12 mb-3 p-0">
@@ -3493,7 +3782,8 @@
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="assets/js/jquery-3.5.1.js"></script>
+  <script src="assets/js/slick.js"></script>
   <script src="assets/js/common.js"></script>
   <script>
     $(window).on('load', function () {
@@ -3556,7 +3846,7 @@
   </script>
   <script src="assets/datatable/js/bootstrap-multiselect.js"></script>
   <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+    href="assets/datatable/css/bootstrap-multiselect.css">
   <script>
 
     $(document).ready(function () {
@@ -3596,7 +3886,7 @@
   </script>
 
 
-  <script src="../assets/js/select2.min.js"></script>
+  <script src="assets/js/select2.min.js"></script>
   <script>
     $(document).ready(function () {
       $(".propertyList").select2({
@@ -3911,6 +4201,10 @@
 
       document.getElementById('viewFundId').textContent = row.find('td').eq(0).text().trim() || 'N/A';
       document.getElementById('viewFundSidebarId').textContent = row.find('td').eq(0).text().trim() || 'N/A';
+      document.getElementById('viewFundSidebarName').textContent = rowFundName;
+      document.getElementById('viewFundSidebarCreatedDate').textContent = rowCreatedDate !== 'N/A' ? `Created on ${rowCreatedDate}` : 'N/A';
+      document.getElementById('viewFundSidebarType').textContent = rowFundType;
+      document.getElementById('viewFundSidebarReviewPeriod').textContent = rowReviewPeriod;
       document.getElementById('viewFundName').textContent = rowFundName;
       document.getElementById('viewFundType').textContent = rowFundType;
       document.getElementById('viewCreatedDate').textContent = rowCreatedDate !== 'N/A' ? `Created on ${rowCreatedDate}` : '';

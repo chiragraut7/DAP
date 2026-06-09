@@ -1,0 +1,2501 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Funds - Management Dashboard</title>
+  <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome/css/fontawesome-all.css">
+  <link href="assets/datatable/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+  <link href="assets/datatable/css/buttons.bootstrap5.min.css" rel="stylesheet">
+  <link href="assets/css/ckeditor.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
+
+
+  <link href="assets/css/merged.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/datatable/css/bootstrap-multiselect.css">
+  </head>
+  <body>  
+
+    <div class="page-loader">      
+      <div class="spinner"></div>
+      <div class="txt"><img src="assets/images/logo.svg" width="200"></div>
+    </div>
+
+  <!--Nav-start-->
+  <header class="container-fluid">
+    <nav class="navbar navbar-expand-lg">
+      <ul class="navbar-nav">
+        <li class="nav-item "><a class="nav-link ps-0 pe-4 toggle_nav" data-widget="pushmenu" href="#" role="button"
+            id="menu"><img src="assets/images/bars.gif"></a></li>
+        <li class="nav-item d-sm-inline-block"> <a class="nav-link h-auto p-0" href="#"><img
+              src="assets/images/logo.svg" style="height: 70px;"> </a></li>
+      </ul>
+      <div class="collapse navbar-collapse justify-content-end" id="">
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-2 mt-1 notification">
+            <a class="nav-link notification" href="#" data-bs-toggle="dropdown" aria-expanded="false"> <i
+                class="fas fa-bell fa-fw"></i></a>
+            <div class="dropdown-menu p-2">
+              <div class="row m-0 justify-content-between">
+                <div class="col-auto px-2"><a href="">Mark as read</a></div>
+                <div class="col-auto px-2"><a href="notification.html">View all</a></div>
+              </div>
+              <div class="row m-0">
+                <div class="col-12 py-2 px-3 notificationBox my-2">
+                  <h4>Notification Title</h4>
+                  <p>Notification Content</p>
+                  <p class="notificationDate">notification Date</p>
+                </div>
+              </div>
+
+            </div>
+          </li>
+          <li class="nav-item ml-2 btn-group userMenu">
+            <div class="userProfile" data-bs-toggle="dropdown" aria-expanded="false">
+              <!-- <div class="userPhoto"><span>JD</span></div> -->
+              <a href="#" class="nav-link profile"> <span>John Doe</span> <span>Admin</span> </a>
+              <div class="userArrow" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="assets/images/arrow.svg">
+              </div>
+            </div>
+            <div class="dropdown-menu">
+              <ul class="p-0">
+                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#profile"
+                    data-bs-whatever="@mdo">Profile</a></li>
+                <li>
+                  <hr class="dropdown-divider m-0">
+                </li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#changePassword"
+                    data-bs-whatever="@mdo">Change Password</a></li>
+                <li>
+                  <hr class="dropdown-divider m-0">
+                </li>
+                <li><a class="dropdown-item impersonatebtn" data-bs-toggle="modal" data-bs-target="#impersonate"
+                    data-bs-whatever="@mdo">Impersonate</a></li>
+                <li>
+                  <hr class="dropdown-divider m-0">
+                </li>
+                <li><a class="dropdown-item" href="index.html">Log Out</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!--Nav-end-->
+    <!--main-start-->
+    <div class="d-flex">
+    <!--left-menu-start-->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4 leftMenu">
+      <div class="sidebar" id="sidebar">
+        <nav class="sidebar py-2 mb-4 scrollbar" id="navscrollbar">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  data-lucide="layout-dashboard" class="lucide lucide-layout-dashboard me-2">
+                  <rect width="7" height="9" x="3" y="3" rx="1"></rect>
+                  <rect width="7" height="5" x="14" y="3" rx="1"></rect>
+                  <rect width="7" height="9" x="14" y="12" rx="1"></rect>
+                  <rect width="7" height="5" x="3" y="16" rx="1"></rect>
+                </svg>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="rulesSet.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  data-lucide="layout-dashboard" class="lucide lucide-layout-dashboard me-2">
+                  <rect width="7" height="9" x="3" y="3" rx="1"></rect>
+                  <rect width="7" height="5" x="14" y="3" rx="1"></rect>
+                  <rect width="7" height="9" x="14" y="12" rx="1"></rect>
+                  <rect width="7" height="5" x="3" y="16" rx="1"></rect>
+                </svg>
+                <span>Rule Engine</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="lookupValue.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  data-lucide="layout-dashboard" class="lucide lucide-layout-dashboard me-2">
+                  <rect width="7" height="9" x="3" y="3" rx="1"></rect>
+                  <rect width="7" height="5" x="14" y="3" rx="1"></rect>
+                  <rect width="7" height="9" x="14" y="12" rx="1"></rect>
+                  <rect width="7" height="5" x="3" y="16" rx="1"></rect>
+                </svg>
+                <span>Lookup Value</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+    <!--left-menu-end-->
+      <!--dashboard-start-->
+      <div class="main p-4 container-fluid">
+        <div class="row">
+          <div class="col"><h1>Rule Engine</h1></div>
+          <div class="col-auto">
+            <div class="btn-group">
+              <div class="w-auto" data-bs-toggle="dropdown">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="-6 0 16 16" version="1.1">    
+                  <g id="Free-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <g transform="translate(-1051.000000, -750.000000)" fill="var(--primary-color)" id="Group">
+                          <g transform="translate(1041.000000, 746.000000)" id="Shape">
+                              <path d="M12,4 C10.8954305,4 10,4.8954305 10,6 C10,7.1045695 10.8954305,8 12,8 C13.1045695,8 14,7.1045695 14,6 C14,4.8954305 13.1045695,4 12,4 Z"></path>
+                              <path d="M12,10 C10.8954305,10 10,10.8954305 10,12 C10,13.1045695 10.8954305,14 12,14 C13.1045695,14 14,13.1045695 14,12 C14,10.8954305 13.1045695,10 12,10 Z"></path>
+                              <path d="M12,16 C10.8954305,16 10,16.8954305 10,18 C10,19.1045695 10.8954305,20 12,20 C13.1045695,20 14,19.1045695 14,18 C14,16.8954305 13.1045695,16 12,16 Z"></path>
+                          </g>
+                      </g>
+                  </g>
+                </svg>
+              </div>              
+              <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#addModal" data-bs-whatever="@mdo">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24">
+                        <g>
+                          <line fill="none" stroke="var(--primary-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="12" x2="12" y1="19" y2="5"/>
+                          <line fill="none" stroke="var(--primary-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="5" x2="19" y1="12" y2="12"/>
+                        </g>
+                      </svg>
+                      Add Rule
+                    </a>
+                  </li>
+              </ul>
+            </div>
+          </div>
+        </div>  
+        <hr>
+        <div class="row">
+          <div class="col-12 mb-4">
+            <div class="card">
+              <div class="card-body pt-3">
+                <table class="table table-striped table-hover" id="rules1">
+                  <thead>
+                    <tr>
+                      <th scope="col">Dataset</th>
+                      <th scope="col">Created Date</th>
+                      <th scope="col">Active?</th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Trial Balance</td>
+                      <td class="text-left">10-05-2023</td>
+                      <td class="text-center">Yes</td>                  
+                      <td class="text-center">
+                          <div class="btn-group">
+                            <div class="w-auto" data-bs-toggle="dropdown">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="-6 0 16 16" version="1.1">    
+                                <g id="Free-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(-1051.000000, -750.000000)" fill="var(--primary-color)" id="Group">
+                                        <g transform="translate(1041.000000, 746.000000)" id="Shape">
+                                            <path d="M12,4 C10.8954305,4 10,4.8954305 10,6 C10,7.1045695 10.8954305,8 12,8 C13.1045695,8 14,7.1045695 14,6 C14,4.8954305 13.1045695,4 12,4 Z"></path>
+                                            <path d="M12,10 C10.8954305,10 10,10.8954305 10,12 C10,13.1045695 10.8954305,14 12,14 C13.1045695,14 14,13.1045695 14,12 C14,10.8954305 13.1045695,10 12,10 Z"></path>
+                                            <path d="M12,16 C10.8954305,16 10,16.8954305 10,18 C10,19.1045695 10.8954305,20 12,20 C13.1045695,20 14,19.1045695 14,18 C14,16.8954305 13.1045695,16 12,16 Z"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                              </svg>
+                            </div>              
+                            <ul class="dropdown-menu">
+                                <li>
+                                  <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addModal" data-bs-whatever="@mdo">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24" fill="none" class="me-2">
+                                    <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2 12.8799V11.1199C2 10.0799 2.85 9.21994 3.9 9.21994C5.71 9.21994 6.45 7.93994 5.54 6.36994C5.02 5.46994 5.33 4.29994 6.24 3.77994L7.97 2.78994C8.76 2.31994 9.78 2.59994 10.25 3.38994L10.36 3.57994C11.26 5.14994 12.74 5.14994 13.65 3.57994L13.76 3.38994C14.23 2.59994 15.25 2.31994 16.04 2.78994L17.77 3.77994C18.68 4.29994 18.99 5.46994 18.47 6.36994C17.56 7.93994 18.3 9.21994 20.11 9.21994C21.15 9.21994 22.01 10.0699 22.01 11.1199V12.8799C22.01 13.9199 21.16 14.7799 20.11 14.7799C18.3 14.7799 17.56 16.0599 18.47 17.6299C18.99 18.5399 18.68 19.6999 17.77 20.2199L16.04 21.2099C15.25 21.6799 14.23 21.3999 13.76 20.6099L13.65 20.4199C12.75 18.8499 11.27 18.8499 10.36 20.4199L10.25 20.6099C9.78 21.3999 8.76 21.6799 7.97 21.2099L6.24 20.2199C5.33 19.6999 5.02 18.5299 5.54 17.6299C6.45 16.0599 5.71 14.7799 3.9 14.7799C2.85 14.7799 2 13.9199 2 12.8799Z" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg> Edit</a>
+                                </li>
+                                <li>
+                                  <a class="dropdown-item"><img src="assets/images/Delete.svg" style="width: 25px; height: 20px;" class="me-2"> Delete</a>
+                                </li>
+                            </ul>
+                          </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Property Purchase</td>
+                      <td class="text-left">10-05-2023</td>
+                      <td class="text-center">Yes</td>                  
+                      <td class="text-center">
+                        
+                          <div class="btn-group">
+                            <div class="w-auto" data-bs-toggle="dropdown">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="-6 0 16 16" version="1.1">    
+                                <g id="Free-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(-1051.000000, -750.000000)" fill="var(--primary-color)" id="Group">
+                                        <g transform="translate(1041.000000, 746.000000)" id="Shape">
+                                            <path d="M12,4 C10.8954305,4 10,4.8954305 10,6 C10,7.1045695 10.8954305,8 12,8 C13.1045695,8 14,7.1045695 14,6 C14,4.8954305 13.1045695,4 12,4 Z"></path>
+                                            <path d="M12,10 C10.8954305,10 10,10.8954305 10,12 C10,13.1045695 10.8954305,14 12,14 C13.1045695,14 14,13.1045695 14,12 C14,10.8954305 13.1045695,10 12,10 Z"></path>
+                                            <path d="M12,16 C10.8954305,16 10,16.8954305 10,18 C10,19.1045695 10.8954305,20 12,20 C13.1045695,20 14,19.1045695 14,18 C14,16.8954305 13.1045695,16 12,16 Z"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                              </svg>
+                            </div>              
+                            <ul class="dropdown-menu">
+                                <li>
+                                  <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addModal" data-bs-whatever="@mdo">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24" fill="none" class="me-2">
+                                    <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2 12.8799V11.1199C2 10.0799 2.85 9.21994 3.9 9.21994C5.71 9.21994 6.45 7.93994 5.54 6.36994C5.02 5.46994 5.33 4.29994 6.24 3.77994L7.97 2.78994C8.76 2.31994 9.78 2.59994 10.25 3.38994L10.36 3.57994C11.26 5.14994 12.74 5.14994 13.65 3.57994L13.76 3.38994C14.23 2.59994 15.25 2.31994 16.04 2.78994L17.77 3.77994C18.68 4.29994 18.99 5.46994 18.47 6.36994C17.56 7.93994 18.3 9.21994 20.11 9.21994C21.15 9.21994 22.01 10.0699 22.01 11.1199V12.8799C22.01 13.9199 21.16 14.7799 20.11 14.7799C18.3 14.7799 17.56 16.0599 18.47 17.6299C18.99 18.5399 18.68 19.6999 17.77 20.2199L16.04 21.2099C15.25 21.6799 14.23 21.3999 13.76 20.6099L13.65 20.4199C12.75 18.8499 11.27 18.8499 10.36 20.4199L10.25 20.6099C9.78 21.3999 8.76 21.6799 7.97 21.2099L6.24 20.2199C5.33 19.6999 5.02 18.5299 5.54 17.6299C6.45 16.0599 5.71 14.7799 3.9 14.7799C2.85 14.7799 2 13.9199 2 12.8799Z" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg> Edit</a>
+                                </li>
+                                <li>
+                                  <a class="dropdown-item"><img src="assets/images/Delete.svg" style="width: 25px; height: 20px;" class="me-2"> Delete</a>
+                                </li>
+                            </ul>
+                          </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Property Data</td>
+                      <td class="text-left">10-05-2023</td>
+                      <td class="text-center">Yes</td>                  
+                      <td class="text-center">
+                        
+                          <div class="btn-group">
+                            <div class="w-auto" data-bs-toggle="dropdown">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="-6 0 16 16" version="1.1">    
+                                <g id="Free-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(-1051.000000, -750.000000)" fill="var(--primary-color)" id="Group">
+                                        <g transform="translate(1041.000000, 746.000000)" id="Shape">
+                                            <path d="M12,4 C10.8954305,4 10,4.8954305 10,6 C10,7.1045695 10.8954305,8 12,8 C13.1045695,8 14,7.1045695 14,6 C14,4.8954305 13.1045695,4 12,4 Z"></path>
+                                            <path d="M12,10 C10.8954305,10 10,10.8954305 10,12 C10,13.1045695 10.8954305,14 12,14 C13.1045695,14 14,13.1045695 14,12 C14,10.8954305 13.1045695,10 12,10 Z"></path>
+                                            <path d="M12,16 C10.8954305,16 10,16.8954305 10,18 C10,19.1045695 10.8954305,20 12,20 C13.1045695,20 14,19.1045695 14,18 C14,16.8954305 13.1045695,16 12,16 Z"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                              </svg>
+                            </div>              
+                            <ul class="dropdown-menu">
+                                <li>
+                                  <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addModal" data-bs-whatever="@mdo">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24" fill="none" class="me-2">
+                                    <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2 12.8799V11.1199C2 10.0799 2.85 9.21994 3.9 9.21994C5.71 9.21994 6.45 7.93994 5.54 6.36994C5.02 5.46994 5.33 4.29994 6.24 3.77994L7.97 2.78994C8.76 2.31994 9.78 2.59994 10.25 3.38994L10.36 3.57994C11.26 5.14994 12.74 5.14994 13.65 3.57994L13.76 3.38994C14.23 2.59994 15.25 2.31994 16.04 2.78994L17.77 3.77994C18.68 4.29994 18.99 5.46994 18.47 6.36994C17.56 7.93994 18.3 9.21994 20.11 9.21994C21.15 9.21994 22.01 10.0699 22.01 11.1199V12.8799C22.01 13.9199 21.16 14.7799 20.11 14.7799C18.3 14.7799 17.56 16.0599 18.47 17.6299C18.99 18.5399 18.68 19.6999 17.77 20.2199L16.04 21.2099C15.25 21.6799 14.23 21.3999 13.76 20.6099L13.65 20.4199C12.75 18.8499 11.27 18.8499 10.36 20.4199L10.25 20.6099C9.78 21.3999 8.76 21.6799 7.97 21.2099L6.24 20.2199C5.33 19.6999 5.02 18.5299 5.54 17.6299C6.45 16.0599 5.71 14.7799 3.9 14.7799C2.85 14.7799 2 13.9199 2 12.8799Z" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg> Edit</a>
+                                </li>
+                                <li>
+                                  <a class="dropdown-item"><img src="assets/images/Delete.svg" style="width: 25px; height: 20px;" class="me-2"> Delete</a>
+                                </li>
+                            </ul>
+                          </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Vendor Details</td>
+                      <td class="text-left">10-05-2023</td>
+                      <td class="text-center">Yes</td>                  
+                      <td class="text-center">
+                        
+                          <div class="btn-group">
+                            <div class="w-auto" data-bs-toggle="dropdown">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="-6 0 16 16" version="1.1">    
+                                <g id="Free-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(-1051.000000, -750.000000)" fill="var(--primary-color)" id="Group">
+                                        <g transform="translate(1041.000000, 746.000000)" id="Shape">
+                                            <path d="M12,4 C10.8954305,4 10,4.8954305 10,6 C10,7.1045695 10.8954305,8 12,8 C13.1045695,8 14,7.1045695 14,6 C14,4.8954305 13.1045695,4 12,4 Z"></path>
+                                            <path d="M12,10 C10.8954305,10 10,10.8954305 10,12 C10,13.1045695 10.8954305,14 12,14 C13.1045695,14 14,13.1045695 14,12 C14,10.8954305 13.1045695,10 12,10 Z"></path>
+                                            <path d="M12,16 C10.8954305,16 10,16.8954305 10,18 C10,19.1045695 10.8954305,20 12,20 C13.1045695,20 14,19.1045695 14,18 C14,16.8954305 13.1045695,16 12,16 Z"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                              </svg>
+                            </div>              
+                            <ul class="dropdown-menu">
+                                <li>
+                                  <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addModal" data-bs-whatever="@mdo">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24" fill="none" class="me-2">
+                                    <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2 12.8799V11.1199C2 10.0799 2.85 9.21994 3.9 9.21994C5.71 9.21994 6.45 7.93994 5.54 6.36994C5.02 5.46994 5.33 4.29994 6.24 3.77994L7.97 2.78994C8.76 2.31994 9.78 2.59994 10.25 3.38994L10.36 3.57994C11.26 5.14994 12.74 5.14994 13.65 3.57994L13.76 3.38994C14.23 2.59994 15.25 2.31994 16.04 2.78994L17.77 3.77994C18.68 4.29994 18.99 5.46994 18.47 6.36994C17.56 7.93994 18.3 9.21994 20.11 9.21994C21.15 9.21994 22.01 10.0699 22.01 11.1199V12.8799C22.01 13.9199 21.16 14.7799 20.11 14.7799C18.3 14.7799 17.56 16.0599 18.47 17.6299C18.99 18.5399 18.68 19.6999 17.77 20.2199L16.04 21.2099C15.25 21.6799 14.23 21.3999 13.76 20.6099L13.65 20.4199C12.75 18.8499 11.27 18.8499 10.36 20.4199L10.25 20.6099C9.78 21.3999 8.76 21.6799 7.97 21.2099L6.24 20.2199C5.33 19.6999 5.02 18.5299 5.54 17.6299C6.45 16.0599 5.71 14.7799 3.9 14.7799C2.85 14.7799 2 13.9199 2 12.8799Z" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg> Edit</a>
+                                </li>
+                                <li>
+                                  <a class="dropdown-item"><img src="assets/images/Delete.svg" style="width: 25px; height: 20px;" class="me-2"> Delete</a>
+                                </li>
+                            </ul>
+                          </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Scenario Analysis</td>
+                      <td class="text-left">10-05-2023</td>
+                      <td class="text-center">Yes</td>                  
+                      <td class="text-center">
+                        
+                          <div class="btn-group">
+                            <div class="w-auto" data-bs-toggle="dropdown">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="-6 0 16 16" version="1.1">    
+                                <g id="Free-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(-1051.000000, -750.000000)" fill="var(--primary-color)" id="Group">
+                                        <g transform="translate(1041.000000, 746.000000)" id="Shape">
+                                            <path d="M12,4 C10.8954305,4 10,4.8954305 10,6 C10,7.1045695 10.8954305,8 12,8 C13.1045695,8 14,7.1045695 14,6 C14,4.8954305 13.1045695,4 12,4 Z"></path>
+                                            <path d="M12,10 C10.8954305,10 10,10.8954305 10,12 C10,13.1045695 10.8954305,14 12,14 C13.1045695,14 14,13.1045695 14,12 C14,10.8954305 13.1045695,10 12,10 Z"></path>
+                                            <path d="M12,16 C10.8954305,16 10,16.8954305 10,18 C10,19.1045695 10.8954305,20 12,20 C13.1045695,20 14,19.1045695 14,18 C14,16.8954305 13.1045695,16 12,16 Z"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                              </svg>
+                            </div>              
+                            <ul class="dropdown-menu">
+                                <li>
+                                  <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addModal" data-bs-whatever="@mdo">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24" fill="none" class="me-2">
+                                    <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2 12.8799V11.1199C2 10.0799 2.85 9.21994 3.9 9.21994C5.71 9.21994 6.45 7.93994 5.54 6.36994C5.02 5.46994 5.33 4.29994 6.24 3.77994L7.97 2.78994C8.76 2.31994 9.78 2.59994 10.25 3.38994L10.36 3.57994C11.26 5.14994 12.74 5.14994 13.65 3.57994L13.76 3.38994C14.23 2.59994 15.25 2.31994 16.04 2.78994L17.77 3.77994C18.68 4.29994 18.99 5.46994 18.47 6.36994C17.56 7.93994 18.3 9.21994 20.11 9.21994C21.15 9.21994 22.01 10.0699 22.01 11.1199V12.8799C22.01 13.9199 21.16 14.7799 20.11 14.7799C18.3 14.7799 17.56 16.0599 18.47 17.6299C18.99 18.5399 18.68 19.6999 17.77 20.2199L16.04 21.2099C15.25 21.6799 14.23 21.3999 13.76 20.6099L13.65 20.4199C12.75 18.8499 11.27 18.8499 10.36 20.4199L10.25 20.6099C9.78 21.3999 8.76 21.6799 7.97 21.2099L6.24 20.2199C5.33 19.6999 5.02 18.5299 5.54 17.6299C6.45 16.0599 5.71 14.7799 3.9 14.7799C2.85 14.7799 2 13.9199 2 12.8799Z" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg> Edit</a>
+                                </li>
+                                <li>
+                                  <a class="dropdown-item"><img src="assets/images/Delete.svg" style="width: 25px; height: 20px;" class="me-2"> Delete</a>
+                                </li>
+                            </ul>
+                          </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Cash Flow Projection</td>
+                      <td class="text-left">10-05-2023</td>
+                      <td class="text-center">Yes</td>                  
+                      <td class="text-center">
+                        
+                          <div class="btn-group">
+                            <div class="w-auto" data-bs-toggle="dropdown">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="-6 0 16 16" version="1.1">    
+                                <g id="Free-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(-1051.000000, -750.000000)" fill="var(--primary-color)" id="Group">
+                                        <g transform="translate(1041.000000, 746.000000)" id="Shape">
+                                            <path d="M12,4 C10.8954305,4 10,4.8954305 10,6 C10,7.1045695 10.8954305,8 12,8 C13.1045695,8 14,7.1045695 14,6 C14,4.8954305 13.1045695,4 12,4 Z"></path>
+                                            <path d="M12,10 C10.8954305,10 10,10.8954305 10,12 C10,13.1045695 10.8954305,14 12,14 C13.1045695,14 14,13.1045695 14,12 C14,10.8954305 13.1045695,10 12,10 Z"></path>
+                                            <path d="M12,16 C10.8954305,16 10,16.8954305 10,18 C10,19.1045695 10.8954305,20 12,20 C13.1045695,20 14,19.1045695 14,18 C14,16.8954305 13.1045695,16 12,16 Z"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                              </svg>
+                            </div>              
+                            <ul class="dropdown-menu">
+                                <li>
+                                  <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addModal" data-bs-whatever="@mdo">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24" fill="none" class="me-2">
+                                    <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2 12.8799V11.1199C2 10.0799 2.85 9.21994 3.9 9.21994C5.71 9.21994 6.45 7.93994 5.54 6.36994C5.02 5.46994 5.33 4.29994 6.24 3.77994L7.97 2.78994C8.76 2.31994 9.78 2.59994 10.25 3.38994L10.36 3.57994C11.26 5.14994 12.74 5.14994 13.65 3.57994L13.76 3.38994C14.23 2.59994 15.25 2.31994 16.04 2.78994L17.77 3.77994C18.68 4.29994 18.99 5.46994 18.47 6.36994C17.56 7.93994 18.3 9.21994 20.11 9.21994C21.15 9.21994 22.01 10.0699 22.01 11.1199V12.8799C22.01 13.9199 21.16 14.7799 20.11 14.7799C18.3 14.7799 17.56 16.0599 18.47 17.6299C18.99 18.5399 18.68 19.6999 17.77 20.2199L16.04 21.2099C15.25 21.6799 14.23 21.3999 13.76 20.6099L13.65 20.4199C12.75 18.8499 11.27 18.8499 10.36 20.4199L10.25 20.6099C9.78 21.3999 8.76 21.6799 7.97 21.2099L6.24 20.2199C5.33 19.6999 5.02 18.5299 5.54 17.6299C6.45 16.0599 5.71 14.7799 3.9 14.7799C2.85 14.7799 2 13.9199 2 12.8799Z" stroke="var(--primary-color)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg> Edit</a>
+                                </li>
+                                <li>
+                                  <a class="dropdown-item"><img src="assets/images/Delete.svg" style="width: 25px; height: 20px;" class="me-2"> Delete</a>
+                                </li>
+                            </ul>
+                          </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--dashboard-end-->
+    </div>
+    <!--main-end-->
+
+<!--ADD modal-start-->
+<div class="modal fade ruleSet" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addModalLabel">Manage Rules</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body pt-0">
+          <div class="row ruleSetRow">
+            <div class="col-12 p-0">
+              <div class="card mb-3 rounded-0">
+                <div class="card-body py-2 pt-3 pb-0">    
+                  <div class="row">
+                    <div class="mb-3 col-md-4">              
+                      <label for="sataset" class="col-form-label">Dataset</label>
+                      <select name="sataset" id="sataset" class="form-select">                          
+                        <option selected="">Trial Balance</option>
+                        <option>Asset</option>
+                        <option>Debt</option>
+                        <option>Rent Roll</option>
+                        <option>Property Purchase</option>
+                        <option>Vendor Details</option>
+                        <option>Scenario Analysis</option>
+                        <option>Cash Flow Projection</option>
+                        <option>Occupancy and Vacancy Percentage</option>
+                        <option>Tenant List</option>
+                        <option>Vacancies</option>
+                        <option>Forecast and Actual Performance</option>
+                        <option>Management</option>
+                        <option>Accounts Receivable List</option>
+                      </select>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                    </div>
+                    <div class="mb-3 col-md-4 mt-1">
+                      <label for="name" class="col-form-label mb-2">&nbsp;</label>
+                      <div class="row justify-content-end">
+                        <div class="col-auto">
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="internalUser" checked>
+                            <label class="form-check-label" for="internalUser">Active?</label>
+                          </div>
+                        </div>
+                        <!-- <div class="col-auto" id="info">
+                          <a class="d-inline-block" data-toggle="tooltip" title="<ul><li>{Col_Name} represents the selected column name in the first section.</li><li>{Current_Month} stands for the current month.</li></ul>">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24" fill="none"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-.696-3.534c.63 0 1.332-.288 2.196-1.458l.911-1.22a.334.334 0 0 0-.074-.472.38.38 0 0 0-.505.06l-1.475 1.679a.241.241 0 0 1-.279.061.211.211 0 0 1-.12-.244l1.858-7.446a.499.499 0 0 0-.575-.613l-3.35.613a.35.35 0 0 0-.276.258l-.086.334a.25.25 0 0 0 .243.312h1.73l-1.476 5.922c-.054.234-.144.63-.144.918 0 .666.396 1.296 1.422 1.296zm1.83-10.536c.702 0 1.242-.414 1.386-1.044.036-.144.054-.306.054-.414 0-.504-.396-.972-1.134-.972-.702 0-1.242.414-1.386 1.044a1.868 1.868 0 0 0-.054.414c0 .504.396.972 1.134.972z" fill="var(--primary-color)"/></svg>
+                          </a>
+                        </div> -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-auto pe-0">
+                      <a class="btn btn-primary border-bottom-0 rounded-0 rounded-top basic">Basic</a>
+                    </div>
+                    <div class="col-auto">
+                      <a class="btn btn-secondary border-bottom-0 rounded-0 rounded-top advance">Advance</a>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+            </div>
+          </div> 
+          <div class="row" id="basic">
+            <div class="col-12"> 
+              <div class="card mb-3">
+                <div class="card-body p-3">  
+                  <div class="row">
+                    <div class="mb-3 col-12">
+                      <table class="table table-striped table-hover mappingTable" cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                          <tr>
+                            <td valign="middle" width="33%">                    
+                              <div class="multiSelect multiSelect4">                         
+                                <select name="location" id="location" class="multiple-checkboxes" multiple="multiple">
+                                  <option selected>Account Code</option>
+                                  <option selected>Account Name</option>
+                                  <option>Date</option>
+                                  <optoin>Statement Date</optoin>
+                                  <optoin>Post Date</optoin>
+                                  <option>Forward Balance </option>
+                                  <option>Debit </option>
+                                  <option>Credit  </option>
+                                  <option>Ending Balance  </option>
+                                  <option>Term</option>
+                                  <option>Specify</option>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">  
+                              <div class="input-group">
+                                <select class="form-select">
+                                  <optgroup label="Normal">
+                                    <option>Contains</option>
+                                    <option>Does not contain</option>
+                                    <option>Equals</option>
+                                    <option><</option>
+                                    <option>Not equals</option>
+                                    <option>is Empty</option>
+                                    <option>Is Not Empty</option>
+                                    <option>Any of</option>
+                                    <option>None of</option>
+                                  </optgroup>
+                                   <optgroup label="Advance">
+                                    <option selected>Required</option>
+                                    <option>Unique</option>
+                                    <option>Currency</option>
+                                    <option>Date</option>
+                                    <option>Number</option>
+                                    <option>Dr and Cr should Match</option>
+                                  </optgroup>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">                      
+                              <input type="text" name="" class="form-control" value="{Col_Name} shoule be requied">
+                            </td>
+                            <td valign="middle" nowrap="nowrap">
+                              <button type="button" class="btn btn-add btn-labeled py-0 mx-1">
+                               <img src="assets/images/icon-add.svg">
+                              </button>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td valign="middle" width="33%">                    
+                              <div class="multiSelect multiSelect4">                         
+                                <select name="location" id="location" class="multiple-checkboxes" multiple="multiple">
+                                  <option selected>Account Code</option>
+                                  <option>Account Name</option>
+                                  <option>Date</option>
+                                  <optoin>Statement Date</optoin>
+                                  <optoin>Post Date</optoin>
+                                  <option>Forward Balance </option>
+                                  <option>Debit </option>
+                                  <option>Credit  </option>
+                                  <option>Ending Balance  </option>
+                                  <option>Term</option>
+                                  <option>Specify</option>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">  
+                              <div class="input-group">
+                                <select class="form-select">
+                                  <optgroup label="Normal">
+                                    <option>Contains</option>
+                                    <option>Does not contain</option>
+                                    <option>Equals</option>
+                                    <option><</option>
+                                    <option>Not equals</option>
+                                    <option>is Empty</option>
+                                    <option>Is Not Empty</option>
+                                    <option>Any of</option>
+                                    <option>None of</option>
+                                  </optgroup>
+                                  <optgroup label="Advance">
+                                    <option>Required</option>
+                                    <option selected>Unique</option>
+                                    <option>Currency</option>
+                                    <option>Date</option>
+                                    <option>Number</option>
+                                    <option>Dr and Cr should Match</option>
+                                  </optgroup>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">                      
+                              <input type="text" name="" class="form-control" value="{Col_Name}  shoule be Unique">
+                            </td>
+                            <td valign="middle" nowrap="nowrap">
+                              <button type="button" class="btn btn-add btn-labeled py-0 mx-1">
+                               <img src="assets/images/icon-add.svg">
+                              </button>
+                              <a class="mx-1"><img src="assets/images/Delete.svg"></a>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td valign="middle" width="33%">                    
+                              <div class="multiSelect multiSelect4">                         
+                                <select name="location" id="location" class="multiple-checkboxes" multiple="multiple">
+                                  <option selected>Account Code</option>
+                                  <option>Account Name</option>
+                                  <option selected>Date</option>
+                                  <optoin>Statement Date</optoin>
+                                  <optoin>Post Date</optoin>
+                                  <option>Forward Balance </option>
+                                  <option>Debit </option>
+                                  <option>Credit  </option>
+                                  <option>Ending Balance  </option>
+                                  <option>Term</option>
+                                  <option>Specify</option>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">  
+                              <div class="input-group">
+                                <select class="form-select">
+                                  <optgroup label="Normal">
+                                    <option>Contains</option>
+                                    <option>Does not contain</option>
+                                    <option>Equals</option>
+                                    <option><</option>
+                                    <option>Not equals</option>
+                                    <option>is Empty</option>
+                                    <option>Is Not Empty</option>
+                                    <option>Any of</option>
+                                    <option>None of</option>
+                                  </optgroup>
+                                  <optgroup label="Advance">
+                                    <option>Required</option>
+                                    <option selected>Unique</option>
+                                    <option>Currency</option>
+                                    <option>Date</option>
+                                    <option>Number</option>
+                                    <option>Dr and Cr should Match</option>
+                                  </optgroup>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">                      
+                              <input type="text" name="" class="form-control" value="{Col_Name}   shoule be Unique">
+                            </td>
+                            <td valign="middle" nowrap="nowrap">
+                              <button type="button" class="btn btn-add btn-labeled py-0 mx-1">
+                               <img src="assets/images/icon-add.svg">
+                              </button>
+                              <a class="mx-1"><img src="assets/images/Delete.svg"></a>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td valign="middle" width="33%">                    
+                              <div class="multiSelect multiSelect4">                         
+                                <select name="location" id="location" class="multiple-checkboxes" multiple="multiple">
+                                  <option>Account Code</option>
+                                  <option>Account Name</option>
+                                  <option>Date</option>
+                                  <option selected>Statement Date</option>
+                                  <option selected>Post Date</option>
+                                  <option>Forward Balance </option>
+                                  <option>Debit </option>
+                                  <option>Credit  </option>
+                                  <option>Ending Balance  </option>
+                                  <option>Term</option>
+                                  <option>Specify</option>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">  
+                              <div class="input-group">
+                                <select class="form-select">
+                                  <optgroup label="Normal">
+                                    <option>Contains</option>
+                                    <option>Does not contain</option>
+                                    <option>Equals</option>
+                                    <option><</option>
+                                    <option>Not equals</option>
+                                    <option>is Empty</option>
+                                    <option>Is Not Empty</option>
+                                    <option>Any of</option>
+                                    <option>None of</option>
+                                  </optgroup>
+                                  <optgroup label="Advance">
+                                    <option>Required</option>
+                                    <option>Unique</option>
+                                    <option>Currency</option>
+                                    <option selected>Date</option>
+                                    <option>Number</option>
+                                    <option>Dr and Cr should Match</option>
+                                  </optgroup>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">                      
+                              <input type="text" name="" class="form-control" value="{Col_Name}  shoule be  Date">
+                            </td>
+                            <td valign="middle" nowrap="nowrap">
+                              <button type="button" class="btn btn-add btn-labeled py-0 mx-1">
+                               <img src="assets/images/icon-add.svg">
+                              </button>
+                              <a class="mx-1"><img src="assets/images/Delete.svg"></a>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td valign="middle" width="33%">                    
+                              <div class="multiSelect multiSelect4">                         
+                                <select name="location" id="location" class="multiple-checkboxes" multiple="multiple">
+                                  <option>Account Code</option>
+                                  <option>Account Name</option>
+                                  <option>Date</option>
+                                  <optoin>Statement Date</optoin>
+                                  <optoin>Post Date</optoin>
+                                  <option selected>Forward Balance </option>
+                                  <option selected>Debit </option>
+                                  <option selected>Credit  </option>
+                                  <option selected>Ending Balance  </option>
+                                  <option>Term</option>
+                                  <option>Specify</option>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">  
+                              <div class="input-group">
+                                <select class="form-select">
+                                  <optgroup label="Normal">
+                                    <option>Contains</option>
+                                    <option>Does not contain</option>
+                                    <option>Equals</option>
+                                    <option><</option>
+                                    <option>Not equals</option>
+                                    <option>is Empty</option>
+                                    <option>Is Not Empty</option>
+                                    <option>Any of</option>
+                                    <option>None of</option>
+                                  </optgroup>
+                                  <optgroup label="Advance">
+                                    <option>Required</option>
+                                    <option>Unique</option>
+                                    <option selected>Currency</option>
+                                    <option>Date</option>
+                                    <option>Number</option>
+                                    <option>Dr and Cr should Match</option>
+                                  </optgroup>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">                      
+                              <input type="text" name="" class="form-control" value="{Col_Name} shoule be Currency">
+                            </td>
+                            <td valign="middle" nowrap="nowrap">
+                              <button type="button" class="btn btn-add btn-labeled py-0 mx-1">
+                               <img src="assets/images/icon-add.svg">
+                              </button>
+                              <a class="mx-1"><img src="assets/images/Delete.svg"></a>
+                            </td>
+                          </tr> <tr>
+                            <td valign="middle" width="33%">                    
+                              <div class="multiSelect multiSelect4">                         
+                                <select name="location" id="location" class="multiple-checkboxes" multiple="multiple">
+                                  <option>Account Code</option>
+                                  <option>Account Name</option>
+                                  <option>Date</option>
+                                  <optoin>Statement Date</optoin>
+                                  <optoin>Post Date</optoin>
+                                  <option>Forward Balance </option>
+                                  <option>Debit </option>
+                                  <option>Credit  </option>
+                                  <option>Ending Balance</option>
+                                  <option selected>Term</option>
+                                  <option>Specify</option>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">  
+                              <div class="input-group">
+                                <select class="form-select">
+                                  <optgroup label="Normal">
+                                    <option>Contains</option>
+                                    <option>Does not contain</option>
+                                    <option>Equals</option>
+                                    <option><</option>
+                                    <option>Not equals</option>
+                                    <option>is Empty</option>
+                                    <option>Is Not Empty</option>
+                                    <option>Any of</option>
+                                    <option>None of</option>
+                                  </optgroup>
+                                  <optgroup label="Advance">
+                                    <option>Required</option>
+                                    <option>Unique</option>
+                                    <option>Currency</option>
+                                    <option>Date</option>
+                                    <option selected>Number</option>
+                                    <option>Dr and Cr should Match</option>
+                                  </optgroup>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">                      
+                              <input type="text" name="" class="form-control" value="{Col_Name} shoule be Number">
+                            </td>
+                            <td valign="middle" nowrap="nowrap">
+                              <button type="button" class="btn btn-add btn-labeled py-0 mx-1">
+                               <img src="assets/images/icon-add.svg">
+                              </button>
+                              <a class="mx-1"><img src="assets/images/Delete.svg"></a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>             
+                    </div>
+                    <!-- <div class="mb-3 col-12 text-end">
+                      <button type="button" class="btn btn-secondary me-1">Reset</button>
+                      <button type="button" class="btn btn-primary">Submit</button>
+                    </div> -->  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" id="advance" style="display:none">
+            <div class="mb-3 col-12">
+              <div class="card">
+                <div class="card-body py-2 px-3">
+                  <div class="row">
+                    <div class="mb-3 col-md-3">
+                      <label for="" class="col-form-label">Fields</label>
+                      <select id="fieldSelect" class="form-select" onchange="addValueToComment(this)">
+                        <option disabled selected>Select Fields</option>
+                        <option value="propertyID">Property ID</option>
+                        <option value="period">Period</option>
+                        <option value="accountID">Account ID</option>
+                        <option value="currency">Currency</option>
+                        <option value="forwardBalanceAmount">Forward Balance Amount</option>
+                        <option value="debitAmount">Debit Amount</option>
+                        <option value="creditAmount">Credit Amount</option>
+                        <option value="finalBalanceAmount">Final Balance Amount</option>
+                      </select>
+                    </div>
+                    <div class="mb-3 col-md-3">
+                      <label for="" class="col-form-label">Aggregate</label>
+                      <select id="aggregateSelect" class="form-select" onchange="addValueToComment(this)">
+                        <option disabled selected>Select Aggregate</option>
+                        <option value="sum">Sum</option>
+                        <option value="average">Average</option>
+                        <option value="max">Max</option>
+                        <option value="min">Min</option>
+                        <option value="count">Count</option>
+                      </select>
+                    </div>
+                    <div class="mb-3 col-md-3">
+                      <label for="" class="col-form-label">Operations</label>
+                      <select id="operationsSelect" class="form-select" onchange="addValueToComment(this)">
+                        <option disabled selected>Select Operations</option>
+                        <option>Equal</option>
+                        <option>Not equal</option>
+                        <option>Less than</option>
+                        <option>Greater than</option>
+                        <option>Less than or equal to</option>
+                        <option>Greater than or equal to</option>
+                        <option>Is between</option>
+                        <option>Is not between</option>
+                        <option>Is in</option>
+                        <option>Is not in</option>
+                        <option>Contains</option>
+                        <option>Does not contain</option>
+                        <option>Starts with</option>
+                        <option>Ends with</option>
+                        <option>Is empty</option>
+                        <option>Is not empty</option>
+                      </select>
+                    </div>
+                    <div class="mb-3 col-md-3">
+                      <label for="" class="col-form-label">Custom Value</label>
+                      <select id="customFieldsSelect" class="form-select" onchange="addValueToComment(this)">
+                        <option disabled selected>Select Custom Value</option>
+                        <option value="Current Date">Current Date</option>
+                        <option value="Current Month">Current Month</option>
+                        <option value="Previous Month">Previous Month</option>
+                        <option id="number">Number</option>
+                        <option id="length">Length</option>
+                        <option id="default">Default</option>
+                      </select>
+                    </div>
+                    <div class="col-md-9">
+                      <div class="row">
+                        <div class="mb-3 col-md-4 length" style="display: none;">
+                          <label for="" class="col-form-label">Enter</label>
+                          <input class="form-control" type="text">
+                        </div>
+                        <div class="mb-3 col-md-4 default" style="display: none;">
+                          <label for="" class="col-form-label">Enter</label>
+                          <input class="form-control" type="text">
+                        </div>
+                        <div class="mb-3 col-md-4 number" style="display: none;">
+                          <label for="" class="col-form-label">Select</label>
+                          <select id="numberSelect" class="form-select" onchange="addValueToComment(this)">
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                          </select>
+                        </div>
+                        <div class="mb-3 col-md-4 externalDataset" style="display: none;">
+                          <label for="" class="col-form-label">Other Dataset</label>
+                          <div class="row">
+                            <div class="col multiDataSet">
+                              <select  id="externalDatasetSelect" class="form-select select2" multiple>
+                                <option data-group="Trial Balance">Trial Balance</option>
+                                <option data-group="Asset">Asset</option>
+                                <option data-group="Debt">Debt</option>
+                                <option data-group="Rent Roll">Rent Roll</option>
+                                <option data-group="Property Purchase">Property Purchase</option>
+                                <option data-group="Chart of Account">Chart of Account</option>
+                                <option>Vendor Details</option>
+                                <option>Scenario Analysis</option>
+                                <option>Cash Flow Projection</option>
+                                <option>Occupancy and Vacancy Percentage</option>
+                                <option>Tenant List</option>
+                                <option>Vacancies</option>
+                                <option>Forecast and Actual Performance</option>
+                                <option>Management</option>
+                                <option>Accounts Receivable List</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mb-3 col-md-4 externalDataset" style="display: none;">
+                          <label for="" class="col-form-label">Other Dataset Fields</label>
+                          <select id="externalDatasetFieldsSelect" class="form-select" onchange="addValueToComment(this)">
+                              <option value="1">Select Data Model</option>
+                                    <optgroup label="Trial Balance" class="trialBalanceOptions">
+                                      <option value="trialBalance.propertyID">Property ID</option>
+                                      <option value="trialBalance.period">Period</option>
+                                      <option value="trialBalance.accountID">Account ID</option>
+                                      <option value="trialBalance.currency">Currency</option>
+                                      <option value="trialBalance.forwardBalanceAmount">Forward Balance Amount</option>
+                                      <option value="trialBalance.debitAmount">Debit Amount</option>
+                                      <option value="trialBalance.creditAmount">Credit Amount</option>
+                                      <option value="trialBalance.finalBalanceAmount">Final Balance Amount</option>
+                                    </optgroup>
+                                    <optgroup label="Asset" class="assetOptions">                                        
+                                      <option value="asset.PropertyID">Property ID</option>
+                                      <option value="asset.PropertyName">Property Name</option>
+                                      <option value="asset.Company">Company</option>
+                                      <option value="asset.Fund">Fund</option>
+                                      <option value="asset.Address">Address</option>
+                                      <option value="asset.City">City</option>
+                                      <option value="asset.State">State</option>
+                                      <option value="asset.Zip">Zip</option>
+                                      <option value="asset.Acquisition_Date">Acquisition Date</option>
+                                      <option value="asset.Disposition_Date">Disposition Date</option>
+                                      <option value="asset.Month_Fiscal_Year_End">Month Fiscal Year End</option>
+                                      <option value="asset.Involvement_Code">Involvement Code</option>
+                                      <option value="asset.Management_Accounting_Company">Management Accounting Company</option>
+                                      <option value="asset.Management_Company">Management Company</option>
+                                      <option value="asset.Property_Status">Property Status</option>
+                                      <option value="asset.Property_Sub_Type">Property Sub-Type</option>
+                                      <option value="asset.Property_Type">Property Type</option>
+                                      <option value="asset.AM_Admin">AM Admin</option>
+                                      <option value="asset.AM_PM_Property_Specialist">AM PM Property Specialist</option>
+                                      <option value="asset.AM_Asset_Manager">AM Asset Manager</option>
+                                      <option value="asset.BNYM_Property_Reviewer">BNYM Property Reviewer</option>
+                                      <option value="asset.AM_Reg_Manager_Engineer">AM Reg Manager Engineer</option>
+                                      <option value="asset.BNYM_Property_Lead">BNYM Property Lead</option>
+                                      <option value="asset.AM_Regional_Director">AM Regional Director</option>
+                                      <option value="asset.AMCM_Lease_Admin">AMCM Lease Admin</option>
+                                      <option value="asset.PM_Portfolio_Manager_1">PM Portfolio Manager 1</option>
+                                      <option value="asset.PM_Portfolio_Manager_2">PM Portfolio Manager 2</option>
+                                      <option value="asset.BNYM_Fund_Lead">BNYM Fund Lead</option>
+                                      <option value="asset.Construction Year">Construction Year</option>
+                                      <option value="asset.% of Ownership">% of Ownership</option>
+                                      <option value="asset.Gross Asset Value (GAV)">Gross Asset Value (GAV)</option>
+                                      <option value="asset.Asset Size (GFA)">Asset Size (GFA)</option>
+                                    </optgroup>
+                                    <optgroup label="Debt" class="debtOptions">
+                                      <option value="debt.CRN">CRN</option>
+                                      <option value="debt.Project/Investment">Project/Investment</option>
+                                      <option value="debt.Debt Description">Debt Description</option>
+                                      <option value="debt.Debt ID #">Debt ID #</option>
+                                      <option value="debt.Debt Type">Debt Type</option>
+                                      <option value="debt.Secured/Unsecured">Secured/Unsecured</option>
+                                      <option value="debt.Borrower">Borrower</option>
+                                      <option value="debt.Collateral Asset">Collateral Asset</option>
+                                      <option value="debt.Property Name">Property Name</option>
+                                      <option value="debt.Allocation %">Allocation %</option>
+                                      <option value="debt.Allocation % Effective Date">Allocation % Effective Date</option>
+                                      <option value="debt.Cross-collateralized">Cross-collateralized</option>
+                                      <option value="debt.Cross-collateralized Instrument">Cross-collateralized Instrument</option>
+                                      <option value="debt.Cross-default">Cross-default</option>
+                                      <option value="debt.Cross-default Instrument">Cross-default Instrument</option>
+                                      <option value="debt.Contractual Maturity Date">Contractual Maturity Date</option>
+                                      <option value="debt.Funding/Origination Date">Funding/Origination Date</option>
+                                      <option value="debt.Currency - Local">Currency - Local</option>
+                                      <option value="debt.Total Commitment">Total Commitment</option>
+                                      <option value="debt.Ending Principal Balance">Ending Principal Balance</option>
+                                      <option value="debt.Principal Amortization Schedule">Principal Amortization Schedule</option>
+                                      <option value="debt.Principal Amortization Type">Principal Amortization Type</option>
+                                      <option value="debt.Amortization Start Date">Amortization Start Date</option>
+                                      <option value="debt.Interest Only Term (mo.)">Interest Only Term (mo.)</option>
+                                      <option value="debt.Interest Payments">Interest Payments</option>
+                                      <option value="debt.Principal Payments Excluding Final Payment">Principal Payments Excluding Final Payment</option>
+                                      <option value="debt.Fixed P&I Amount">Fixed P&I Amount</option>
+                                      <option value="debt.Fixed / Floating">Fixed / Floating</option>
+                                      <option value="debt.Fixed Coupon">Fixed Coupon</option>
+                                      <option value="debt.Floating Index">Floating Index</option>
+                                      <option value="debt.Floating Spread">Floating Spread</option>
+                                      <option value="debt.Payment Day">Payment Day</option>
+                                      <option value="debt.Payment Frequency">Payment Frequency</option>
+                                      <option value="debt.Interest Rate Day Count Convention">Interest Rate Day Count Convention</option>
+                                      <option value="debt.Grace Period (days)">Grace Period (days)</option>
+                                      <option value="debt.Debt Purpose">Debt Purpose</option>
+                                      <option value="debt.Prepayment Lockout Period End Date">Prepayment Lockout Period End Date</option>
+                                      <option value="debt.Prepayment Open Period Start Date">Prepayment Open Period Start Date</option>
+                                      <option value="debt.Prepayment Notifications">Prepayment Notifications</option>
+                                      <option value="debt.Prepayment Details">Prepayment Details</option>
+                                      <option value="debt.Prepayment Penalty Type">Prepayment Penalty Type</option>
+                                      <option value="debt.Defeasance Option">Defeasance Option</option>
+                                      <option value="debt.Defeasance Option Start Date">Defeasance Option Start Date</option>
+                                      <option value="debt.Defeasance Option End Date">Defeasance Option End Date</option>
+                                      <option value="debt.Defeasance Details">Defeasance Details</option>
+                                      <option value="debt.Flat/Tiered/Redemption Prepayment Type">Flat/Tiered/Redemption Prepayment Type</option>
+                                      <option value="debt.Flat/Tiered/Redemption Prepayment Option">Flat/Tiered/Redemption Prepayment Option</option>
+                                      <option value="debt.Flat/Tiered/Redemption Prepayment Option Start Date">Flat/Tiered/Redemption Prepayment Option Start Date</option>
+                                      <option value="debt.Flat/Tiered/Redemption Prepayment Option End Date">Flat/Tiered/Redemption Prepayment Option End Date</option>
+                                      <option value="debt.Flat/Tiered/Redemption Prepayment Penalty Percent">Flat/Tiered/Redemption Prepayment Penalty Percent</option>
+                                      <option value="debt.Flat/Tiered/Redemption Prepayment Details">Flat/Tiered/Redemption Prepayment Details</option>
+                                      <option value="debt.Yield Maintenance Option">Yield Maintenance Option</option>
+                                      <option value="debt.Yield Maintenance Option Start Date">Yield Maintenance Option Start Date</option>
+                                      <option value="debt.Yield Maintenance Option End Date">Yield Maintenance Option End Date</option>
+                                      <option value="debt.Yield Maintenance Details">Yield Maintenance Details</option>
+                                      <option value="debt.Other Prepayment Option">Other Prepayment Option</option>
+                                      <option value="debt.Other Prepayment Option Start Date">Other Prepayment Option Start Date</option>
+                                      <option value="debt.Other Prepayment Option End Date">Other Prepayment Option End Date</option>
+                                      <option value="debt.Other Prepayment Details">Other Prepayment Details</option>
+                                      <option value="debt.Extension Option">Extension Option</option>
+                                      <option value="debt.Extension Notification Date">Extension Notification Date</option>
+                                      <option value="debt.Number of Extension Options">Number of Extension Options</option>
+                                      <option value="debt.Extension Period (mo.)">Extension Period (mo.)</option>
+                                      <option value="debt.Extension Fee (%)">Extension Fee (%)</option>
+                                      <option value="debt.Extension Fee($)">Extension Fee($)</option>
+                                      <option value="debt.Extension Details">Extension Details</option>
+                                      <option value="debt.Assumable or Transferrable">Assumable or Transferrable</option>
+                                      <option value="debt.Fully Extended Maturity Date">Fully Extended Maturity Date</option>
+                                      <option value="debt.Floating Index Embedded Floor Rate">Floating Index Embedded Floor Rate</option>
+                                      <option value="debt.Hedged">Hedged</option>
+                                      <option value="debt.Hedge Product">Hedge Product</option>
+                                      <option value="debt.Hedge Provider">Hedge Provider</option>
+                                      <option value="debt.Beginning Hedge Notional">Beginning Hedge Notional</option>
+                                      <option value="debt.Ending Hedge Notional">Ending Hedge Notional</option>
+                                      <option value="debt.Hedge Strike">Hedge Strike</option>
+                                      <option value="debt.Hedge Maturity">Hedge Maturity</option>
+                                      <option value="debt.Servicer">Servicer</option>
+                                      <option value="debt.Lender - Primary">Lender - Primary</option>
+                                      <option value="debt.Lender - Secondary">Lender - Secondary</option>
+                                      <option value="debt.Lender/Holder">Lender/Holder</option>
+                                      <option value="debt.Debt Lender Type">Debt Lender Type</option>
+                                    </optgroup>
+                                    <optgroup label="Rent Roll" class="rentRollOptions">
+                                      <option value="rentRoll.Property">Property</option>
+                                      <option value="rentRoll.Unit(s)">Unit(s)</option>
+                                      <option value="rentRoll.Lease">Lease</option>
+                                      <option value="rentRoll.DBA">DBA</option>
+                                      <option value="rentRoll.Lease From">Lease From</option>
+                                      <option value="rentRoll.Lease To">Lease To</option>
+                                      <option value="rentRoll.Term">Term</option>
+                                      <option value="rentRoll.Tenancy Years">Tenancy Years</option>
+                                      <option value="rentRoll.Lease Area">Lease Area</option>
+                                      <option value="rentRoll.Annual Rent">Annual Rent</option>
+                                      <option value="rentRoll.Annual Rent/Area">Annual Rent/Area</option>
+                                      <option value="rentRoll.Lease Type">Lease Type</option>
+                                      <option value="rentRoll.LOC Amount / Bank Guarantee">LOC Amount / Bank Guarantee</option>
+                                      <option value="rentRoll.Rent Steps">Rent Steps</option>
+                                      <option value="rentRoll.Start Date">Start Date</option>
+                                      <option value="rentRoll.Unit">Unit</option>
+                                      <option value="rentRoll.Area Label">Area Label</option>
+                                      <option value="rentRoll.Area">Area</option>
+                                      <option value="rentRoll.Rent Step Monthly Amount">Rent Step Monthly Amount</option>
+                                      <option value="rentRoll.Monthly Rent/Area Amount">Monthly Rent/Area Amount</option>
+                                      <option value="rentRoll.Rent Step Annual Amount">Rent Step Annual Amount</option>
+                                      <option value="rentRoll.Annual Rent/Area Amount">Annual Rent/Area Amount</option>
+                                      <option value="rentRoll.Management Fee">Management Fee</option>
+                                      <option value="rentRoll.Annual Gross Amount">Annual Gross Amount</option>
+                                      <option value="rentRoll.Sales Category">Sales Category</option>
+                                      <option value="rentRoll.Type">Type</option>
+                                      <option value="rentRoll.Breakpoint Frequency">Breakpoint Frequency</option>
+                                      <option value="rentRoll.Sales Report Frequency">Sales Report Frequency</option>
+                                      <option value="rentRoll.Billing Frequency">Billing Frequency</option>
+                                      <option value="rentRoll.From">From</option>
+                                      <option value="rentRoll.To">To</option>
+                                      <option value="rentRoll.Offset/Offset Charge Code">Offset/Offset Charge Code</option>
+                                      <option value="rentRoll.Brk Pt1">Brk Pt1 %</option>
+                                      <option value="rentRoll.Brk Pt2">Brk Pt2 %</option>
+                                      <option value="rentRoll.Brk Pt3">Brk Pt3 %</option>
+                                      <option value="rentRoll.Option Type">Option Type</option>
+                                      <option value="rentRoll.Start Date">Start Date</option>
+                                      <option value="rentRoll.End Date">End Date</option>
+                                      <option value="rentRoll.Valid Till Date">Valid Till Date</option>
+                                      <option value="rentRoll.Latest Date">Latest Date</option>
+                                      <option value="rentRoll.Earliest Date">Earliest Date</option>
+                                      <option value="rentRoll.Monthly Rent">Monthly Rent</option>
+                                      <option value="rentRoll.Time of Essence">Time of Essence</option>
+                                      <option value="rentRoll.Floor">Floor</option>
+                                      <option value="rentRoll.Lease ID">Lease ID</option>
+                                      <option value="rentRoll.Unit NRA">Unit NRA</option>
+                                      <option value="rentRoll.Lease NRA">Lease NRA</option>
+                                      <option value="rentRoll.Unit %">Unit %</option>
+                                      <option value="rentRoll.Amendment Start">Amendment Start</option>
+                                      <option value="rentRoll.Amendment End">Amendment End</option>
+                                      <option value="rentRoll.Charge Type">Charge Type</option>
+                                      <option value="rentRoll.Charge Code">Charge Code</option>
+                                      <option value="rentRoll.Charge Start">Charge Start</option>
+                                      <option value="rentRoll.Charge End">Charge End</option>
+                                      <option value="rentRoll.Monthly Charge">Monthly Charge</option>
+                                      <option value="rentRoll.Monthly Charge PSF">Monthly Charge PSF</option>
+                                      <option value="rentRoll.Annual Charge">Annual Charge</option>
+                                      <option value="rentRoll.Annual Charge PSF">Annual Charge PSF</option>
+                                    </optgroup>
+                                    <optgroup label="Chart of Account" class="chartofAccountOptions">
+                                      <option value="Account Code">Account Code</option>
+                                      <option value="Account Description">Account Description</option>
+                                    </optgroup>
+                                  </select>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="row justify-content-end">
+                        <div class="col-auto">
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="externalDatasetCheckbox">
+                            <label class="form-check-label" for="externalDatasetCheckbox">Other Dataset</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="mb-3 col-md-6">
+                      <label for="" class="col-form-label">Rule</label>
+                      <textarea id="ruleTextarea" class="form-control" disabled="" placeholder="Rule"></textarea>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                      <label for="" class="col-form-label">Error Message</label>
+                      <textarea id="errorMessageInput" class="form-control" placeholder="Error Message"></textarea>
+                    </div>
+                    <div class="mb-3 col-auto">
+                      <div class="switch-container d-flex align-items-center">
+                          <span class="switch-label-left me-2">Hard Rule</span>
+                          <label class="switch">
+                              <input type="checkbox" id="toggleSwitch">
+                              <span class="slider round"></span>
+                          </label>
+                          <span class="switch-label-right ms-2">Soft Rule</span>
+                      </div>
+                    </div>
+                    <div class="mb-3 col text-end">
+                      <button type="button" class="btn btn-secondary me-1" onclick="resetData()">Reset</button>
+                      <button type="button" class="btn btn-primary" onclick="submitData()">Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body p-3">
+                  <table class="table table-striped table-hover" cellpadding="0" cellspacing="0" border="0" id="rulesSetNew">
+                    <thead>
+                      <tr>
+                        <th class="text-start">Rule</th>
+                        <th class="text-start">Error Message</th>
+                        <th class="text-start"></th>
+                        <th class="text-start"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td valign="middle">{Date} {Less than} {Current Date}</td>
+                        <td valign="middle" class="editError">
+                          <span>Date is Less than Current Date</span>
+                          <input class="form-control" type="text" value="Date is Less than Current Date" />
+                          <a class="editIcon"><img src="assets/images/Edit.svg"></a>
+                          <a class="submitIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 24 24" fill="none">
+                              <circle cx="12" cy="12" r="10" stroke="var(--primary-color)" stroke-width="1.5"></circle>
+                              <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke="var(--primary-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                          </a>
+                        </td>
+                        <td valign="middle">Hard Rule</td>
+                        <td valign="middle">
+                          <a><img src="assets/images/Delete.svg"></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign="middle">{sum} {debitAmount} {Equal} {sum} {creditAmount}</td>
+                        <td valign="middle" class="editError">
+                          <span>Trail balance is not tallying</span>
+                          <input class="form-control" type="text" value="Trail balance is not tallying" />
+                          <a class="editIcon"><img src="assets/images/Edit.svg"></a>
+                          <a class="submitIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 24 24" fill="none">
+                              <circle cx="12" cy="12" r="10" stroke="var(--primary-color)" stroke-width="1.5"></circle>
+                              <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke="var(--primary-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                          </a>
+                        </td>
+                        <td valign="middle">Hard Rule</td>
+                        <td valign="middle">
+                          <a><img src="assets/images/Delete.svg"></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign="middle">{accountID} {Is in} {Account Code}</td>
+                        <td valign="middle" class="editError">
+                          <span>Account ID is not available in the master chart of accounts</span>
+                          <input class="form-control" type="text" value="Account ID is not available in the master chart of accounts" />
+                          <a class="editIcon"><img src="assets/images/Edit.svg"></a>
+                          <a class="submitIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 24 24" fill="none">
+                              <circle cx="12" cy="12" r="10" stroke="var(--primary-color)" stroke-width="1.5"></circle>
+                              <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke="var(--primary-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                          </a>
+                        </td>
+                        <td valign="middle">Hard Rule</td>
+                        <td valign="middle">
+                          <a><img src="assets/images/Delete.svg"></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign="middle">{propertyID} {Is in} {asset.PropertyID}</td>
+                        <td valign="middle" class="editError">
+                          <span>Property ID is not available in the master project list</span>
+                          <input class="form-control" type="text" value="Property ID is not available in the master project list" />
+                          <a class="editIcon"><img src="assets/images/Edit.svg"></a>
+                          <a class="submitIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 24 24" fill="none">
+                              <circle cx="12" cy="12" r="10" stroke="var(--primary-color)" stroke-width="1.5"></circle>
+                              <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke="var(--primary-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                          </a>
+                        </td>
+                        <td valign="middle">Hard Rule</td>
+                        <td valign="middle">
+                          <a><img src="assets/images/Delete.svg"></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="addRecord">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--ADD modal-end-->
+
+<!--EDIT modal-start-->
+<div class="modal fade ruleSet" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addModalLabel">Manage Rules</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body pt-0">
+          <div class="row ruleSetRow">
+            <div class="col-12 p-0">
+              <div class="card mb-3 rounded-0">
+                <div class="card-body py-2 pt-3 pb-0">    
+                  <div class="row">
+                    <div class="mb-3 col-md-4">              
+                      <label for="sataset" class="col-form-label">Dataset</label>
+                      <select name="sataset" id="sataset" class="form-select" disabled>            
+                        <option selected="">Trial Balance</option>
+                        <option>Asset</option>
+                        <option>Debt</option>
+                        <option>Rent Roll</option>
+                        <option>Property Purchase</option>
+                        <option>Vendor Details</option>
+                        <option>Scenario Analysis</option>
+                        <option>Cash Flow Projection</option>
+                        <option>Occupancy and Vacancy Percentage</option>
+                        <option>Tenant List</option>
+                        <option>Vacancies</option>
+                        <option>Forecast and Actual Performance</option>
+                        <option>Management</option>
+                        <option>Accounts Receivable List</option>
+                      </select>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                    </div>
+                    <div class="mb-3 col-md-4 mt-1">
+                      <label for="name" class="col-form-label mb-2">&nbsp;</label>
+                      <div class="row justify-content-end">
+                        <div class="col-auto">
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="internalUser" checked>
+                            <label class="form-check-label" for="internalUser">Active?</label>
+                          </div>
+                        </div>
+                        <!-- <div class="col-auto" id="info">
+                          <a class="d-inline-block" data-toggle="tooltip" title="<ul><li>{Col_Name} represents the selected column name in the first section.</li><li>{Current_Month} stands for the current month.</li></ul>">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24" fill="none"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-.696-3.534c.63 0 1.332-.288 2.196-1.458l.911-1.22a.334.334 0 0 0-.074-.472.38.38 0 0 0-.505.06l-1.475 1.679a.241.241 0 0 1-.279.061.211.211 0 0 1-.12-.244l1.858-7.446a.499.499 0 0 0-.575-.613l-3.35.613a.35.35 0 0 0-.276.258l-.086.334a.25.25 0 0 0 .243.312h1.73l-1.476 5.922c-.054.234-.144.63-.144.918 0 .666.396 1.296 1.422 1.296zm1.83-10.536c.702 0 1.242-.414 1.386-1.044.036-.144.054-.306.054-.414 0-.504-.396-.972-1.134-.972-.702 0-1.242.414-1.386 1.044a1.868 1.868 0 0 0-.054.414c0 .504.396.972 1.134.972z" fill="var(--primary-color)"/></svg>
+                          </a>
+                        </div> -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-auto pe-0">
+                      <a class="btn btn-primary border-bottom-0 rounded-0 rounded-top basicEdit">Basic</a>
+                    </div>
+                    <div class="col-auto">
+                      <a class="btn btn-secondary border-bottom-0 rounded-0 rounded-top advanceEdit">Advance</a>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+            </div>
+          </div> 
+          <div class="row" id="basicEdit">
+            <div class="col-12"> 
+              <div class="card mb-3">
+                <div class="card-body p-3">  
+                  <div class="row">
+                    <div class="mb-3 col-12">
+                      <table class="table table-striped table-hover mappingTable" cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                          <tr>
+                            <td valign="middle" width="33%">                    
+                              <div class="multiSelect multiSelect4">                         
+                                <select name="location" id="location" class="multiple-checkboxes" multiple="multiple">
+                                  <option selected>Account Code</option>
+                                  <option selected>Account Name</option>
+                                  <option>Date</option>
+                                  <optoin>Statement Date</optoin>
+                                  <optoin>Post Date</optoin>
+                                  <option>Forward Balance </option>
+                                  <option>Debit </option>
+                                  <option>Credit  </option>
+                                  <option>Ending Balance  </option>
+                                  <option>Term</option>
+                                  <option>Specify</option>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">  
+                              <div class="input-group">
+                                <select class="form-select">
+                                  <optgroup label="Normal">
+                                    <option>Contains</option>
+                                    <option>Does not contain</option>
+                                    <option>Equals</option>
+                                    <option><</option>
+                                    <option>Not equals</option>
+                                    <option>is Empty</option>
+                                    <option>Is Not Empty</option>
+                                    <option>Any of</option>
+                                    <option>None of</option>
+                                  </optgroup>
+                                   <optgroup label="Advance">
+                                    <option selected>Required</option>
+                                    <option>Unique</option>
+                                    <option>Currency</option>
+                                    <option>Date</option>
+                                    <option>Number</option>
+                                    <option>Dr and Cr should Match</option>
+                                  </optgroup>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">                      
+                              <input type="text" name="" class="form-control" value="{Col_Name} shoule be requied">
+                            </td>
+                            <td valign="middle" nowrap="nowrap">
+                              <button type="button" class="btn btn-add btn-labeled py-0 mx-1">
+                               <img src="assets/images/icon-add.svg">
+                              </button>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td valign="middle" width="33%">                    
+                              <div class="multiSelect multiSelect4">                         
+                                <select name="location" id="location" class="multiple-checkboxes" multiple="multiple">
+                                  <option selected>Account Code</option>
+                                  <option>Account Name</option>
+                                  <option>Date</option>
+                                  <optoin>Statement Date</optoin>
+                                  <optoin>Post Date</optoin>
+                                  <option>Forward Balance </option>
+                                  <option>Debit </option>
+                                  <option>Credit  </option>
+                                  <option>Ending Balance  </option>
+                                  <option>Term</option>
+                                  <option>Specify</option>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">  
+                              <div class="input-group">
+                                <select class="form-select">
+                                  <optgroup label="Normal">
+                                    <option>Contains</option>
+                                    <option>Does not contain</option>
+                                    <option>Equals</option>
+                                    <option><</option>
+                                    <option>Not equals</option>
+                                    <option>is Empty</option>
+                                    <option>Is Not Empty</option>
+                                    <option>Any of</option>
+                                    <option>None of</option>
+                                  </optgroup>
+                                  <optgroup label="Advance">
+                                    <option>Required</option>
+                                    <option selected>Unique</option>
+                                    <option>Currency</option>
+                                    <option>Date</option>
+                                    <option>Number</option>
+                                    <option>Dr and Cr should Match</option>
+                                  </optgroup>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">                      
+                              <input type="text" name="" class="form-control" value="{Col_Name}  shoule be Unique">
+                            </td>
+                            <td valign="middle" nowrap="nowrap">
+                              <button type="button" class="btn btn-add btn-labeled py-0 mx-1">
+                               <img src="assets/images/icon-add.svg">
+                              </button>
+                              <a class="mx-1"><img src="assets/images/Delete.svg"></a>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td valign="middle" width="33%">                    
+                              <div class="multiSelect multiSelect4">                         
+                                <select name="location" id="location" class="multiple-checkboxes" multiple="multiple">
+                                  <option selected>Account Code</option>
+                                  <option>Account Name</option>
+                                  <option selected>Date</option>
+                                  <optoin>Statement Date</optoin>
+                                  <optoin>Post Date</optoin>
+                                  <option>Forward Balance </option>
+                                  <option>Debit </option>
+                                  <option>Credit  </option>
+                                  <option>Ending Balance  </option>
+                                  <option>Term</option>
+                                  <option>Specify</option>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">  
+                              <div class="input-group">
+                                <select class="form-select">
+                                  <optgroup label="Normal">
+                                    <option>Contains</option>
+                                    <option>Does not contain</option>
+                                    <option>Equals</option>
+                                    <option><</option>
+                                    <option>Not equals</option>
+                                    <option>is Empty</option>
+                                    <option>Is Not Empty</option>
+                                    <option>Any of</option>
+                                    <option>None of</option>
+                                  </optgroup>
+                                  <optgroup label="Advance">
+                                    <option>Required</option>
+                                    <option selected>Unique</option>
+                                    <option>Currency</option>
+                                    <option>Date</option>
+                                    <option>Number</option>
+                                    <option>Dr and Cr should Match</option>
+                                  </optgroup>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">                      
+                              <input type="text" name="" class="form-control" value="{Col_Name}   shoule be Unique">
+                            </td>
+                            <td valign="middle" nowrap="nowrap">
+                              <button type="button" class="btn btn-add btn-labeled py-0 mx-1">
+                               <img src="assets/images/icon-add.svg">
+                              </button>
+                              <a class="mx-1"><img src="assets/images/Delete.svg"></a>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td valign="middle" width="33%">                    
+                              <div class="multiSelect multiSelect4">                         
+                                <select name="location" id="location" class="multiple-checkboxes" multiple="multiple">
+                                  <option>Account Code</option>
+                                  <option>Account Name</option>
+                                  <option>Date</option>
+                                  <option selected>Statement Date</option>
+                                  <option selected>Post Date</option>
+                                  <option>Forward Balance </option>
+                                  <option>Debit </option>
+                                  <option>Credit  </option>
+                                  <option>Ending Balance  </option>
+                                  <option>Term</option>
+                                  <option>Specify</option>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">  
+                              <div class="input-group">
+                                <select class="form-select">
+                                  <optgroup label="Normal">
+                                    <option>Contains</option>
+                                    <option>Does not contain</option>
+                                    <option>Equals</option>
+                                    <option><</option>
+                                    <option>Not equals</option>
+                                    <option>is Empty</option>
+                                    <option>Is Not Empty</option>
+                                    <option>Any of</option>
+                                    <option>None of</option>
+                                  </optgroup>
+                                  <optgroup label="Advance">
+                                    <option>Required</option>
+                                    <option>Unique</option>
+                                    <option>Currency</option>
+                                    <option selected>Date</option>
+                                    <option>Number</option>
+                                    <option>Dr and Cr should Match</option>
+                                  </optgroup>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">                      
+                              <input type="text" name="" class="form-control" value="{Col_Name}  shoule be  Date">
+                            </td>
+                            <td valign="middle" nowrap="nowrap">
+                              <button type="button" class="btn btn-add btn-labeled py-0 mx-1">
+                               <img src="assets/images/icon-add.svg">
+                              </button>
+                              <a class="mx-1"><img src="assets/images/Delete.svg"></a>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td valign="middle" width="33%">                    
+                              <div class="multiSelect multiSelect4">                         
+                                <select name="location" id="location" class="multiple-checkboxes" multiple="multiple">
+                                  <option>Account Code</option>
+                                  <option>Account Name</option>
+                                  <option>Date</option>
+                                  <optoin>Statement Date</optoin>
+                                  <optoin>Post Date</optoin>
+                                  <option selected>Forward Balance </option>
+                                  <option selected>Debit </option>
+                                  <option selected>Credit  </option>
+                                  <option selected>Ending Balance  </option>
+                                  <option>Term</option>
+                                  <option>Specify</option>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">  
+                              <div class="input-group">
+                                <select class="form-select">
+                                  <optgroup label="Normal">
+                                    <option>Contains</option>
+                                    <option>Does not contain</option>
+                                    <option>Equals</option>
+                                    <option><</option>
+                                    <option>Not equals</option>
+                                    <option>is Empty</option>
+                                    <option>Is Not Empty</option>
+                                    <option>Any of</option>
+                                    <option>None of</option>
+                                  </optgroup>
+                                  <optgroup label="Advance">
+                                    <option>Required</option>
+                                    <option>Unique</option>
+                                    <option selected>Currency</option>
+                                    <option>Date</option>
+                                    <option>Number</option>
+                                    <option>Dr and Cr should Match</option>
+                                  </optgroup>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">                      
+                              <input type="text" name="" class="form-control" value="{Col_Name} shoule be Currency">
+                            </td>
+                            <td valign="middle" nowrap="nowrap">
+                              <button type="button" class="btn btn-add btn-labeled py-0 mx-1">
+                               <img src="assets/images/icon-add.svg">
+                              </button>
+                              <a class="mx-1"><img src="assets/images/Delete.svg"></a>
+                            </td>
+                          </tr> <tr>
+                            <td valign="middle" width="33%">                    
+                              <div class="multiSelect multiSelect4">                         
+                                <select name="location" id="location" class="multiple-checkboxes" multiple="multiple">
+                                  <option>Account Code</option>
+                                  <option>Account Name</option>
+                                  <option>Date</option>
+                                  <optoin>Statement Date</optoin>
+                                  <optoin>Post Date</optoin>
+                                  <option>Forward Balance </option>
+                                  <option>Debit </option>
+                                  <option>Credit  </option>
+                                  <option>Ending Balance</option>
+                                  <option selected>Term</option>
+                                  <option>Specify</option>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">  
+                              <div class="input-group">
+                                <select class="form-select">
+                                  <optgroup label="Normal">
+                                    <option>Contains</option>
+                                    <option>Does not contain</option>
+                                    <option>Equals</option>
+                                    <option><</option>
+                                    <option>Not equals</option>
+                                    <option>is Empty</option>
+                                    <option>Is Not Empty</option>
+                                    <option>Any of</option>
+                                    <option>None of</option>
+                                  </optgroup>
+                                  <optgroup label="Advance">
+                                    <option>Required</option>
+                                    <option>Unique</option>
+                                    <option>Currency</option>
+                                    <option>Date</option>
+                                    <option selected>Number</option>
+                                    <option>Dr and Cr should Match</option>
+                                  </optgroup>
+                                </select>
+                              </div>
+                            </td>
+                            <td valign="middle" width="33%">                      
+                              <input type="text" name="" class="form-control" value="{Col_Name} shoule be Number">
+                            </td>
+                            <td valign="middle" nowrap="nowrap">
+                              <button type="button" class="btn btn-add btn-labeled py-0 mx-1">
+                               <img src="assets/images/icon-add.svg">
+                              </button>
+                              <a class="mx-1"><img src="assets/images/Delete.svg"></a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>             
+                    </div>
+                    <!-- <div class="mb-3 col-12 text-end">
+                      <button type="button" class="btn btn-secondary me-1">Reset</button>
+                      <button type="button" class="btn btn-primary">Submit</button>
+                    </div> -->  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" id="advanceEdit" style="display:none">
+            
+            <div class="mb-3 col-12"> 
+              <div class="card">
+                <div class="card-body py-2 px-3">
+                  <div class="row">
+                    <div class="mb-3 col-md-3">
+                      <label for="" class="col-form-label">Fields</label>            
+                      <select name="" id="" class="form-select">
+                        <option>Account Code</option>
+                        <option>Account Name</option>
+                        <option>Date</option>
+                        <optoin>Statement Date</optoin>
+                        <optoin>Post Date</optoin>
+                        <option>Forward Balance </option>
+                        <option>Debit </option>
+                        <option>Credit  </option>
+                        <option>Ending Balance  </option>
+                        <option>Term</option>
+                        <option>Specify</option>
+                      </select>
+                    </div> 
+                    <div class="mb-3 col-md-3">
+                      <label for="" class="col-form-label">Aggregate</label>
+                      <select class="form-select">
+                        <option value="sum">Sum</option>
+                        <option value="average">Average</option>
+                        <option value="max">Max</option>
+                        <option value="min">Min</option>
+                        <option value="count">Count</option>
+                      </select>
+                    </div> 
+                    <div class="mb-3 col-md-3">
+                      <label for="" class="col-form-label">Operations</label>
+                        <select class="form-select">
+                          <option>Equal</option>
+                          <option>Not equal</option>
+                          <option>Less than</option>
+                          <option>Greater than</option>
+                          <option>Less than or equal to</option>
+                          <option>Greater than or equal to</option>
+                          <option>Is between</option>
+                          <option>Is not between</option>
+                          <option>Is in</option>
+                          <option>Is not in</option>
+                          <option>Contains</option>
+                          <option>Does not contain</option>
+                          <option>Starts with</option>
+                          <option>Ends with</option>
+                          <option>Is empty</option>
+                          <option>Is not empty</option>
+                        </select>
+                    </div> 
+                    <div class="mb-3 col-md-3">
+                      <label for="" class="col-form-label">Custom Value</label>
+                      <select class="form-select" id="customFields">
+                        <option value="1">Current Date</option>
+                        <option value="2">Current Month</option>
+                        <option value="3">Previous Month</option>
+                        <option value="4">Number</option>
+                      </select>
+                    </div> 
+
+                    <div class="col-md-9">
+                      <div class="row">
+                        <div class="mb-3 col-md-4 number" style="display: none;">
+                          <label for="" class="col-form-label">Select </label>
+                          <select class="form-select">
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                          </select>
+                        </div> 
+                        <div class="mb-3 col-md-4 externaDataset2" style="display: none;">
+                          <label for="" class="col-form-label">Other Dataset</label>            
+                          <select name="" id="" class="form-select">
+                              <option value="1">Select Dataset</option>
+                              <option selected>Trial Balance</option>
+                              <option>Property Purchase </option>
+                              <option>Property Data</option>
+                              <option>Vendor Details </option>
+                              <option>Scenario Analysis</option>
+                              <option>Cash Flow Projection</option>
+                              <option>Occupancy and Vacancy Percentage</option>
+                              <option>Tenant List</option>
+                              <option>Vacancies</option>
+                              <option>Forecast and Actual Performance </option>
+                              <option>Management</option>
+                              <option>Accounts Receivable List </option>
+                          </select>
+                        </div> 
+                        <div class="mb-3 col-md-4 externaDataset2" style="display: none;">
+                          <label for="" class="col-form-label">Other Dataset Fields</label>
+                          <select class="form-select">
+                            <option value="name">Name</option>
+                            <option value="address">Address</option>
+                            <option value="city">City</option>
+                            <option value="state">state</option>
+                            <option value="zip">ZIP</option>
+                          </select>
+                        </div>
+                      </div>
+                      </div> 
+                    <div class="col-md-3">
+                      <div class="row justify-content-end">
+                        <div class="col-auto">
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="externalDatasetCheckbox2">
+                            <label class="form-check-label" for="externalDatasetCheckbox2">Other Dataset</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>                    
+                  </div>
+                  <div class="row">
+                    <div class="mb-3 col-md-6">
+                      <label for="" class="col-form-label">Rule</label>
+                      <textarea class="form-control" disabled>{Date}{Less than}{Current Date}</textarea>
+                    </div>   
+                    <div class="mb-3 col-md-6">
+                      <label for="" class="col-form-label">Error Message</label>
+                      <textarea class="form-control" placeholder="Error Message"></textarea>
+                    </div>                
+                    <div class="mb-3 col-12 text-end">
+                      <button type="button" class="btn btn-secondary me-1">Reset</button>
+                      <button type="button" class="btn btn-primary">Submit</button>
+                    </div>                
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body p-3">  
+                  <table class="table table-striped table-hover" cellpadding="0" cellspacing="0" border="0">
+                    <thead>
+                      <tr>
+                        <th class="text-start">Rule</th>
+                        <th class="text-start">Error Message</th>
+                        <th class="text-start"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td valign="middle">{Date}{Less than}{Current Date}</td>
+                        <td valign="middle" class="editError">
+                          <span>Date is Less than Current Date</span>
+                          <input class="form-control" type="text" value="Date is Less than Current Date" />
+                          <a class="editIcon"><img src="assets/images/Edit.svg"></a>
+                          <a class="submitIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="var(--primary-color)" stroke-width="1.5"/>
+                            <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke="var(--primary-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                          </a>
+                        </td>
+                        <td valign="middle">
+                          <a><img src="assets/images/Delete.svg"></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign="middle">{Sum}{Debit}{Equal}{Sum}{Credit}</td>
+                        <td valign="middle" class="editError">
+                          <span>Sum of Debit is equal to sum of Credit</span>
+                          <input class="form-control" type="text" value="Sum of Debit is equal to sum of Credit" />
+                          <a class="editIcon"><img src="assets/images/Edit.svg"></a>
+                          <a class="submitIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="var(--primary-color)" stroke-width="1.5"/>
+                            <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke="var(--primary-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                          </a>
+                        </td>
+                        <td valign="middle">
+                          <a><img src="assets/images/Delete.svg"></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="addRecord">Save</button>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<!--EDIT modal-start-->
+
+
+
+<script src="assets/js/jquery-3.5.1.js"></script>
+<script src="assets/js/slick.js"></script>
+<script src="assets/js/common.js"></script>
+<script>
+  $(window).on('load',function(){
+        // setTimeout(function(){ // allowing 3 secs to fade out loader
+    $('.page-loader').fadeOut('slow');
+        // },3500);
+  });
+</script>
+<script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="assets/datatable/js/jquery.dataTables.min.js"></script>
+<script src="assets/datatable/js/dataTables.bootstrap5.min.js"></script>
+<script src="assets/datatable/js/dataTables.buttons.min.js"></script>
+<script src="assets/datatable/js/buttons.bootstrap5.min.js"></script>
+<script src="assets/datatable/js/jszip.min.js"></script>
+<script src="assets/datatable/js/pdfmake.min.js"></script>
+<script src="assets/datatable/js/vfs_fonts.js"></script>
+<script src="assets/datatable/js/buttons.html5.min.js"></script>
+<script src="assets/datatable/js/buttons.print.min.js"></script>
+<script src="assets/datatable/js/buttons.colVis.min.js"></script>
+<script src="assets/js/select2.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#menu").click(function(){
+      $("body").toggleClass("activeMenu");
+    });
+
+    $(".select2").select2({
+      multiple: true
+    });
+  });
+  $(document).ready(function() {
+    var table = $('#rules1').DataTable( {
+      lengthChange: true,
+      lengthMenu: [ [20, 25, 50, -1], [20, 25, 50, "All"] ],
+      dom:"<'row'<'col-sm-12'tr>>"
+    } );
+  } );
+  $("#addRecord").click(function(){
+    $("#addRecordMsg").show();
+    setTimeout(function(){
+      $('.alertBox').hide();
+    }, 5000); 
+  });
+
+
+  $('.selectall').on('change', function(e) {
+    var $inputs = $('.checkboxlist input[type=checkbox]');
+    if(e.originalEvent === undefined) {
+      var allChecked = true;
+      $inputs.each(function(){
+        allChecked = allChecked && this.checked;
+      });
+      this.checked = allChecked;
+    } else {
+      $inputs.prop('checked', this.checked);
+    }
+  });
+
+  $('.checkboxlist input[type=checkbox]').on('change', function(){
+    $('.selectall').trigger('change');
+  });
+</script>
+<script src="assets/datatable/js/bootstrap-multiselect.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.multiple-checkboxes').multiselect({
+      includeSelectAllOption: true,
+    });
+    $('#info [data-toggle="tooltip"]').tooltip({
+      animated: 'fade',
+      placement: 'bottom',
+      html: true
+    });
+
+    $(".basic").click(function() {
+      $("#basic").show();
+      $("#advance").hide();
+      $(this).removeClass('btn-secondary').addClass('btn-primary');
+      $('.advance').removeClass('btn-primary').addClass('btn-secondary');
+
+    });
+    $(".advance").click(function() {
+      $("#basic").hide();
+      $("#advance").show();
+      $(this).removeClass('btn-secondary').addClass('btn-primary');
+      $('.basic').removeClass('btn-primary').addClass('btn-secondary');
+    });
+
+    $(".basicEdit").click(function() {
+      $("#basicEdit").show();
+      $("#advanceEdit").hide();
+      $(this).removeClass('btn-secondary').addClass('btn-primary');
+      $('.advanceEdit').removeClass('btn-primary').addClass('btn-secondary');
+
+    });
+    $(".advanceEdit").click(function() {
+      $("#basicEdit").hide();
+      $("#advanceEdit").show();
+      $(this).removeClass('btn-secondary').addClass('btn-primary');
+      $('.basicEdit').removeClass('btn-primary').addClass('btn-secondary');
+    });
+    $(".editIcon").click(function() {
+      var $editErrorDismiss = $(".editError")
+      $editErrorDismiss.removeClass('border')
+              // Hide the error message and edit icon
+      $editErrorDismiss.children("span").show();
+      $editErrorDismiss.children(".editIcon").show();
+
+              // Show the input field and submit icon
+      var $input = $editErrorDismiss.children("input");
+      $input.hide();
+
+      $editErrorDismiss.children(".submitIcon").hide();
+
+
+      var $editError = $(this).parents(".editError");
+      $editError.addClass('border')
+              // Hide the error message and edit icon
+      $editError.children("span").hide();
+      $(this).hide();
+
+              // Show the input field and submit icon
+      var $input = $editError.children("input");
+      $input.show();
+      var inputValue = $input.val();
+      $input.val("").focus().val(inputValue);
+
+      $editError.children(".submitIcon").show();
+    });
+    $(".submitIcon").click(function() {
+      var $editError = $(this).parents(".editError");
+      $editError.removeClass('border')
+              // Hide the error message and edit icon
+      $editError.children("span").show();
+      $(this).hide();
+
+              // Show the input field and submit icon
+      var $input = $editError.children("input");
+      $input.hide();
+
+      $editError.children(".editIcon").show();
+    });
+  });
+
+
+
+// Get references to the dropdown and number element
+  var $dropdown = $("#customFields");
+  var $numberElement = $(".length");
+
+    // Attach a change event handler to the dropdown
+  $dropdown.on("change", function () {
+        // Check the selected option value
+    var selectedValue = $dropdown.val();
+
+        // Show/hide the number element based on the selected value
+    if (selectedValue === "4") {
+      $numberElement.show();
+    } else {
+      $numberElement.hide();
+    }
+  });
+   // Use jQuery to get references to the checkbox and the divs
+  const externalDatasetCheckbox = $('#externalDatasetCheckbox');
+  const externalDatasetDivs = $('.externaDataset');
+
+// Add an event listener to the checkbox using jQuery
+  externalDatasetCheckbox.on('change', function () {
+  // Check if the checkbox is checked
+    if (externalDatasetCheckbox.prop('checked')) {
+    // If checked, show the divs
+      externalDatasetDivs.show();
+    } else {
+    // If not checked, hide the divs
+      externalDatasetDivs.hide();
+    }
+  });
+
+
+   // Use jQuery to get references to the checkbox and the divs
+  const externalDatasetCheckbox2 = $('#externalDatasetCheckbox2');
+  const externalDatasetDivs2 = $('.externaDataset2');
+
+// Add an event listener to the checkbox using jQuery
+  externalDatasetCheckbox2.on('change', function () {
+  // Check if the checkbox is checked
+    if (externalDatasetCheckbox2.prop('checked')) {
+    // If checked, show the divs
+      externalDatasetDivs2.show();
+    } else {
+    // If not checked, hide the divs
+      externalDatasetDivs2.hide();
+    }
+  });
+
+
+    // Function to add the selected value to the comment box
+  function addValueToComment(dropdown) {
+    const ruleTextarea = document.getElementById('ruleTextarea');
+    const selectedValue = dropdown.value;
+    const existingValue = ruleTextarea.value;
+    const newValue = existingValue ? `${existingValue} {${selectedValue}}` : `{${selectedValue}}`;
+    ruleTextarea.value = newValue;
+  }
+
+    // Function to reset the data
+  function resetData() {
+    const ruleTextarea = document.getElementById('ruleTextarea');
+    const errorMessageInput = document.getElementById('errorMessageInput');
+    ruleTextarea.value = '';
+    errorMessageInput.value = '';
+  }
+
+    // Function to add data to the table
+  function submitData() {
+    const ruleTextarea = document.getElementById('ruleTextarea');
+    const errorMessageInput = document.getElementById('errorMessageInput');
+    const tableBody = document.querySelector('#rulesSetNew tbody');
+    const rule = ruleTextarea.value;
+    const errorMessage = errorMessageInput.value;
+    const newRow = document.createElement('tr');
+    newRow.innerHTML = `
+    <td valign="middle">${rule}</td>
+    <td valign="middle" class="editError">
+    <span>${errorMessage}</span>
+    <input class="form-control" type="text" value="${errorMessage}" />
+    <a class="editIcon"><img src="assets/images/Edit.svg"></a>
+    <a class="submitIcon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="12" r="10" stroke="var(--primary-color)" stroke-width="1.5"></circle>
+    <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke="var(--primary-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+    </a>
+    </td>
+    <td valign="middle">Hard Rule</td>
+    <td valign="middle">
+    <a><img src="assets/images/Delete.svg"></a>
+    </td>
+    `;
+    tableBody.appendChild(newRow);
+    ruleTextarea.value = '';
+    errorMessageInput.value = '';
+  }
+  $(document).ready(function () {
+  // Function to show/hide the numberSelect element based on the Custom Value selection
+    function showHideNumberSelect() {
+      var customValueSelect = $('#customFieldsSelect');
+      var lengthSelect = $('.length');
+      var numberSelect = $('.number');
+      var defaultSelect = $('.default');
+
+      if (customValueSelect.val() === 'Length') {
+        lengthSelect.show();
+        numberSelect.hide();
+        defaultSelect.hide();
+      } else {
+        lengthSelect.hide();
+      }
+      if (customValueSelect.val() === 'Number') {
+        numberSelect.show();
+        lengthSelect.hide();
+        defaultSelect.hide();
+      } else {
+        numberSelect.hide();
+      }
+      if (customValueSelect.val() === 'Default') {
+        defaultSelect.show();
+        lengthSelect.hide();
+        numberSelect.hide();
+      } else {
+        defaultSelect.hide();
+      }
+    }
+
+  // Initial state on page load
+    showHideNumberSelect();
+
+  // Listen for changes in the Custom Value dropdown
+    $('#customFieldsSelect').change(function () {
+      showHideNumberSelect();
+    });
+  });
+
+ $(document).ready(function () {
+  // Function to update the textarea with the value enclosed in curly braces
+  function updateTextareaValue() {
+    var lengthInput = $('.length input');
+    var ruleTextarea = $('#ruleTextarea');
+    var inputValue = lengthInput.val();
+    var existingValue = ruleTextarea.val();
+
+    if (inputValue) {
+      // Append the input value enclosed in curly braces to the existing value
+      var newValue = existingValue ? `${existingValue} {${inputValue}}` : `{${inputValue}}`;
+
+      // Update the textarea with the new value
+      ruleTextarea.val(newValue);
+      
+      // Clear the input field and hide the "length" div
+      lengthInput.val('');
+      $('.length').hide();
+
+      // Reset other select elements
+      $('#fieldSelect, #aggregateSelect, #operationsSelect, #customFieldsSelect').prop('selectedIndex', 0);
+    }
+  }
+
+  // Listen for input changes in the Length input field
+  $('.length input').on('input', function () {
+    // Do nothing here, as we want to update the textarea on "Enter" key press
+  });
+
+  // Listen for the "Enter" key press in the input field
+  $('.length input').on('keydown', function (e) {
+    if (e.key === 'Enter') {
+      updateTextareaValue();
+      e.preventDefault(); // Prevent the default behavior of the Enter key
+    }
+  });
+});
+
+ $(document).ready(function () {
+  // Function to update the textarea with the value enclosed in curly braces
+  function updateTextareaValue() {
+    var lengthInput = $('.default input');
+    var ruleTextarea = $('#ruleTextarea');
+    var inputValue = lengthInput.val();
+    var existingValue = ruleTextarea.val();
+
+    if (inputValue) {
+      // Append the input value enclosed in curly braces to the existing value
+      var newValue = existingValue ? `${existingValue} {${inputValue}}` : `{${inputValue}}`;
+
+      // Update the textarea with the new value
+      ruleTextarea.val(newValue);
+      
+      // Clear the input field and hide the "length" div
+      lengthInput.val('');
+      $('.default').hide();
+
+      // Reset other select elements
+      $('#fieldSelect, #aggregateSelect, #operationsSelect, #customFieldsSelect').prop('selectedIndex', 0);
+    }
+  }
+
+  // Listen for input changes in the Length input field
+  $('.default input').on('input', function () {
+    // Do nothing here, as we want to update the textarea on "Enter" key press
+  });
+
+  // Listen for the "Enter" key press in the input field
+  $('.default input').on('keydown', function (e) {
+    if (e.key === 'Enter') {
+      updateTextareaValue();
+      e.preventDefault(); // Prevent the default behavior of the Enter key
+    }
+  });
+});
+  $(document).ready(function () {
+  // Function to handle Custom Value selection
+    function handleCustomValueSelect() {
+      var customValueSelect = $('#customFieldsSelect');
+      var otherSelects = $('#fieldSelect, #aggregateSelect, #operationsSelect, #externalDatasetSelect');
+      var numberClass = $('.length');
+
+      if (customValueSelect.val() === 'Length') {
+        otherSelects.prop('disabled', false);
+        customValueSelect.prop('disabled', false);
+        numberClass.show();
+      } else {
+        otherSelects.prop('disabled', false);
+        numberClass.hide();
+      }
+    }
+
+  // Function to handle Number Select
+    function handleNumberSelect() {
+      var numberSelect = $('#numberSelect');
+      var customFieldsSelect =$('#customFieldsSelect')
+      var otherSelects = $('#fieldSelect, #aggregateSelect, #operationsSelect, #externalDatasetSelect');
+      var numberClass = $('.length');
+
+      if (numberSelect.val() === 'Number') {
+        otherSelects.prop('disabled', true);
+      } else {
+        customFieldsSelect.prop('disabled', false);
+        customFieldsSelect.prop('selectedIndex', 0);
+        otherSelects.prop('disabled', false);
+        numberClass.hide();
+      }
+    }
+
+  //Function to handle External Dataset Select
+    function handleExternalDatasetSelect() {
+      var externalDatasetSelect = $('#externalDatasetSelect');
+      var externalDatasetFieldsSelect = $('#externalDatasetFieldsSelect');
+      var otherSelects = $('#fieldSelect, #aggregateSelect, #operationsSelect, #customFieldsSelect');
+      var otherexternalDataset = $(".otherexternalDataset");
+
+      if (externalDatasetSelect.val() !== '1') {
+        otherSelects.prop('disabled', false);
+      // externalDatasetSelect.prop('disabled', true);
+        externalDatasetFieldsSelect.val('');
+        externalDatasetFieldsSelect.prop('disabled', false);
+        otherexternalDataset.show();
+      } else {
+        externalDatasetSelect.prop('disabled', false);
+        otherSelects.prop('disabled', false);
+        otherexternalDataset.hide();
+      }
+    }
+
+  // Function to handle External Dataset Fields Select
+    function handleExternalDatasetFieldsSelect() {
+      var externalDatasetFieldsSelect = $('#externalDatasetFieldsSelect');
+      var externalDatasetSelect = $('#externalDatasetSelect');
+      var otherSelects = $('#fieldSelect, #aggregateSelect, #operationsSelect, #customFieldsSelect');
+      var numberClass = $('.length');
+      var otherexternalDataset = $(".otherexternalDataset");
+
+      if (externalDatasetFieldsSelect.val() === '') {
+        otherSelects.prop('disabled', false);
+        externalDatasetSelect.prop('disabled', false);
+        otherexternalDataset.hide();
+      // Inside your function where you reset externalDatasetSelect
+        externalDatasetSelect.prop('selectedIndex', 0);
+
+      } else {
+        otherSelects.prop('disabled', false);
+        externalDatasetSelect.prop('disabled', false);
+        numberClass.hide();
+        otherexternalDataset.hide();
+        externalDatasetSelect.prop('selectedIndex', 0);
+      }
+    }
+
+  // Initial state on page load
+    handleCustomValueSelect();
+    handleNumberSelect();
+    handleExternalDatasetSelect();
+    handleExternalDatasetFieldsSelect();
+
+  // Listen for changes in the Custom Value dropdown
+    $('#customFieldsSelect').change(function () {
+      handleCustomValueSelect();
+    });
+
+  // Listen for changes in the Number dropdown
+    $('#numberSelect').change(function () {
+      handleNumberSelect();
+    });
+
+  // Listen for changes in the External Dataset dropdown
+    $('#externalDatasetSelect').change(function () {
+      handleExternalDatasetSelect();
+    });
+
+  // Listen for changes in the External Dataset Fields dropdown
+    $('#externalDatasetFieldsSelect').change(function () {
+      handleExternalDatasetFieldsSelect();
+    });
+
+
+    function handlefieldSelect() {
+      var fieldSelect = $('#fieldSelect');
+      var otherSelects = $('#aggregateSelect, #operationsSelect, #customFieldsSelect, #externalDatasetFieldsSelect');
+
+      if (fieldSelect.val() === '') {
+        otherSelects.prop('selectedIndex', 0);
+
+      } else {
+        otherSelects.prop('selectedIndex', 0);
+      }
+    }
+
+
+    $('#fieldSelect').change(function () {
+      handlefieldSelect();
+    });
+
+
+    function handleaggregateSelect() {
+      var aggregateSelect = $('#aggregateSelect');
+      var otherSelects = $('#fieldSelect, #operationsSelect, #customFieldsSelect, #externalDatasetFieldsSelect');
+
+      if (aggregateSelect.val() === '') {
+        otherSelects.prop('selectedIndex', 0);
+
+      } else {
+        otherSelects.prop('selectedIndex', 0);
+      }
+    }
+
+
+    $('#aggregateSelect').change(function () {
+      handleaggregateSelect();
+    });
+
+
+
+    function handleoperationsSelect() {
+      var operationsSelect = $('#operationsSelect');
+      var otherSelects = $('#fieldSelect, #aggregateSelect, #customFieldsSelect, #externalDatasetFieldsSelect');
+
+      if (operationsSelect.val() === '') {
+        otherSelects.prop('selectedIndex', 0);
+
+      } else {
+        otherSelects.prop('selectedIndex', 0);
+      }
+    }
+
+
+    $('#operationsSelect').change(function () {
+      handleoperationsSelect();
+    });
+
+
+
+    function handlecustomFieldsSelect() {
+      var customFieldsSelect = $('#customFieldsSelect');
+      var otherSelects = $('#fieldSelect, #aggregateSelect, #operationsSelect, #externalDatasetFieldsSelect');
+
+      if (customFieldsSelect.val() === '') {
+        otherSelects.prop('selectedIndex', 0);
+
+      } else {
+        otherSelects.prop('selectedIndex', 0);
+      }
+    }
+
+
+    $('#customFieldsSelect').change(function () {
+      handlecustomFieldsSelect();
+    });
+
+
+
+    function handleexternalDatasetFieldsSelect() {
+      var externalDatasetFieldsSelect = $('#externalDatasetFieldsSelect');
+      var otherSelects = $('#fieldSelect, #aggregateSelect, #operationsSelect, #customFieldsSelect');
+
+      if (externalDatasetFieldsSelect.val() === '') {
+        otherSelects.prop('selectedIndex', 0);
+
+      } else {
+        otherSelects.prop('selectedIndex', 0);
+      }
+    }
+
+
+    $('#externalDatasetFieldsSelect').change(function () {
+      handleexternalDatasetFieldsSelect();
+    });
+
+
+
+  });
+
+$(document).ready(function () {
+  // Function to show/hide the externalDataset class based on the checkbox state
+  function showHideExternalDataset() {
+    var checkbox = $('#externalDatasetCheckbox');
+    var externalDatasetClass = $('.externalDataset');
+
+    if (checkbox.is(':checked')) {
+      externalDatasetClass.show();
+    } else {
+      externalDatasetClass.hide();
+    }
+  }
+
+  // Initial state on page load
+  showHideExternalDataset();
+
+  // Listen for changes in the checkbox state
+  $('#externalDatasetCheckbox').change(function () {
+    showHideExternalDataset();
+  });
+  
+});
+
+$(document).ready(function() {
+  // Disable the first option in externalDatasetFieldsSelect
+  $('#externalDatasetFieldsSelect option:first').prop('disabled', true);
+
+  // Hide all optgroup sections initially
+  $('#externalDatasetFieldsSelect optgroup').hide();
+
+  // Add change event listener to the multi-select
+  $('#externalDatasetSelect').on('change', function() {
+    // Get an array of selected values
+    var selectedGroups = $(this).find('option:selected').map(function() {
+      return $(this).data('group');
+    }).get();
+
+    // Hide all optgroup sections
+    $('#externalDatasetFieldsSelect optgroup').hide();
+
+    // Show the optgroup sections corresponding to the selected groups
+    selectedGroups.forEach(function(group) {
+      $('#externalDatasetFieldsSelect optgroup[label="' + group + '"]').show();
+    });
+  });
+
+  // Trigger the change event after a short delay (100 milliseconds)
+  setTimeout(function() {
+    $('#externalDatasetSelect').trigger('change');
+  }, 100);
+
+
+  $('.debtOptions option, .rentRollOptions option').each(function() {
+    // Get the current value attribute
+    var currentValue = $(this).val();
+    // Remove spaces from the value attribute
+    var updatedValue = currentValue.replace(/ /g, ''); // Remove all spaces
+
+    // Update the value attribute with the modified value
+    $(this).val(updatedValue);
+  });
+});
+
+
+
+</script>
+</body>
+</html>

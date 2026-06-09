@@ -5,9 +5,9 @@
 
 @font-face {
     font-family: 'Open Sans';
-    src: url('fonts/OpenSans-Light.woff2') format('woff2'),
-        url('fonts/OpenSans-Light.woff') format('woff'),
-        url('fonts/OpenSans-Light.ttf') format('truetype');
+    src: url('../font/OpenSans-Light.woff2') format('woff2'),
+        url('../font/OpenSans-Light.woff') format('woff'),
+        url('../font/OpenSans-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -15,9 +15,9 @@
 
 @font-face {
     font-family: 'Open Sans';
-    src: url('fonts/OpenSans-Regular.woff2') format('woff2'),
-        url('fonts/OpenSans-Regular.woff') format('woff'),
-        url('fonts/OpenSans-Regular.ttf') format('truetype');
+    src: url('../font/OpenSans-Regular.woff2') format('woff2'),
+        url('../font/OpenSans-Regular.woff') format('woff'),
+        url('../font/OpenSans-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -26,9 +26,9 @@
 @font-face {
     font-family: 'Open Sans';
     src:
-        url('fonts/OpenSans-Medium.woff2') format('woff2'),
-        url('fonts/OpenSans-Medium.woff') format('woff'),
-        url('fonts/OpenSans-Medium.ttf') format('truetype');
+        url('../font/OpenSans-Medium.woff2') format('woff2'),
+        url('../font/OpenSans-Medium.woff') format('woff'),
+        url('../font/OpenSans-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -36,9 +36,9 @@
 
 @font-face {
     font-family: 'Open Sans';
-    src: url('fonts/OpenSans-SemiBold.woff2') format('woff2'),
-        url('fonts/OpenSans-SemiBold.woff') format('woff'),
-        url('fonts/OpenSans-SemiBold.ttf') format('truetype');
+    src: url('../font/OpenSans-SemiBold.woff2') format('woff2'),
+        url('../font/OpenSans-SemiBold.woff') format('woff'),
+        url('../font/OpenSans-SemiBold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -46,9 +46,9 @@
 
 @font-face {
     font-family: 'Open Sans';
-    src: url('fonts/OpenSans-Bold.woff2') format('woff2'),
-        url('fonts/OpenSans-Bold.woff') format('woff'),
-        url('fonts/OpenSans-Bold.ttf') format('truetype');
+    src: url('../font/OpenSans-Bold.woff2') format('woff2'),
+        url('../font/OpenSans-Bold.woff') format('woff'),
+        url('../font/OpenSans-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -56,9 +56,9 @@
 
 @font-face {
     font-family: 'Open Sans';
-    src: url('fonts/OpenSans-ExtraBold.woff2') format('woff2'),
-        url('fonts/OpenSans-ExtraBold.woff') format('woff'),
-        url('fonts/OpenSans-ExtraBold.ttf') format('truetype');
+    src: url('../font/OpenSans-ExtraBold.woff2') format('woff2'),
+        url('../font/OpenSans-ExtraBold.woff') format('woff'),
+        url('../font/OpenSans-ExtraBold.ttf') format('truetype');
     font-weight: 800;
     font-style: normal;
     font-display: swap;
@@ -5825,7 +5825,7 @@ header {
     height: 40px;
     font-family: "Font Awesome 5 Free";
     content: "\f007";
-    color: #899a1a;
+    color: var(--primary-color);
     float: left;
     text-align: center;
     padding: 0;
@@ -5840,7 +5840,7 @@ header {
 
 .navbar-nav .nav-link.notification i {
     font-size: 24px;
-    color: #a3b33b;
+    color: var(--primary-color);
 }
 
 .heading_search {
@@ -6151,7 +6151,7 @@ body:not(.sidebar-mini-md) .main-header {
 }
 
 .propertyInfo .property .propertyicon .icon.selected {
-    background-color: #a3b33b;
+    background-color: var(--primary-color);
 }
 
 .propertyInfo .property .propertyicon a:hover {
@@ -6353,7 +6353,7 @@ footer {
 }
 
 #navscrollbar::-webkit-scrollbar-thumb {
-    background-color: #a3b33b;
+    background-color: var(--primary-color);
 }
 
 .spaces {
@@ -6402,8 +6402,8 @@ footer {
 
 .fileupload .uploadbtn {
     color: #fff;
-    background-color: #a3b33b;
-    border-color: #a3b33b;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
     padding: 7px 25px;
     border-radius: 10px;
     font-size: 12px;
@@ -6426,8 +6426,8 @@ footer {
 
 .fileupload .createbtn {
     color: #fff;
-    background-color: #a3b33b;
-    border-color: #a3b33b;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
     padding: 7px 25px;
     border-radius: 10px;
     font-size: 12px;
@@ -6450,8 +6450,8 @@ footer {
 
 .fileupload .morebtn {
     color: #fff;
-    background-color: #a3b33b;
-    border-color: #a3b33b;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
     padding: 7px 25px;
     border-radius: 10px;
     font-size: 12px;

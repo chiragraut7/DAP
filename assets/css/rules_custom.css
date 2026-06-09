@@ -1,0 +1,9 @@
+.step-panel{background:#fff;border:1px solid #e6e6e6;padding:16px;border-radius:6px;margin-bottom:16px}
+.section-title{font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.section-title i{font-size:18px}
+.required-star{color:#d9534f;margin-left:4px}
+.step-panel .form-label{font-weight:500}
+.step-panel .form-control, .step-panel .form-select{background:#fff}
+.step-panel .card{box-shadow:none;border:0}
+/* small responsive tweaks */
+@media (max-width:767px){.step-panel .col-lg-4{flex:0 0 100%;max-width:100%}}
