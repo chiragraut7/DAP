@@ -389,7 +389,7 @@
     <div class="txt"><img src="assets/images/logo.svg" width="200"></div>
   </div>
 
-  <!--Nav-start-->
+       <!--Nav-start-->
   <header class="container-fluid">
     <nav class="navbar navbar-expand-lg">
       <ul class="navbar-nav">
@@ -475,10 +475,8 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="rulesSet.html">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-cpu-rule-engine me-2" style="vertical-align: middle;">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu-rule-engine me-2" style="vertical-align: middle;">
                   <path d="M6 4H4v16h2" />
                   <path d="M18 4h2v16h-2" />
                   <path d="M9 9h2a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H9" />
@@ -594,9 +592,9 @@
             <div class="col">
               <div class="row g-3 align-items-end">
                 <div class="col-lg-4">
-                  <label class="form-label">KPI Type</label>
+                  <label class="form-label">Fund Type</label>
                   <select class="form-select">
-                    <option value="">Select KPI Type</option>
+                    <option value="">Select Fund Type</option>
                     <option>Qualitative</option>
                     <option>Quantitative</option>
                   </select>
@@ -644,7 +642,7 @@
                 <tr>
                   <th>Fund ID</th>
                   <th>Fund Name</th>
-                  <th>KPI Type</th>
+                  <th>Fund Type</th>
                   <th>Created Date</th>
                   <th>Review Period</th>
                   <th>Status</th>
@@ -993,7 +991,9 @@
                   <li><button class="wizard-step-btn" onclick="goToStep(4)" id="step-btn-4">
                       <div class="step-circle">4</div>Investment Logic
                     </button></li>
-
+                  <!-- <li><button class="wizard-step-btn" onclick="goToStep(5)" id="step-btn-5">
+                      <div class="step-circle">5</div>Procedural
+                    </button></li> -->
                 </ul>
               </div>
               <div class="card-body pt-4">
@@ -1007,41 +1007,24 @@
                       <div class="validation-msg">Fund name is required.</div>
                     </div>
                     <div class="col-lg-4 mb-3">
-                      <label class="form-label">
-                        Review Period <span class="required-star">*</span>
-                      </label>
-
+                      <label class="form-label">Review Period <span class="required-star">*</span></label>
                       <input type="hidden" id="fundId">
-
-                      <div class="row g-2">
-                        <div class="col-6">
-                          <select class="form-select" id="reviewQuarter" required>
-                            <option value="">Select Quarter</option>
-                            <option value="Q1">Q1</option>
-                            <option value="Q2">Q2</option>
-                            <option value="Q3">Q3</option>
-                            <option value="Q4">Q4</option>
-                          </select>
-                        </div>
-
-                        <div class="col-6">
-                          <select class="form-select" id="reviewYear" required>
-                            <option value="">Select Year</option>
-                            <option value="2030">2030</option>
-                            <option value="2029">2029</option>
-                            <option value="2028">2028</option>
-                            <option value="2027">2027</option>
-                            <option value="2026">2026</option>
-                            <option value="2025">2025</option>
-                            <option value="2024">2024</option>
-                            <option value="2023">2023</option>
-                          </select>
-                        </div>
+                      <input type="text" class="form-control" id="reviewPeriod" placeholder="e.g. Q2 2025">
+                      <div class="input-group mb-0">
+                        <select class="form-select">
+                          <option>Select Quarter</option>
+                          <option>Q1</option>
+                          <option>Q2</option>
+                          <option>Q3</option>
+                          <option>Q4</option>
+                        </select>
+                        <select class="form-select">
+                          <option>2025</option>
+                          <option>2024</option>
+                          <option>2023</option>
+                        </select>
                       </div>
-
-                      <div class="validation-msg">
-                        Review Period is required.
-                      </div>
+                      <div class="validation-msg">Review period is required.</div>
                     </div>
                     <div class="col-lg-4 mb-3">
                       <label class="form-label">KPI Type <span class="required-star">*</span></label>
@@ -1057,7 +1040,7 @@
                           <label class="form-check-label" for="fundTypeQuantitative">Quantitative</label>
                         </div>
                       </div>
-                      <div class="validation-msg">KPI Type is required.</div>
+                      <div class="validation-msg">Fund type is required.</div>
                     </div>
                   </div>
 
@@ -1304,13 +1287,69 @@
                       </select></div>
                   </div>
                 </div>
+                <!-- <div class="step-panel" id="panel-5">
+                  <div class="section-title"><i class="fas fa-balance-scale" style="color:var(--primary-color)"></i>
+                    Complaint Tracking</div>
+                  <div class="row">
+                    <div class="col-lg-4 mb-3"><label class="form-label">Investor Formal Complaints <span
+                          class="required-star">*</span></label><select id="investorComplaints" class="form-select">
+                        <option value="">Select count</option>
+                        <option>1 or less</option>
+                        <option>2 to 5</option>
+                        <option>6 or more</option>
+                      </select></div>
+                    <div class="col-lg-4 mb-3"><label class="form-label">Tenant Formal Complaints</label><select
+                        id="tenantComplaints" class="form-select">
+                        <option value="">Select count</option>
+                        <option>2 or less</option>
+                        <option>3 to 5</option>
+                        <option>6 or more</option>
+                      </select></div>
+                    <div class="col-lg-4 mb-3"><label class="form-label">Legal Disputes</label><select
+                        id="legalDisputes" class="form-select">
+                        <option value="">Select count</option>
+                        <option>None</option>
+                        <option>1</option>
+                        <option>2 or more</option>
+                      </select></div>
+                    <div class="col-lg-4 mb-3"><label class="form-label">Sell-side Advisor <span
+                          class="required-star">*</span></label><select id="sellSideAdvisor" class="form-select">
+                        <option value="">Select status</option>
+                        <option>6 months or more</option>
+                        <option>3 to 6 months</option>
+                        <option>Less than 2 months</option>
+                      </select></div>
+                    <div class="col-lg-4 mb-3"><label class="form-label">SPV Termination</label><select
+                        id="spvTermination" class="form-select">
+                        <option value="">Select timeline</option>
+                        <option>less than 50 days</option>
+                        <option>51 to 70 days</option>
+                        <option>More than 70 days</option>
+                      </select></div>
+                    <div class="col-lg-4 mb-3"><label class="form-label">ZATCA Deregistration</label><select
+                        id="zatcaDeregistration" class="form-select">
+                        <option value="">Select timeline</option>
+                        <option>less than 50 days</option>
+                        <option>51 to 70 days</option>
+                        <option>More than 70 days</option>
+                      </select></div>
+                  </div>
 
+                  <div class="section-title mt-3"><i class="fas fa-sticky-note" style="color:var(--primary-color)"></i>
+                    Maker Notes</div>
+                  <div class="row mt-2">
+                    <div class="col-12 mb-3"><label class="form-label">Additional Notes / Remarks for
+                        Checker</label><textarea id="makerNotes" class="form-control" rows="3"
+                        placeholder="Add any context, clarifications, or remarks for the Checker to consider during review..."></textarea>
+                    </div>
+                  </div>
+                </div> -->
               </div>
               <div class="wizard-footer-bar">
                 <div class="d-flex align-items-center gap-3">
                   <button class="btn btn-secondary" id="btn-prev" type="button" onclick="prevStep()"
                     style="display:none"><i class="fas fa-arrow-left me-2"></i>Previous</button>
-                  <span class="progress-info" id="step-indicator">Step 1 of 4</span>
+                  <span class="progress-info" id="step-indicator">Step 1 of 5</span>
                 </div>
                 <div class="d-flex gap-2">
                   <button type="button" class="btn btn-secondary" onclick="saveDraft()"><i
@@ -1486,13 +1525,11 @@
                         <div class="col-12">
                           <div class="status-bar" style="background:#EAF3DE;border-color:#3B6D11">
                             <i class="fas fa-check-circle" style="color:#3B6D11"></i>
-                            <span style="color:#3B6D11;font-size:13px;font-weight:600">Live fund details and review
-                              overview.</span>
+                            <span style="color:#3B6D11;font-size:13px;font-weight:600">Live fund details and review overview.</span>
                           </div>
                           <div class="card mb-3">
                             <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-info-circle"
-                                  style="color:var(--primary-color)"></i> Fund Information</div>
+                              <div class="review-section-title"><i class="fas fa-info-circle" style="color:var(--primary-color)"></i> Fund Information</div>
                               <div class="row view-details">
                                 <div class="col-lg-4 col-md-6 mb-3">
                                   <label class="col-form-label">Fund Name</label>
@@ -1503,7 +1540,7 @@
                                   <h6 id="viewReviewPeriod">N/A</h6>
                                 </div>
                                 <div class="col-lg-4 col-md-6 mb-3">
-                                  <label class="col-form-label">KPI Type</label>
+                                  <label class="col-form-label">Fund Type</label>
                                   <h6 id="viewFundType">N/A</h6>
                                 </div>
                                 <div class="col-lg-4 col-md-6 mb-3">
@@ -1516,16 +1553,14 @@
                                 </div>
                                 <div class="col-12 mb-1">
                                   <label class="col-form-label">Application Types</label>
-                                  <div id="viewApplicationTypes" class="d-flex flex-wrap gap-2 mt-1"><span
-                                      class="text-muted">N/A</span></div>
+                                  <div id="viewApplicationTypes" class="d-flex flex-wrap gap-2 mt-1"><span class="text-muted">N/A</span></div>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div class="card mb-3">
                             <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-users"
-                                  style="color:var(--primary-color)"></i> Stakeholders</div>
+                              <div class="review-section-title"><i class="fas fa-users" style="color:var(--primary-color)"></i> Stakeholders</div>
                               <div class="row view-details">
                                 <div class="col-lg-4 col-md-6 mb-3">
                                   <label class="col-form-label">Custodian</label>
@@ -1549,16 +1584,14 @@
                                 </div>
                                 <div class="col-12 mb-1">
                                   <label class="col-form-label">Fund Board Members</label>
-                                  <div id="viewBoardMembers" class="d-flex flex-wrap gap-2 mt-1"><span
-                                      class="text-muted">N/A</span></div>
+                                  <div id="viewBoardMembers" class="d-flex flex-wrap gap-2 mt-1"><span class="text-muted">N/A</span></div>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div class="card mb-3">
                             <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-file-alt"
-                                  style="color:var(--primary-color)"></i> Documentation</div>
+                              <div class="review-section-title"><i class="fas fa-file-alt" style="color:var(--primary-color)"></i> Documentation</div>
                               <div class="row row-cols-1 row-cols-md-2 g-3">
                                 <div class="col">
                                   <div class="d-flex justify-content-between align-items-start">
@@ -1629,8 +1662,7 @@
                           </div>
                           <div class="card mb-3">
                             <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-chart-line"
-                                  style="color:var(--primary-color)"></i> Investment Logic</div>
+                              <div class="review-section-title"><i class="fas fa-chart-line" style="color:var(--primary-color)"></i> Investment Logic</div>
                               <div class="row view-details">
                                 <div class="col-lg-3 col-md-6 mb-3">
                                   <label class="col-form-label">Forecasted IRR</label>
@@ -1667,7 +1699,41 @@
                               </div>
                             </div>
                           </div>
-
+                          <div class="card mb-3">
+                            <div class="card-body pt-3">
+                              <div class="review-section-title"><i class="fas fa-gavel" style="color:var(--primary-color)"></i> Procedural</div>
+                              <div class="row view-details">
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                  <label class="col-form-label">Investor Complaints</label>
+                                  <h6 id="viewInvestorComplaints">N/A</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                  <label class="col-form-label">Tenant Complaints</label>
+                                  <h6 id="viewTenantComplaints">N/A</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                  <label class="col-form-label">Legal Disputes</label>
+                                  <h6 id="viewLegalDisputes">N/A</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                  <label class="col-form-label">Sell-side Advisor</label>
+                                  <h6 id="viewSellSideAdvisor">N/A</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                  <label class="col-form-label">SPV Termination</label>
+                                  <h6 id="viewSpvTermination">N/A</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                  <label class="col-form-label">ZATCA Deregistration</label>
+                                  <h6 id="viewZatcaDeregistration">N/A</h6>
+                                </div>
+                              </div>
+                              <div class="col-12 mt-3">
+                                <label class="col-form-label view-details">Maker Notes</label>
+                                <div id="viewMakerNotes" class="p-3 mt-1" style="background:#f5f6fa;border-radius:7px;border:1px solid #dee2e6;font-size:13px">—</div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1709,7 +1775,7 @@
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Review Period</label>
                                   <h6>Q1 2025</h6>
                                 </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">KPI Type</label>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Fund Type</label>
                                   <h6>Qualitative</h6>
                                 </div>
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Establishment
@@ -1875,6 +1941,43 @@
                               </div>
                             </div>
                           </div>
+                          <div class="card mb-3">
+                            <div class="card-body pt-3">
+                              <div class="review-section-title"><i class="fas fa-gavel"
+                                  style="color:var(--primary-color)"></i> Procedural</div>
+                              <div class="row view-details">
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Investor
+                                    Complaints</label>
+                                  <h6>1 or less</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Tenant
+                                    Complaints</label>
+                                  <h6>2 or less</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Legal Disputes</label>
+                                  <h6>None</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Sell-side
+                                    Advisor</label>
+                                  <h6>6 months or more</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">SPV
+                                    Termination</label>
+                                  <h6>less than 50 days</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">ZATCA
+                                    Deregistration</label>
+                                  <h6>N/A</h6>
+                                </div>
+                              </div>
+                              <div class="col-12">
+                                <label class="col-form-label view-details">Maker Notes</label>
+                                <div class="p-3 mt-1"
+                                  style="background:#f5f6fa;border-radius:7px;border:1px solid #dee2e6;font-size:13px">
+                                  Fund is fully compliant. All certifications renewed for Q1 2025.</div>
+                              </div>
+                            </div>
+                          </div>
 
                         </div>
                       </div>
@@ -1921,7 +2024,7 @@
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Review Period</label>
                                   <h6>Q1 2025</h6>
                                 </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">KPI Type</label>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Fund Type</label>
                                   <h6>Quantitative</h6>
                                 </div>
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Establishment
@@ -2084,6 +2187,44 @@
                               </div>
                             </div>
                           </div>
+                          <div class="card mb-3">
+                            <div class="card-body pt-3">
+                              <div class="review-section-title"><i class="fas fa-gavel"
+                                  style="color:var(--primary-color)"></i> Procedural</div>
+                              <div class="row view-details">
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Investor
+                                    Complaints</label>
+                                  <h6>2 to 5</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Tenant
+                                    Complaints</label>
+                                  <h6>2 or less</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Legal Disputes</label>
+                                  <h6>1</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Sell-side
+                                    Advisor</label>
+                                  <h6>3 to 6 months</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">SPV
+                                    Termination</label>
+                                  <h6>51 to 70 days</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">ZATCA
+                                    Deregistration</label>
+                                  <h6>51 to 70 days</h6>
+                                </div>
+                              </div>
+                              <div class="col-12">
+                                <label class="col-form-label view-details">Maker Notes</label>
+                                <div class="p-3 mt-1"
+                                  style="background:#f5f6fa;border-radius:7px;border:1px solid #dee2e6;font-size:13px">
+                                  Risk monitoring program pending internal sign-off. Civil defense certificate under
+                                  renewal. Expect full compliance by Q2 2025.</div>
+                              </div>
+                            </div>
+                          </div>
 
                         </div>
                       </div>
@@ -2126,7 +2267,7 @@
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Review Period</label>
                                   <h6>Q1 2025</h6>
                                 </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">KPI Type</label>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Fund Type</label>
                                   <h6>Qualitative</h6>
                                 </div>
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Establishment
@@ -2295,6 +2436,43 @@
                               </div>
                             </div>
                           </div>
+                          <div class="card mb-3">
+                            <div class="card-body pt-3">
+                              <div class="review-section-title"><i class="fas fa-gavel"
+                                  style="color:var(--primary-color)"></i> Procedural</div>
+                              <div class="row view-details">
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Investor
+                                    Complaints</label>
+                                  <h6>1 or less</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Tenant
+                                    Complaints</label>
+                                  <h6>2 or less</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Legal Disputes</label>
+                                  <h6>None</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Sell-side
+                                    Advisor</label>
+                                  <h6>6 months or more</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">SPV
+                                    Termination</label>
+                                  <h6>less than 50 days</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">ZATCA
+                                    Deregistration</label>
+                                  <h6>N/A</h6>
+                                </div>
+                              </div>
+                              <div class="col-12">
+                                <label class="col-form-label view-details">Maker Notes</label>
+                                <div class="p-3 mt-1"
+                                  style="background:#f5f6fa;border-radius:7px;border:1px solid #dee2e6;font-size:13px">
+                                  Full compliance achieved. Approved for Q1 2025 reporting cycle.</div>
+                              </div>
+                            </div>
+                          </div>
 
                         </div>
                       </div>
@@ -2342,7 +2520,7 @@
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Review Period</label>
                                   <h6>Q2 2025</h6>
                                 </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">KPI Type</label>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Fund Type</label>
                                   <h6>Quantitative</h6>
                                 </div>
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Establishment
@@ -2510,6 +2688,45 @@
                               </div>
                             </div>
                           </div>
+                          <div class="card mb-3">
+                            <div class="card-body pt-3">
+                              <div class="review-section-title"><i class="fas fa-gavel"
+                                  style="color:var(--primary-color)"></i> Procedural</div>
+                              <div class="row view-details">
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Investor
+                                    Complaints</label>
+                                  <h6>1 or less</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Tenant
+                                    Complaints</label>
+                                  <h6>2 or less</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Legal Disputes</label>
+                                  <h6>None</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Sell-side
+                                    Advisor</label>
+                                  <h6>6 months or more</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">SPV
+                                    Termination</label>
+                                  <h6>less than 50 days</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">ZATCA
+                                    Deregistration</label>
+                                  <h6>N/A</h6>
+                                </div>
+                              </div>
+                              <div class="col-12">
+                                <label class="col-form-label view-details">Maker Notes</label>
+                                <div class="p-3 mt-1"
+                                  style="background:#f5f6fa;border-radius:7px;border:1px solid #dee2e6;font-size:13px">
+                                  This fund is aligned with Vision 2030 logistics hub initiatives. The building
+                                  compliance certificate will be submitted within 5 business days pending municipal
+                                  sign-off.</div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -2555,7 +2772,7 @@
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Review Period</label>
                                   <h6>Q2 2025</h6>
                                 </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">KPI Type</label>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Fund Type</label>
                                   <h6>Qualitative</h6>
                                 </div>
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Establishment
@@ -2715,6 +2932,43 @@
                               </div>
                             </div>
                           </div>
+                          <div class="card mb-3">
+                            <div class="card-body pt-3">
+                              <div class="review-section-title"><i class="fas fa-gavel"
+                                  style="color:var(--primary-color)"></i> Procedural</div>
+                              <div class="row view-details">
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Investor
+                                    Complaints</label>
+                                  <h6>2 to 5</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Tenant
+                                    Complaints</label>
+                                  <h6>3 to 5</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Legal Disputes</label>
+                                  <h6>1</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Sell-side
+                                    Advisor</label>
+                                  <h6>3 to 6 months</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">SPV
+                                    Termination</label>
+                                  <h6>51 to 70 days</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">ZATCA
+                                    Deregistration</label>
+                                  <h6>51 to 70 days</h6>
+                                </div>
+                              </div>
+                              <div class="col-12">
+                                <label class="col-form-label view-details">Maker Notes</label>
+                                <div class="p-3 mt-1"
+                                  style="background:#f5f6fa;border-radius:7px;border:1px solid #dee2e6;font-size:13px">
+                                  Multiple documents pending. Target completion: end of Q2 2025.</div>
+                              </div>
+                            </div>
+                          </div>
 
                         </div>
                       </div>
@@ -2762,7 +3016,7 @@
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Review Period</label>
                                   <h6>Q2 2025</h6>
                                 </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">KPI Type</label>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Fund Type</label>
                                   <h6>Quantitative</h6>
                                 </div>
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Establishment
@@ -2931,6 +3185,44 @@
                               </div>
                             </div>
                           </div>
+                          <div class="card mb-3">
+                            <div class="card-body pt-3">
+                              <div class="review-section-title"><i class="fas fa-gavel"
+                                  style="color:var(--primary-color)"></i> Procedural</div>
+                              <div class="row view-details">
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Investor
+                                    Complaints</label>
+                                  <h6>1 or less</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Tenant
+                                    Complaints</label>
+                                  <h6>2 or less</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Legal Disputes</label>
+                                  <h6>None</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Sell-side
+                                    Advisor</label>
+                                  <h6>6 months or more</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">SPV
+                                    Termination</label>
+                                  <h6>less than 50 days</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">ZATCA
+                                    Deregistration</label>
+                                  <h6>N/A</h6>
+                                </div>
+                              </div>
+                              <div class="col-12">
+                                <label class="col-form-label view-details">Maker Notes</label>
+                                <div class="p-3 mt-1"
+                                  style="background:#f5f6fa;border-radius:7px;border:1px solid #dee2e6;font-size:13px">
+                                  Sharia Fatwa pending from the Sharia board — expected within 7 business days. All
+                                  other documentation complete.</div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -2972,7 +3264,7 @@
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Review Period</label>
                                   <h6>Q2 2025</h6>
                                 </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">KPI Type</label>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Fund Type</label>
                                   <h6>Qualitative</h6>
                                 </div>
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Establishment
@@ -3139,6 +3431,43 @@
                               </div>
                             </div>
                           </div>
+                          <div class="card mb-3">
+                            <div class="card-body pt-3">
+                              <div class="review-section-title"><i class="fas fa-gavel"
+                                  style="color:var(--primary-color)"></i> Procedural</div>
+                              <div class="row view-details">
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Investor
+                                    Complaints</label>
+                                  <h6>1 or less</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Tenant
+                                    Complaints</label>
+                                  <h6>2 or less</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Legal Disputes</label>
+                                  <h6>None</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Sell-side
+                                    Advisor</label>
+                                  <h6>6 months or more</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">SPV
+                                    Termination</label>
+                                  <h6>less than 50 days</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">ZATCA
+                                    Deregistration</label>
+                                  <h6>N/A</h6>
+                                </div>
+                              </div>
+                              <div class="col-12">
+                                <label class="col-form-label view-details">Maker Notes</label>
+                                <div class="p-3 mt-1"
+                                  style="background:#f5f6fa;border-radius:7px;border:1px solid #dee2e6;font-size:13px">
+                                  Approved for Q2 2025 cycle. All compliance and operational requirements met.</div>
+                              </div>
+                            </div>
+                          </div>
 
                         </div>
                       </div>
@@ -3185,7 +3514,7 @@
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Review Period</label>
                                   <h6>Q2 2025</h6>
                                 </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">KPI Type</label>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Fund Type</label>
                                   <h6>Quantitative</h6>
                                 </div>
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Establishment
@@ -3345,6 +3674,44 @@
                               </div>
                             </div>
                           </div>
+                          <div class="card mb-3">
+                            <div class="card-body pt-3">
+                              <div class="review-section-title"><i class="fas fa-gavel"
+                                  style="color:var(--primary-color)"></i> Procedural</div>
+                              <div class="row view-details">
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Investor
+                                    Complaints</label>
+                                  <h6>N/A</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Tenant
+                                    Complaints</label>
+                                  <h6>N/A</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Legal Disputes</label>
+                                  <h6>None</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Sell-side
+                                    Advisor</label>
+                                  <h6>Less than 2 months</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">SPV
+                                    Termination</label>
+                                  <h6>More than 70 days</h6>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">ZATCA
+                                    Deregistration</label>
+                                  <h6>More than 70 days</h6>
+                                </div>
+                              </div>
+                              <div class="col-12">
+                                <label class="col-form-label view-details">Maker Notes</label>
+                                <div class="p-3 mt-1"
+                                  style="background:#f5f6fa;border-radius:7px;border:1px solid #dee2e6;font-size:13px">
+                                  Draft fund — pending internal approval and document preparation before submission.
+                                </div>
+                              </div>
+                            </div>
+                          </div>
 
                           <div class="checker-action-bar">
                             <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
@@ -3452,7 +3819,8 @@
 
   </script>
   <script src="assets/datatable/js/bootstrap-multiselect.js"></script>
-  <link rel="stylesheet" href="assets/datatable/css/bootstrap-multiselect.css">
+  <link rel="stylesheet"
+    href="assets/datatable/css/bootstrap-multiselect.css">
   <script>
 
     $(document).ready(function () {
@@ -3580,394 +3948,323 @@
 
   </script>
   <script>
-let currentStep = 1;
-let fundFormMode = 'add';
-let editingRow = null;
+    let currentStep = 1;
+    let fundFormMode = 'add';
+    let editingRow = null;
 
-/* ===========================
-   REVIEW PERIOD
-=========================== */
-function getReviewPeriod() {
-    const quarter = document.getElementById('reviewQuarter')?.value || '';
-    const year = document.getElementById('reviewYear')?.value || '';
-    return quarter && year ? `${quarter} ${year}` : '';
-}
-
-/* ===========================
-   WIZARD
-=========================== */
-function goToStep(n) {
-    const targetBtn = document.getElementById('step-btn-' + n);
-    if (!targetBtn) return;
-
-    if (
-        !targetBtn.classList.contains('done') &&
-        !targetBtn.classList.contains('active')
-    ) return;
-
-    activateStep(n);
-}
-
-function activateStep(n) {
-    currentStep = n;
-
-    document.querySelectorAll('.step-panel').forEach(panel => {
-        panel.classList.remove('active');
-    });
-
-    const activePanel = document.getElementById('panel-' + n);
-    if (activePanel) {
-        activePanel.classList.add('active');
+    function goToStep(n) {
+      const targetBtn = document.getElementById('step-btn-' + n);
+      if (!targetBtn.classList.contains('done') && !targetBtn.classList.contains('active')) return;
+      activateStep(n);
     }
 
-    for (let i = 1; i <= 4; i++) {
+    function activateStep(n) {
+      currentStep = n;
+      document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('panel-' + n).classList.add('active');
+      for (let i = 1; i <= 5; i++) {
         const btn = document.getElementById('step-btn-' + i);
-
-        if (!btn) continue;
-
         btn.classList.remove('active', 'done');
-
         if (i < n) btn.classList.add('done');
         if (i === n) btn.classList.add('active');
+      }
+      document.getElementById('step-indicator').textContent = 'Step ' + n + ' of 5';
+      document.getElementById('btn-prev').style.display = n > 1 ? '' : 'none';
+      document.getElementById('btn-next').innerHTML = n === 5 ? (fundFormMode === 'edit' ? '<i class="fas fa-save me-2"></i>Save Changes' : '<i class="fas fa-paper-plane me-2"></i>Submit for Review') : 'Next Step <i class="fas fa-arrow-right ms-2"></i>';
     }
 
-    const indicator = document.getElementById('step-indicator');
-    if (indicator) {
-        indicator.textContent = `Step ${n} of 4`;
+    function setFundFormMode(mode) {
+      fundFormMode = mode;
+      document.getElementById('createFundModalLabel').textContent = mode === 'edit' ? 'Edit Fund' : 'Create New Fund';
     }
 
-    const prevBtn = document.getElementById('btn-prev');
-    if (prevBtn) {
-        prevBtn.style.display = n > 1 ? '' : 'none';
+    function resetFundForm() {
+      editingRow = null;
+      document.getElementById('fundId').value = '';
+      document.getElementById('fundName').value = '';
+      document.getElementById('reviewPeriod').value = '';
+      document.getElementById('fundDate').value = '';
+      document.getElementById('fundCurrency').value = '';
+      document.getElementById('fundDescription').value = '';
+      document.querySelectorAll('input[name="fundType"]').forEach(el => el.checked = false);
+      document.querySelectorAll('input[name="appType"]').forEach(el => el.checked = false);
+      document.querySelectorAll('#board-members .form-control').forEach(el => el.value = '');
+      const boardMembers = document.getElementById('board-members');
+      while (boardMembers.children.length > 2) {
+        boardMembers.removeChild(boardMembers.lastChild);
+      }
     }
 
-    const nextBtn = document.getElementById('btn-next');
-
-    if (nextBtn) {
-        nextBtn.innerHTML =
-            n === 4
-                ? (
-                    fundFormMode === 'edit'
-                        ? '<i class="fas fa-save me-2"></i>Save Changes'
-                        : '<i class="fas fa-paper-plane me-2"></i>Submit for Review'
-                )
-                : 'Next Step <i class="fas fa-arrow-right ms-2"></i>';
-    }
-}
-
-function nextStep() {
-    if (!validateStep(currentStep)) {
-        showToast(
-            'Please complete the required fields before moving to the next step.',
-            'warning'
-        );
-        return;
+    function openEditFundModal(row) {
+      setFundFormMode('edit');
+      editingRow = row;
+      document.getElementById('fundId').value = row.find('td').eq(0).text().trim();
+      document.getElementById('fundName').value = row.find('td').eq(1).text().trim();
+      document.getElementById('reviewPeriod').value = row.find('td').eq(4).text().trim();
+      const type = row.find('td').eq(2).text().trim();
+      document.querySelectorAll('input[name="fundType"]').forEach(el => el.checked = el.value === type);
+      // fundDate, fundCurrency, fundDescription are not stored in the table,
+      // so we retain whatever is currently in the form fields (or blank if reset).
+      activateStep(1);
     }
 
-    if (currentStep < 4) {
-        activateStep(currentStep + 1);
-    } else {
-        $('#createFundModal').modal('hide');
-
-        setTimeout(() => {
-            showToast(
-                fundFormMode === 'edit'
-                    ? 'Fund updated successfully.'
-                    : 'Fund submitted for review.',
-                'success'
-            );
-        }, 200);
-    }
-}
-
-function prevStep() {
-    if (currentStep > 1) {
-        activateStep(currentStep - 1);
-    }
-}
-
-/* ===========================
-   MODE
-=========================== */
-function setFundFormMode(mode) {
-    fundFormMode = mode;
-
-    const title = document.getElementById('createFundModalLabel');
-
-    if (title) {
-        title.textContent =
-            mode === 'edit'
-                ? 'Edit Fund'
-                : 'Create New Fund';
-    }
-}
-
-/* ===========================
-   RESET FORM
-=========================== */
-function resetFundForm() {
-
-    editingRow = null;
-
-    const ids = [
-        'fundId',
-        'fundName',
-        'fundDate',
-        'fundCurrency',
-        'fundDescription',
-        'custodian',
-        'auditor',
-        'legalCounsel',
-        'propertyAppraisers',
-        'taxAdvisor',
-        'forecastIrr',
-        'investorAppetite',
-        'lenderAppetite',
-        'upFrontEquity',
-        'offPlanSales',
-        'assetLocation'
-    ];
-
-    ids.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.value = '';
-    });
-
-    const reviewQuarter = document.getElementById('reviewQuarter');
-    const reviewYear = document.getElementById('reviewYear');
-
-    if (reviewQuarter) reviewQuarter.value = '';
-    if (reviewYear) reviewYear.value = '';
-
-    document.querySelectorAll('input[name="fundType"]').forEach(el => {
-        el.checked = false;
-    });
-
-    document.querySelectorAll('input[name="appType"]').forEach(el => {
-        el.checked = false;
-    });
-
-    document.querySelectorAll('input[name="sensitivityAnalysis"]').forEach(el => {
-        el.checked = false;
-    });
-
-    document.querySelectorAll('input[name="additionalEquity"]').forEach(el => {
-        el.checked = false;
-    });
-
-    document.querySelectorAll('#board-members .form-control').forEach(el => {
-        el.value = '';
-    });
-
-    const boardMembers = document.getElementById('board-members');
-
-    if (boardMembers) {
-        while (boardMembers.children.length > 2) {
-            boardMembers.removeChild(boardMembers.lastChild);
-        }
-    }
-
-    activateStep(1);
-}
-
-/* ===========================
-   EDIT
-=========================== */
-function openEditFundModal(row) {
-
-    setFundFormMode('edit');
-    editingRow = row;
-
-    document.getElementById('fundId').value =
-        row.find('td').eq(0).text().trim();
-
-    document.getElementById('fundName').value =
-        row.find('td').eq(1).text().trim();
-
-    const reviewPeriod =
-        row.find('td').eq(4).text().trim();
-
-    const parts = reviewPeriod.split(' ');
-
-    if (document.getElementById('reviewQuarter')) {
-        document.getElementById('reviewQuarter').value =
-            parts[0] || '';
-    }
-
-    if (document.getElementById('reviewYear')) {
-        document.getElementById('reviewYear').value =
-            parts[1] || '';
-    }
-
-    const type =
-        row.find('td').eq(2).text().trim();
-
-    document.querySelectorAll('input[name="fundType"]').forEach(el => {
-        el.checked = el.value === type;
-    });
-
-    activateStep(1);
-}
-
-/* ===========================
-   VALIDATION
-=========================== */
-function validateStep(step) {
-
-    let valid = true;
-
-    if (step === 1) {
-
-        const fields = [
-            document.getElementById('fundName'),
-            document.getElementById('reviewQuarter'),
-            document.getElementById('reviewYear'),
-            document.getElementById('fundDate'),
-            document.getElementById('fundCurrency')
-        ];
-
-        fields.forEach(field => {
-
-            if (!field) return;
-
-            if (!field.value.trim()) {
-                field.classList.add('is-invalid');
-                valid = false;
-            } else {
-                field.classList.remove('is-invalid');
-            }
+    function validateStep(n) {
+      let valid = true;
+      if (n === 1) {
+        const name = document.getElementById('fundName');
+        const period = document.getElementById('reviewPeriod');
+        const fundDate = document.getElementById('fundDate');
+        const fundCurrency = document.getElementById('fundCurrency');
+        const type = document.querySelector('input[name="fundType"]:checked');
+        [name, period, fundDate, fundCurrency].forEach(el => {
+          if (!el.value.trim()) { el.classList.add('is-invalid'); valid = false; }
+          else el.classList.remove('is-invalid');
         });
-
-        const type =
-            document.querySelector('input[name="fundType"]:checked');
-
         if (!type) {
-            valid = false;
+          document.querySelectorAll('input[name="fundType"]').forEach(r => r.classList.add('is-invalid'));
+          valid = false;
         }
+        else {
+          document.querySelectorAll('input[name="fundType"]').forEach(r => r.classList.remove('is-invalid'));
+        }
+      }
+      return valid;
     }
 
-    return valid;
-}
+    function nextStep() {
+      if (!validateStep(currentStep)) {
+        showToast('Please complete the required fields before moving to the next step.', 'warning');
+        return;
+      }
+      if (currentStep < 5) activateStep(currentStep + 1);
+      else {
+        $('#createFundModal').modal('hide');
+        setTimeout(() => showToast('Fund submitted for review.', 'success'), 200);
+      }
+    }
 
-/* ===========================
-   DRAFT
-=========================== */
-function saveDraft() {
-    showToast('Draft saved successfully.', 'success');
-}
+    function prevStep() {
+      if (currentStep > 1) activateStep(currentStep - 1);
+    }
 
-/* ===========================
-   TOAST
-=========================== */
-function showToast(message, type = 'primary') {
+    function saveDraft() {
+      showToast('Draft saved successfully.', 'success');
+    }
 
-    const container =
-        document.getElementById('toastContainer');
-
-    if (!container) return;
-
-    const toastEl = document.createElement('div');
-
-    const toastClass =
-        type === 'success'
-            ? 'text-bg-success'
-            : type === 'warning'
-                ? 'text-bg-warning'
-                : type === 'danger'
-                    ? 'text-bg-danger'
-                    : 'text-bg-primary';
-
-    toastEl.className =
-        `toast align-items-center ${toastClass} border-0`;
-
-    toastEl.innerHTML = `
-        <div class="d-flex">
+    function showToast(message, type = 'primary') {
+      const container = document.getElementById('toastContainer');
+      if (!container) return;
+      const toastEl = document.createElement('div');
+      const toastClass = type === 'success' ? 'text-bg-success' : type === 'warning' ? 'text-bg-warning' : type === 'danger' ? 'text-bg-danger' : 'text-bg-primary';
+      toastEl.className = `toast align-items-center ${toastClass} border-0`;
+      toastEl.role = 'alert';
+      toastEl.ariaLive = 'assertive';
+      toastEl.ariaAtomic = 'true';
+      toastEl.innerHTML = `
+          <div class="d-flex">
             <div class="toast-body">${message}</div>
-            <button
-                type="button"
-                class="btn-close btn-close-white me-2 m-auto"
-                data-bs-dismiss="toast">
-            </button>
-        </div>
-    `;
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+        `;
+      container.appendChild(toastEl);
+      const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+      toast.show();
+      toastEl.addEventListener('hidden.bs.toast', () => toastEl.remove());
+    }
 
-    container.appendChild(toastEl);
-
-    const toast =
-        new bootstrap.Toast(toastEl, { delay: 3000 });
-
-    toast.show();
-
-    toastEl.addEventListener('hidden.bs.toast', () => {
-        toastEl.remove();
-    });
-}
-
-/* ===========================
-   BOARD MEMBERS
-=========================== */
-function addMember() {
-
-    const wrap =
-        document.getElementById('board-members');
-
-    const row = document.createElement('div');
-
-    row.className = 'board-row col-lg-4';
-
-    row.innerHTML = `
-        <div class="input-group mb-3">
-            <input type="text"
-                class="form-control"
-                placeholder="Member name & designation">
-
+    function addMember() {
+      const wrap = document.getElementById('board-members');
+      const row = document.createElement('div');
+      row.className = 'board-row col-lg-4';
+      row.innerHTML = `
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Member name & designation">
             <div class="input-group-append">
-                <span class="input-group-text">
-                    <button
-                        class="btn-remove-row"
-                        onclick="removeMember(this)">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </span>
+              <span class="input-group-text" id="basic-addon2"><button class="btn-remove-row" onclick="removeMember(this)" title="Remove"><i class="fas fa-trash"></i></button></span>
             </div>
-        </div>
-    `;
+          </div>`;
+      wrap.appendChild(row);
+    }
 
-    wrap.appendChild(row);
-}
+    function removeMember(btn) {
+      btn.closest('.board-row')?.remove();
+    }
 
-function removeMember(btn) {
-    btn.closest('.board-row')?.remove();
-}
+    function triggerUpload(el) {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = '.pdf,.jpg,.jpeg,.png';
+      input.onchange = () => {
+        if (input.files && input.files.length) {
+          el.classList.add('uploaded');
+          el.querySelector('p').innerHTML = `<span class="link">${input.files[0].name}</span> uploaded`;
+        }
+      };
+      input.click();
+    }
 
-/* ===========================
-   DOCUMENT READY
-=========================== */
-$(document).ready(function () {
+    function getUploadLabel(uploadId) {
+      const zone = document.getElementById(uploadId);
+      if (!zone) return 'N/A';
+      const link = zone.querySelector('.link');
+      const text = link ? link.textContent.trim() : '';
+      return text && text !== 'Click to upload' ? text : 'Not uploaded';
+    }
 
-    $('#fundsTableBody').on('click', '.edit-fund-btn', function (e) {
+    function getSelectedRadioValue(name) {
+      const radio = document.querySelector(`input[name="${name}"]:checked`);
+      return radio ? radio.value : 'N/A';
+    }
 
+    function getBoardMembersHtml() {
+      const members = Array.from(document.querySelectorAll('#board-members .form-control'))
+        .map(el => el.value.trim()).filter(Boolean);
+      if (!members.length) return '<span class="text-muted">N/A</span>';
+      return members.map(name => `<span class="badge bg-secondary me-2" style="font-size:12px;padding:5px 10px">${name}</span>`).join('');
+    }
+
+    function getFormValue(id) {
+      const el = document.getElementById(id);
+      if (!el) return 'N/A';
+      if (el.tagName === 'SELECT' || el.tagName === 'TEXTAREA' || el.tagName === 'INPUT') {
+        return el.value.trim() || 'N/A';
+      }
+      return 'N/A';
+    }
+
+    function populateViewFundModal(row) {
+      const rowFundName = row.find('td').eq(1).text().trim() || 'N/A';
+      const rowFundType = row.find('td').eq(2).text().trim() || 'N/A';
+      const rowCreatedDate = row.find('td').eq(3).text().trim() || 'N/A';
+      const rowReviewPeriod = row.find('td').eq(4).text().trim() || 'N/A';
+      const rowStatus = row.find('td').eq(5).text().trim() || 'N/A';
+
+      // Show & activate the dynamic tab
+      const dynamicTabLi = document.getElementById('dynamic-fund-tab-li');
+      const dynamicTabLink = document.getElementById('dynamic-fund-tab-link');
+      if (dynamicTabLi) dynamicTabLi.style.display = '';
+      if (dynamicTabLink) {
+        // Deactivate all tabs, activate dynamic
+        document.querySelectorAll('#viewFundModal .nav-link').forEach(l => l.classList.remove('active'));
+        document.querySelectorAll('#viewFundModal .tab-pane').forEach(p => { p.classList.remove('show', 'active'); });
+        dynamicTabLink.classList.add('active');
+        const dynPane = document.getElementById('nav-tab-dynamic');
+        if (dynPane) { dynPane.classList.add('show', 'active'); }
+      }
+
+      // Status badge styling
+      const statusBadge = document.getElementById('viewFundStatusBadge');
+      if (statusBadge) {
+        statusBadge.textContent = rowStatus;
+        statusBadge.className = 'badge';
+        if (rowStatus === 'Approved') statusBadge.classList.add('badge-approved');
+        else if (rowStatus === 'Pending Review') statusBadge.classList.add('badge-pending');
+        else if (rowStatus === 'In Progress') statusBadge.classList.add('badge-in-progress');
+        else if (rowStatus === 'Draft') statusBadge.classList.add('badge-new');
+        else if (rowStatus === 'Rejected') statusBadge.classList.add('badge-rejected');
+      }
+      const sidebarStatusBadge = document.getElementById('viewFundSidebarStatusBadge');
+      if (sidebarStatusBadge) {
+        sidebarStatusBadge.textContent = rowStatus;
+        sidebarStatusBadge.className = 'badge';
+        if (rowStatus === 'Approved') sidebarStatusBadge.classList.add('badge-approved');
+        else if (rowStatus === 'Pending Review') sidebarStatusBadge.classList.add('badge-pending');
+        else if (rowStatus === 'In Progress') sidebarStatusBadge.classList.add('badge-in-progress');
+        else if (rowStatus === 'Draft') sidebarStatusBadge.classList.add('badge-new');
+      }
+
+      document.getElementById('viewFundId').textContent = row.find('td').eq(0).text().trim() || 'N/A';
+      document.getElementById('viewFundSidebarId').textContent = row.find('td').eq(0).text().trim() || 'N/A';
+      document.getElementById('viewFundSidebarName').textContent = rowFundName;
+      document.getElementById('viewFundSidebarCreatedDate').textContent = rowCreatedDate !== 'N/A' ? `Created on ${rowCreatedDate}` : 'N/A';
+      document.getElementById('viewFundSidebarType').textContent = rowFundType;
+      document.getElementById('viewFundSidebarReviewPeriod').textContent = rowReviewPeriod;
+      document.getElementById('viewFundName').textContent = rowFundName;
+      document.getElementById('viewFundType').textContent = rowFundType;
+      document.getElementById('viewCreatedDate').textContent = rowCreatedDate !== 'N/A' ? `Created on ${rowCreatedDate}` : '';
+      document.getElementById('viewFundCreatedDateLabel').textContent = rowCreatedDate !== 'N/A' ? `Created on ${rowCreatedDate}` : '';
+      document.getElementById('viewReviewPeriod').textContent = rowReviewPeriod;
+      document.getElementById('viewFundStatusBadge').textContent = rowStatus;
+
+      document.getElementById('viewFundDate').textContent = getFormValue('fundDate') || 'N/A';
+      document.getElementById('viewFundCurrency').textContent = getFormValue('fundCurrency') || 'N/A';
+      document.getElementById('viewFundDescription').textContent = getFormValue('fundDescription') || 'N/A';
+
+      const appTypes = Array.from(document.querySelectorAll('input[name="appType"]:checked')).map(el => el.value);
+      const appTypeContainer = document.getElementById('viewApplicationTypes');
+      appTypeContainer.innerHTML = appTypes.length ? appTypes.map(type => `<span class="badge bg-success text-white" style="font-size:12px;padding:6px 12px">${type}</span>`).join('') : '<span class="text-muted">N/A</span>';
+
+      document.getElementById('viewCustodian').textContent = getFormValue('custodian') || 'N/A';
+      document.getElementById('viewAuditor').textContent = getFormValue('auditor') || 'N/A';
+      document.getElementById('viewLegalCounsel').textContent = getFormValue('legalCounsel') || 'N/A';
+      document.getElementById('viewPropertyAppraisers').textContent = getFormValue('propertyAppraisers') || 'N/A';
+      document.getElementById('viewTaxAdvisor').textContent = getFormValue('taxAdvisor') || 'N/A';
+      document.getElementById('viewBoardMembers').innerHTML = getBoardMembersHtml();
+
+      function uploadBadge(label) {
+        if (label === 'Not uploaded') return `<span class="badge" style="background:#FAEEDA;color:#854F0B;font-size:11px">Not Uploaded</span>`;
+        return `<span class="badge" style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span> <small style="font-size:11px;color:#626367">${label}</small>`;
+      }
+      document.getElementById('viewUploadEnbdc').innerHTML = uploadBadge(getUploadLabel('uploadEnbdc'));
+      document.getElementById('viewUploadCompliance').innerHTML = uploadBadge(getUploadLabel('uploadCompliance'));
+      document.getElementById('viewUploadRisk').innerHTML = uploadBadge(getUploadLabel('uploadRisk'));
+      document.getElementById('viewUploadSharia').innerHTML = uploadBadge(getUploadLabel('uploadSharia'));
+      document.getElementById('viewUploadInsurance').innerHTML = uploadBadge(getUploadLabel('uploadInsurance'));
+      document.getElementById('viewUploadZatca').innerHTML = uploadBadge(getUploadLabel('uploadZatca'));
+      document.getElementById('viewUploadCivilDefense').innerHTML = uploadBadge(getUploadLabel('uploadCivilDefense'));
+      document.getElementById('viewUploadBuildingCompliance').innerHTML = uploadBadge(getUploadLabel('uploadBuildingCompliance'));
+
+      document.getElementById('viewForecastIrr').textContent = getFormValue('forecastIrr') || 'N/A';
+      document.getElementById('viewInvestorAppetite').textContent = getFormValue('investorAppetite') || 'N/A';
+      document.getElementById('viewLenderAppetite').textContent = getFormValue('lenderAppetite') || 'N/A';
+      document.getElementById('viewSensitivityAnalysis').textContent = getSelectedRadioValue('sensitivityAnalysis');
+      document.getElementById('viewUpFrontEquity').textContent = getFormValue('upFrontEquity') || 'N/A';
+      document.getElementById('viewAdditionalEquity').textContent = getSelectedRadioValue('additionalEquity');
+      document.getElementById('viewOffPlanSales').textContent = getFormValue('offPlanSales') || 'N/A';
+      document.getElementById('viewAssetLocation').textContent = getFormValue('assetLocation') || 'N/A';
+
+      document.getElementById('viewInvestorComplaints').textContent = getFormValue('investorComplaints') || 'N/A';
+      document.getElementById('viewTenantComplaints').textContent = getFormValue('tenantComplaints') || 'N/A';
+      document.getElementById('viewLegalDisputes').textContent = getFormValue('legalDisputes') || 'N/A';
+      document.getElementById('viewSellSideAdvisor').textContent = getFormValue('sellSideAdvisor') || 'N/A';
+      document.getElementById('viewSpvTermination').textContent = getFormValue('spvTermination') || 'N/A';
+      document.getElementById('viewZatcaDeregistration').textContent = getFormValue('zatcaDeregistration') || 'N/A';
+      document.getElementById('viewMakerNotes').textContent = getFormValue('makerNotes') || '—';
+    }
+
+    $(document).ready(function () {
+      $('#fundsTableBody').on('click', '.view-fund-btn', function () {
+        const row = $(this).closest('tr');
+        populateViewFundModal(row);
+      });
+
+      $('#fundsTableBody').on('click', '.submit-review-btn', function () {
+        const row = $(this).closest('tr');
+        $('#submitFundName').text(row.find('td').eq(1).text().trim());
+      });
+
+      $('#fundsTableBody').on('click', '.edit-fund-btn', function (e) {
         e.preventDefault();
-
-        const row =
-            $(this).closest('tr');
-
+        const row = $(this).closest('tr');
         openEditFundModal(row);
-
         $('#createFundModal').modal('show');
-    });
+      });
 
-    $('#openCreateFundBtn').click(function () {
-
+      $('#openCreateFundBtn').click(function () {
         setFundFormMode('add');
         resetFundForm();
-    });
+      });
 
-    $('#createFundModal').on('show.bs.modal', function () {
+      $('#confirmSubmitReviewBtn').click(function () {
+        $('#submitReviewModal').modal('hide');
+        setTimeout(() => showToast('Fund submitted for review.', 'success'), 200);
+      });
+
+      $('#createFundModal').on('show.bs.modal', function () {
         activateStep(1);
+      });
     });
-});
-</script>
+  </script>
 
   <div class="toast-container position-fixed top-0 end-0 p-3" id="toastContainer"></div>
 </body>

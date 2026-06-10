@@ -11,17 +11,25 @@
   <style>
     :root {
       /* Synchronized with merged.css structural parameters */
-      --bg: #f5f6fa;               /* Matched with main content backdrop .main class */
+      --bg: #f5f6fa;
+      /* Matched with main content backdrop .main class */
       --surface: #ffffff;
-      --border: #D1D1D1;           /* Unified input border colors */
-      --primary: #E87722;          /* Primary Brand Orange Color */
-      --primary-hover: #c56228;    /* Dark Active Brand Accent Orange Color */
-      --primary-light: rgba(232, 119, 34, 0.1); /* 10% translucent branding overlay */
-      --text: #575756;             /* Charcoal body text default color */
-      --muted: #726F6E;            /* Subdued form text and label color */
-      
+      --border: #D1D1D1;
+      /* Unified input border colors */
+      --primary: #E87722;
+      /* Primary Brand Orange Color */
+      --primary-hover: #c56228;
+      /* Dark Active Brand Accent Orange Color */
+      --primary-light: rgba(232, 119, 34, 0.1);
+      /* 10% translucent branding overlay */
+      --text: #575756;
+      /* Charcoal body text default color */
+      --muted: #726F6E;
+      /* Subdued form text and label color */
+
       /* Status Mapping System Constants */
-      --green: #198754;            /* Synced with utility .btn-success class */
+      --green: #198754;
+      /* Synced with utility .btn-success class */
       --green-bg: #d1fae5;
       --green-head: #ecfdf5;
       --green-card: #f8fdfa;
@@ -29,15 +37,18 @@
       --amber-bg: #fef3c7;
       --amber-head: #fffbeb;
       --amber-card: #fffdf9;
-      --red: #dc2626;              /* Synced with utility .btn-danger / danger states */
+      --red: #dc2626;
+      /* Synced with utility .btn-danger / danger states */
       --red-bg: #fee2e2;
       --red-head: #fff1f2;
       --red-card: #fffbfb;
-      
+
       /* Structural System Layout Variables */
-      --radius: 7px;               /* Global border-radius mapping standard */
-      --shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16); /* Global dynamic standard drop shadow */
-      --menu-shadow: 0px 4px 16px rgba(0,0,0,.12);
+      --radius: 7px;
+      /* Global border-radius mapping standard */
+      --shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+      /* Global dynamic standard drop shadow */
+      --menu-shadow: 0px 4px 16px rgba(0, 0, 0, .12);
     }
 
     body {
@@ -46,61 +57,61 @@
       font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     }
 
-    main { 
-      flex: 1; 
-      padding: 28px 32px; 
-      overflow-x: auto; 
+    main {
+      flex: 1;
+      padding: 28px 32px;
+      overflow-x: auto;
     }
 
-    .page-header { 
-      display: flex; 
-      align-items: center; 
-      justify-content: space-between; 
-      margin-bottom: 20px; 
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
     }
 
-    .page-title { 
-      font-size: 22px; 
-      font-weight: 700; 
+    .page-title {
+      font-size: 22px;
+      font-weight: 700;
       color: var(--text);
     }
 
     /* Search Input Wrapper */
-    .search-wrap { 
-      position: relative; 
-      max-width: 360px; 
+    .search-wrap {
+      position: relative;
+      max-width: 360px;
     }
 
-    .search-wrap svg { 
-      position: absolute; 
-      left: 12px; 
-      top: 50%; 
-      transform: translateY(-50%); 
-      color: var(--muted); 
+    .search-wrap svg {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
     }
 
-    .search-wrap input { 
-      width: 100%; 
-      padding: 7px 12px 7px 36px; 
-      border: 1px solid var(--border); 
-      border-radius: var(--radius); 
-      background: var(--surface); 
-      font-size: 14px; 
+    .search-wrap input {
+      width: 100%;
+      padding: 7px 12px 7px 36px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      font-size: 14px;
       color: var(--text);
-      outline: none; 
+      outline: none;
     }
 
-    .search-wrap input:focus { 
-      border-color: var(--primary); 
+    .search-wrap input:focus {
+      border-color: var(--primary);
     }
 
     /* Rules Table Custom Card Component Wrapping Layout Extensions */
-    .card-table-wrap { 
-      background: var(--surface); 
-      border: none; 
-      border-radius: var(--radius); 
-      box-shadow: var(--shadow); 
-      overflow: hidden; 
+    .card-table-wrap {
+      background: var(--surface);
+      border: none;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
       padding: 0;
       margin-bottom: 30px;
     }
@@ -110,80 +121,121 @@
       width: 100%;
     }
 
-    .table th, .table td {
+    .table th,
+    .table td {
       padding: 14px 16px;
       vertical-align: middle;
       border-bottom: 1px solid #CCCCCC;
       border-right: 1px solid #CCCCCC;
     }
 
-    .table th:last-child, .table td:last-child {
+    .table th:last-child,
+    .table td:last-child {
       border-right: 0;
     }
 
-    .table thead th { 
-      background: #F8F8F8; /* Synchronized with template standard table-header-bg */
-      font-size: 14px; 
-      font-weight: 700; 
-      color: #626367; 
-      text-transform: uppercase; 
-      letter-spacing: .6px; 
+    .table thead th {
+      background: #F8F8F8;
+      /* Synchronized with template standard table-header-bg */
+      font-size: 14px;
+      font-weight: 700;
+      color: #626367;
+      text-transform: uppercase;
+      letter-spacing: .6px;
       text-align: center;
     }
 
-    .table thead th.col-w-idx { width: 60px; }
-    .table thead th.col-w-metric { text-align: left; }
-    .table thead th.col-w-actions { text-align: right; width: 100px; }
-
-    .table thead th.green-head { background: var(--green-head); color: var(--green); }
-    .table thead th.amber-head { background: var(--amber-head); color: var(--amber); }
-    .table thead th.red-head { background: var(--red-head); color: var(--red); }
-
-    .row-num { 
-      font-size: 13px; 
-      color: var(--muted); 
-      font-weight: 600; 
-      text-align: center; 
+    .table thead th.col-w-idx {
+      width: 60px;
     }
 
-    .metric-name { 
-      font-weight: 600; 
-      color: var(--text); 
-      font-size: 14px; 
+    .table thead th.col-w-metric {
+      text-align: left;
     }
 
-    .input-type-tag { 
-      display: inline-flex; 
-      align-items: center; 
-      gap: 4px; 
-      font-size: 11px; 
-      color: var(--muted); 
-      background: var(--bg); 
-      border: 1px solid var(--border); 
-      border-radius: 4px; 
-      padding: 2px 7px; 
-      margin-top: 4px; 
+    .table thead th.col-w-actions {
+      text-align: right;
+      width: 100px;
+    }
+
+    .table thead th.green-head {
+      background: var(--green-head);
+      color: var(--green);
+    }
+
+    .table thead th.amber-head {
+      background: var(--amber-head);
+      color: var(--amber);
+    }
+
+    .table thead th.red-head {
+      background: var(--red-head);
+      color: var(--red);
+    }
+
+    .row-num {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .metric-name {
+      /* font-weight: 600; */
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .input-type-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      color: var(--muted);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 7px;
+      margin-top: 4px;
     }
 
     /* Badges */
-    .badge-custom { 
-      display: inline-flex; 
-      align-items: center; 
-      padding: 6px 12px; 
-      border-radius: 20px; 
-      font-size: 12.5px; 
-      font-weight: 600; 
-      white-space: nowrap; 
+    .badge-custom {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 300;
+      white-space: nowrap;
     }
 
-    .badge-green { background: var(--green-bg); color: var(--green); }
-    .badge-amber { background: var(--amber-bg); color: var(--amber); }
-    .badge-red { background: var(--red-bg); color: var(--red); }
-    .dash { color: var(--muted); font-size: 13px; }
+    .badge-green {
+      background: var(--green-bg);
+      color: var(--green);
+    }
+
+    .badge-amber {
+      background: var(--amber-bg);
+      color: var(--amber);
+    }
+
+    .badge-red {
+      background: var(--red-bg);
+      color: var(--red);
+    }
+
+    .dash {
+      color: var(--muted);
+      font-size: 13px;
+    }
 
     /* Action Dropdowns */
-    .action-wrap { position: relative; display: inline-block; }
-    
+    .action-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
     .action-trigger {
       background: transparent;
       border: none;
@@ -191,42 +243,55 @@
       cursor: pointer;
       padding: 4px 8px;
     }
-    
+
     .action-trigger:hover {
       color: var(--primary);
     }
 
-    .drop-menu { 
-      display: none; 
-      position: absolute; 
-      right: 0; 
-      top: 100%; 
-      background: var(--surface); 
-      border: 1px solid var(--border); 
-      border-radius: var(--radius); 
-      box-shadow: var(--menu-shadow); 
-      min-width: 140px; 
-      z-index: 50; 
-      overflow: hidden; 
+    .drop-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--menu-shadow);
+      min-width: 140px;
+      z-index: 50;
+      overflow: hidden;
     }
 
-    .drop-menu.open { display: block; }
-    
-    .drop-item { 
-      display: flex; 
-      align-items: center; 
-      gap: 8px; 
-      padding: 9px 14px; 
-      font-size: 13px; 
-      cursor: pointer; 
-      color: var(--text); 
-      transition: background .1s; 
+    .drop-menu.open {
+      display: block;
+    }
+
+    .drop-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      font-size: 13px;
+      cursor: pointer;
+      color: var(--text);
+      transition: background .1s;
       text-align: left;
     }
 
-    .drop-item:hover { background: var(--bg); color: var(--primary); text-decoration: underline; }
-    .drop-item.danger { color: #dc2626; }
-    .drop-item.danger:hover { background: #fff5f5; color: #dc2626; }
+    .drop-item:hover {
+      background: var(--bg);
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .drop-item.danger {
+      color: #dc2626;
+    }
+
+    .drop-item.danger:hover {
+      background: #fff5f5;
+      color: #dc2626;
+    }
 
     /* Threshold Row Cards Layout Mapping */
     .threshold-container-block {
@@ -235,33 +300,52 @@
       gap: 16px;
     }
 
-    .threshold-card-row { 
-      background: var(--surface); 
-      border: 1px solid #f0f2f7; 
-      border-radius: var(--radius); 
-      padding: 18px 16px; 
-      display: flex; 
-      flex-direction: column; 
-      gap: 12px; 
+    .threshold-card-row {
+      background: var(--surface);
+      border: 1px solid #f0f2f7;
+      border-radius: var(--radius);
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
-    .threshold-card-row.row-green { background: var(--green-card); border-color: #e6f6ee; }
-    .threshold-card-row.row-amber { background: var(--amber-card); border-color: #fef8e7; }
-    .threshold-card-row.row-red { background: var(--red-card); border-color: #fdf2f2; }
+    .threshold-card-row.row-green {
+      background: var(--green-card);
+      border-color: #e6f6ee;
+    }
 
-    .threshold-card-label { 
-      display: flex; 
-      align-items: center; 
+    .threshold-card-row.row-amber {
+      background: var(--amber-card);
+      border-color: #fef8e7;
+    }
+
+    .threshold-card-row.row-red {
+      background: var(--red-card);
+      border-color: #fdf2f2;
+    }
+
+    .threshold-card-label {
+      display: flex;
+      align-items: center;
       justify-content: space-between;
-      font-size: 12px; 
-      font-weight: 700; 
-      text-transform: uppercase; 
-      letter-spacing: .6px; 
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .6px;
     }
 
-    .threshold-card-label.lbl-green { color: var(--green); }
-    .threshold-card-label.lbl-amber { color: var(--amber); }
-    .threshold-card-label.lbl-red { color: var(--red); }
+    .threshold-card-label.lbl-green {
+      color: var(--green);
+    }
+
+    .threshold-card-label.lbl-amber {
+      color: var(--amber);
+    }
+
+    .threshold-card-label.lbl-red {
+      color: var(--red);
+    }
 
     .threshold-inputs-grid {
       display: grid;
@@ -274,7 +358,7 @@
     .preview-wrap {
       margin-top: 6px;
     }
-    
+
     .preview-wrap label {
       font-size: 11px;
       font-weight: 700;
@@ -294,29 +378,34 @@
       padding: 6px 12px;
       font-size: 13px;
       color: var(--text);
-      font-weight: 600;
+      /* font-weight: 600; */
       resize: none;
       outline: none;
     }
 
-    .field-label { 
-      font-size: 11.5px; 
-      font-weight: 600; 
-      color: var(--muted); 
-      text-transform: uppercase; 
-      letter-spacing: .5px; 
+    .field-label {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .5px;
       margin-bottom: 4px;
     }
 
-    .empty-state { 
-      text-align: center; 
-      padding: 60px 20px; 
-      color: var(--muted); 
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
       display: none;
     }
 
-    .hide-element { display: none !important; }
-    .show-block { display: block !important; }
+    .hide-element {
+      display: none !important;
+    }
+
+    .show-block {
+      display: block !important;
+    }
 
     /* Primary layout pill elements overrides matching layout standard values */
     .btn-primary {
@@ -328,8 +417,10 @@
       color: #fff !important;
       min-width: 120px;
     }
-    
-    .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary:focus {
       background-color: var(--primary-hover) !important;
       border-color: var(--primary-hover) !important;
       box-shadow: none !important;
@@ -353,7 +444,8 @@
     }
 
     /* Form input styling overrides for modal integration consistency */
-    .form-control, .form-select {
+    .form-control,
+    .form-select {
       border-radius: var(--radius) !important;
       border-color: var(--border) !important;
       color: var(--muted) !important;
@@ -365,25 +457,30 @@
       padding-right: 2.25rem !important;
     }
 
-    .form-control:focus, .form-select:focus {
+    .form-control:focus,
+    .form-select:focus {
       border-color: var(--border) !important;
       box-shadow: 0 0 0 0 transparent !important;
       color: var(--muted) !important;
     }
   </style>
 </head>
+
 <body>
 
   <header class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light">
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link ps-0 pe-4 toggle_nav" data-widget="pushmenu" href="#" role="button" id="menu"><img src="assets/images/bars.gif" alt="Bars"></a></li>
-        <li class="nav-item d-sm-inline-block"> <a class="nav-link h-auto p-0" href="#"><img src="assets/images/logo.svg" style="height: 70px;" alt="Logo"> </a></li>
+        <li class="nav-item"><a class="nav-link ps-0 pe-4 toggle_nav" data-widget="pushmenu" href="#" role="button"
+            id="menu"><img src="assets/images/bars.gif" alt="Bars"></a></li>
+        <li class="nav-item d-sm-inline-block"> <a class="nav-link h-auto p-0" href="#"><img
+              src="assets/images/logo.svg" style="height: 70px;" alt="Logo"> </a></li>
       </ul>
       <div class="collapse navbar-collapse justify-content-end">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-2 mt-1 notification">
-            <a class="nav-link notification" href="#" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-bell fa-fw"></i></a>
+            <a class="nav-link notification" href="#" data-bs-toggle="dropdown" aria-expanded="false"><i
+                class="fas fa-bell fa-fw"></i></a>
             <div class="dropdown-menu p-2">
               <div class="row m-0 justify-content-between">
                 <div class="col-auto px-2"><a href="">Mark as read</a></div>
@@ -408,11 +505,19 @@
             <div class="dropdown-menu">
               <ul class="p-0">
                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#profile">Profile</a></li>
-                <li><hr class="dropdown-divider m-0"></li>
-                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#changePassword">Change Password</a></li>
-                <li><hr class="dropdown-divider m-0"></li>
-                <li><a class="dropdown-item impersonatebtn" data-bs-toggle="modal" data-bs-target="#impersonate">Impersonate</a></li>
-                <li><hr class="dropdown-divider m-0"></li>
+                <li>
+                  <hr class="dropdown-divider m-0">
+                </li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#changePassword">Change Password</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider m-0">
+                </li>
+                <li><a class="dropdown-item impersonatebtn" data-bs-toggle="modal"
+                    data-bs-target="#impersonate">Impersonate</a></li>
+                <li>
+                  <hr class="dropdown-divider m-0">
+                </li>
                 <li><a class="dropdown-item" href="index.html">Log Out</a></li>
               </ul>
             </div>
@@ -429,7 +534,9 @@
           <ul class="nav flex-column">
             <li class="nav-item">
               <a class="nav-link" href="index.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard me-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-layout-dashboard me-2">
                   <rect width="7" height="9" x="3" y="3" rx="1"></rect>
                   <rect width="7" height="5" x="14" y="3" rx="1"></rect>
                   <rect width="7" height="9" x="14" y="12" rx="1"></rect>
@@ -440,7 +547,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="rulesSet.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu-rule-engine me-2" style="vertical-align: middle;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-cpu-rule-engine me-2" style="vertical-align: middle;">
                   <path d="M6 4H4v16h2" />
                   <path d="M18 4h2v16h-2" />
                   <path d="M9 9h2a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H9" />
@@ -448,21 +557,6 @@
                   <rect x="10" y="10" width="4" height="4" rx="0.5" fill="currentColor" fill-opacity="0.2" />
                 </svg>
                 <span>Rule Engine</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="lookupValue.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database-lookup me-2" style="vertical-align: middle;">
-                  <path d="M3 5h18" />
-                  <path d="M3 10h11" />
-                  <path d="M3 15h11" />
-                  <path d="M3 20h18" />
-                  <path d="M8 5v15" />
-                  <circle cx="17" cy="12" r="3" fill="currentColor" fill-opacity="0.1" />
-                  <path d="M17 9v6" />
-                  <path d="M14 12h6" />
-                </svg>
-                <span>Lookup Value</span>
               </a>
             </li>
           </ul>
@@ -522,7 +616,8 @@
     </main>
   </div>
 
-  <div class="modal fade" id="ruleEngineModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal fade" id="ruleEngineModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="modalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content" style="border-radius: 12px; border: none; box-shadow: var(--menu-shadow);">
         <div class="modal-header px-4 py-3 border-bottom">
@@ -552,7 +647,7 @@
 
           <div id="thresholdSection" class="hide-element">
             <div class="threshold-container-block">
-              
+
               <div class="threshold-card-row row-green">
                 <div class="threshold-card-label lbl-green"><span><span class="dot dot-green"></span> Green</span></div>
                 <div class="threshold-inputs-grid">
@@ -572,7 +667,8 @@
                 </div>
                 <div class="preview-wrap">
                   <label>textarea - preview</label>
-                  <textarea id="preview_green" class="preview-textarea" readonly placeholder="Awaiting configuration inputs..."></textarea>
+                  <textarea id="preview_green" class="preview-textarea" readonly
+                    placeholder="Awaiting configuration inputs..."></textarea>
                 </div>
               </div>
 
@@ -595,7 +691,8 @@
                 </div>
                 <div class="preview-wrap">
                   <label>textarea - preview</label>
-                  <textarea id="preview_amber" class="preview-textarea" readonly placeholder="Awaiting configuration inputs..."></textarea>
+                  <textarea id="preview_amber" class="preview-textarea" readonly
+                    placeholder="Awaiting configuration inputs..."></textarea>
                 </div>
               </div>
 
@@ -618,7 +715,8 @@
                 </div>
                 <div class="preview-wrap">
                   <label>textarea - preview</label>
-                  <textarea id="preview_red" class="preview-textarea" readonly placeholder="Awaiting configuration inputs..."></textarea>
+                  <textarea id="preview_red" class="preview-textarea" readonly
+                    placeholder="Awaiting configuration inputs..."></textarea>
                 </div>
               </div>
 
@@ -627,11 +725,12 @@
 
           <div id="customThresholds" class="hide-element">
             <div class="threshold-container-block">
-              
+
               <div class="threshold-card-row row-green">
                 <div class="threshold-card-label lbl-green"><span><span class="dot dot-green"></span> Green</span></div>
                 <div class="threshold-inputs-grid">
-                  <input type="text" id="txt_custom_green_left" class="form-control custom-tracker" placeholder="Enter value…">
+                  <input type="text" id="txt_custom_green_left" class="form-control custom-tracker"
+                    placeholder="Enter value…">
                   <select id="sel_custom_green_center" class="form-select custom-tracker">
                     <option value="" disabled="" selected="">Select Operations</option>
                     <option value="+">+</option>
@@ -641,18 +740,21 @@
                     <option value="Below">Below</option>
                     <option value="Equal">Equal</option>
                   </select>
-                  <input type="text" id="txt_custom_green_right" class="form-control custom-tracker" placeholder="Enter value…">
+                  <input type="text" id="txt_custom_green_right" class="form-control custom-tracker"
+                    placeholder="Enter value…">
                 </div>
                 <div class="preview-wrap">
                   <label>textarea - preview</label>
-                  <textarea id="preview_custom_green" class="preview-textarea" readonly placeholder="Awaiting configuration inputs..."></textarea>
+                  <textarea id="preview_custom_green" class="preview-textarea" readonly
+                    placeholder="Awaiting configuration inputs..."></textarea>
                 </div>
               </div>
 
               <div class="threshold-card-row row-amber">
                 <div class="threshold-card-label lbl-amber"><span><span class="dot dot-amber"></span> Amber</span></div>
                 <div class="threshold-inputs-grid">
-                  <input type="text" id="txt_custom_amber_left" class="form-control custom-tracker" placeholder="Enter value…">
+                  <input type="text" id="txt_custom_amber_left" class="form-control custom-tracker"
+                    placeholder="Enter value…">
                   <select id="sel_custom_amber_center" class="form-select custom-tracker">
                     <option value="" disabled="" selected="">Select Operations</option>
                     <option value="+">+</option>
@@ -662,18 +764,21 @@
                     <option value="Below">Below</option>
                     <option value="Equal">Equal</option>
                   </select>
-                  <input type="text" id="txt_custom_amber_right" class="form-control custom-tracker" placeholder="Enter value…">
+                  <input type="text" id="txt_custom_amber_right" class="form-control custom-tracker"
+                    placeholder="Enter value…">
                 </div>
                 <div class="preview-wrap">
                   <label>textarea - preview</label>
-                  <textarea id="preview_custom_amber" class="preview-textarea" readonly placeholder="Awaiting configuration inputs..."></textarea>
+                  <textarea id="preview_custom_amber" class="preview-textarea" readonly
+                    placeholder="Awaiting configuration inputs..."></textarea>
                 </div>
               </div>
 
               <div class="threshold-card-row row-red">
                 <div class="threshold-card-label lbl-red"><span><span class="dot dot-red"></span> Red</span></div>
                 <div class="threshold-inputs-grid">
-                  <input type="text" id="txt_custom_red_left" class="form-control custom-tracker" placeholder="Enter value…">
+                  <input type="text" id="txt_custom_red_left" class="form-control custom-tracker"
+                    placeholder="Enter value…">
                   <select id="sel_custom_red_center" class="form-select custom-tracker">
                     <option value="" disabled="" selected="">Select Operations</option>
                     <option value="+">+</option>
@@ -683,11 +788,13 @@
                     <option value="Below">Below</option>
                     <option value="Equal">Equal</option>
                   </select>
-                  <input type="text" id="txt_custom_red_right" class="form-control custom-tracker" placeholder="Enter value…">
+                  <input type="text" id="txt_custom_red_right" class="form-control custom-tracker"
+                    placeholder="Enter value…">
                 </div>
                 <div class="preview-wrap">
                   <label>textarea - preview</label>
-                  <textarea id="preview_custom_red" class="preview-textarea" readonly placeholder="Awaiting configuration inputs..."></textarea>
+                  <textarea id="preview_custom_red" class="preview-textarea" readonly
+                    placeholder="Awaiting configuration inputs..."></textarea>
                 </div>
               </div>
 
@@ -735,18 +842,18 @@
     };
 
     const initialRules = [
-      {n:1, metric:"Forecasted IRR", greenLeft:"Above SAIBOR", greenOp:"+", greenRight:"2%", amberLeft:"From SAIBOR to SAIBOR", amberOp:"+", amberRight:"2%", redLeft:"Below SAIBOR", redOp:"", redRight:""},
-      {n:2, metric:"Investor Appetite", greenLeft:"Positive", greenOp:"", greenRight:"", amberLeft:"Neutral", amberOp:"", amberRight:"", redLeft:"Negative", redOp:"", redRight:""},
-      {n:3, metric:"Lender Appetite", greenLeft:"Positive", greenOp:"", greenRight:"", amberLeft:"Neutral", amberOp:"", amberRight:"", redLeft:"Negative", redOp:"", redRight:""},
-      {n:4, metric:"Up-front Equity", greenLeft:"70%", greenOp:"or", greenRight:"more", amberLeft:"50%", amberOp:"to", amberRight:"69%", redLeft:"50%", redOp:"Below", redRight:""},
-      {n:5, metric:"Up-front Equity (Coverage)", greenLeft:"1", greenOp:"", greenRight:"", amberLeft:"-", amberOp:"", amberRight:"-", redLeft:"50%", redOp:"Below", redRight:""}
+      { n: 1, metric: "Forecasted IRR", greenLeft: "Above SAIBOR", greenOp: "+", greenRight: "2%", amberLeft: "From SAIBOR to SAIBOR", amberOp: "+", amberRight: "2%", redLeft: "Below SAIBOR", redOp: "", redRight: "" },
+      { n: 2, metric: "Investor Appetite", greenLeft: "Positive", greenOp: "", greenRight: "", amberLeft: "Neutral", amberOp: "", amberRight: "", redLeft: "Negative", redOp: "", redRight: "" },
+      { n: 3, metric: "Lender Appetite", greenLeft: "Positive", greenOp: "", greenRight: "", amberLeft: "Neutral", amberOp: "", amberRight: "", redLeft: "Negative", redOp: "", redRight: "" },
+      { n: 4, metric: "Up-front Equity", greenLeft: "70%", greenOp: "or", greenRight: "more", amberLeft: "50%", amberOp: "to", amberRight: "69%", redLeft: "50%", redOp: "Below", redRight: "" },
+      { n: 5, metric: "Up-front Equity (Coverage)", greenLeft: "1", greenOp: "", greenRight: "", amberLeft: "-", amberOp: "", amberRight: "-", redLeft: "50%", redOp: "Below", redRight: "" }
     ];
 
     let rules = [...initialRules];
     let editingIndex = null;
     let bsModalInstance = null;
 
-    function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+    function esc(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 
     function formatRuleCell(left, op, right) {
       if (!left || left === '-') return '<span class="dash">—</span>';
@@ -779,19 +886,19 @@
       });
     }
 
-    function renderTable(){
+    function renderTable() {
       const q = document.getElementById('searchInput').value.toLowerCase();
       const filtered = rules.filter(r => {
         if (!q) return true;
         return r.metric.toLowerCase().includes(q) ||
-               (r.greenLeft || '').toLowerCase().includes(q) ||
-               (r.amberLeft || '').toLowerCase().includes(q) ||
-               (r.redLeft || '').toLowerCase().includes(q);
+          (r.greenLeft || '').toLowerCase().includes(q) ||
+          (r.amberLeft || '').toLowerCase().includes(q) ||
+          (r.redLeft || '').toLowerCase().includes(q);
       });
-      
+
       const tbody = document.getElementById('ruleTableBody');
       tbody.innerHTML = '';
-      
+
       const emptyState = document.getElementById('emptyState');
       if (filtered.length) {
         emptyState.classList.remove('show-block');
@@ -848,7 +955,7 @@
       const trigger = e.target.closest('.data-action-trigger');
       if (trigger) {
         const targetMenu = trigger.nextElementSibling;
-        document.querySelectorAll('.drop-menu').forEach(m => { if(m !== targetMenu) m.classList.remove('open'); });
+        document.querySelectorAll('.drop-menu').forEach(m => { if (m !== targetMenu) m.classList.remove('open'); });
         targetMenu.classList.toggle('open');
         return;
       }
@@ -859,7 +966,7 @@
       if (!e.target.closest('.action-wrap')) { document.querySelectorAll('.drop-menu').forEach(m => m.classList.remove('open')); }
     });
 
-    function populateThresholdFormFields(metricKey, loadedRuleData){
+    function populateThresholdFormFields(metricKey, loadedRuleData) {
       const defaultCfg = METRIC_CONFIG[metricKey];
       ['green', 'amber', 'red'].forEach(color => {
         const leftTxtInput = document.getElementById(`txt_${color}_left`);
@@ -902,7 +1009,7 @@
       updateLiveTextareaPreviews();
     }
 
-    document.getElementById('fMetricSelect').addEventListener('change', function(){
+    document.getElementById('fMetricSelect').addEventListener('change', function () {
       const val = this.value;
       const customWrap = document.getElementById('customMetricWrap');
       const thresholdSection = document.getElementById('thresholdSection');
@@ -912,11 +1019,11 @@
       thresholdSection.classList.add('hide-element');
       customThresholds.classList.add('hide-element');
 
-      if(val === '__custom__'){
+      if (val === '__custom__') {
         customWrap.classList.remove('hide-element');
         customThresholds.classList.remove('hide-element');
         populateCustomFormFields(null);
-      } else if(val && METRIC_CONFIG[val]){
+      } else if (val && METRIC_CONFIG[val]) {
         thresholdSection.classList.remove('hide-element');
         populateThresholdFormFields(val, null);
       }
@@ -928,11 +1035,11 @@
       document.getElementById('formError').classList.add('hide-element');
       document.getElementById('fMetricSelect').value = '';
       document.getElementById('fCustomMetric').value = '';
-      
+
       document.getElementById('customMetricWrap').classList.add('hide-element');
       document.getElementById('thresholdSection').classList.add('hide-element');
       document.getElementById('customThresholds').classList.add('hide-element');
-      
+
       ['green', 'amber', 'red'].forEach(c => {
         document.getElementById(`preview_${c}`).value = '';
         document.getElementById(`preview_custom_${c}`).value = '';
@@ -940,13 +1047,13 @@
       bsModalInstance.show();
     };
 
-    function editRule(idx){
+    function editRule(idx) {
       document.querySelectorAll('.drop-menu').forEach(m => m.classList.remove('open'));
-      const r = rules[idx]; 
+      const r = rules[idx];
       editingIndex = idx;
       document.getElementById('modalTitle').textContent = "Edit Rule";
       document.getElementById('formError').classList.add('hide-element');
-      
+
       const sel = document.getElementById('fMetricSelect');
       const customWrap = document.getElementById('customMetricWrap');
       const thresholdSection = document.getElementById('thresholdSection');
@@ -956,7 +1063,7 @@
       thresholdSection.classList.add('hide-element');
       customThresholds.classList.add('hide-element');
 
-      if(METRIC_CONFIG[r.metric]){
+      if (METRIC_CONFIG[r.metric]) {
         sel.value = r.metric;
         thresholdSection.classList.remove('hide-element');
         populateThresholdFormFields(r.metric, r);
@@ -970,11 +1077,11 @@
       bsModalInstance.show();
     }
 
-    function deleteRule(idx){
+    function deleteRule(idx) {
       document.querySelectorAll('.drop-menu').forEach(m => m.classList.remove('open'));
-      if(confirm('Are you sure you want to delete this rule?')){ 
-        rules.splice(idx, 1); 
-        renderTable(); 
+      if (confirm('Are you sure you want to delete this rule?')) {
+        rules.splice(idx, 1);
+        renderTable();
       }
     }
 
@@ -983,17 +1090,17 @@
       const err = document.getElementById('formError');
       err.classList.add('hide-element');
 
-      if(!metricSel){ 
-        err.textContent = 'Please select a valid metric.'; 
-        err.classList.remove('hide-element'); 
+      if (!metricSel) {
+        err.textContent = 'Please select a valid metric.';
+        err.classList.remove('hide-element');
         return;
       }
 
       let rec = { n: editingIndex !== null ? rules[editingIndex].n : rules.length + 1 };
 
-      if(metricSel === '__custom__'){
+      if (metricSel === '__custom__') {
         const customName = document.getElementById('fCustomMetric').value.trim();
-        if(!customName){ err.textContent = 'Please specify a custom metric name.'; err.classList.remove('hide-element'); return; }
+        if (!customName) { err.textContent = 'Please specify a custom metric name.'; err.classList.remove('hide-element'); return; }
         rec.metric = customName;
         ['green', 'amber', 'red'].forEach(color => {
           rec[`${color}Left`] = document.getElementById(`txt_custom_${color}_left`).value.trim();
@@ -1009,8 +1116,8 @@
         });
       }
 
-      if(editingIndex !== null) rules[editingIndex] = rec; else rules.push(rec);
-      bsModalInstance.hide(); 
+      if (editingIndex !== null) rules[editingIndex] = rec; else rules.push(rec);
+      bsModalInstance.hide();
       renderTable();
     };
 
@@ -1022,4 +1129,5 @@
     });
   </script>
 </body>
+
 </html>
