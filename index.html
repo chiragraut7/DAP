@@ -12,11 +12,17 @@
   <link href="assets/datatable/css/buttons.bootstrap5.min.css" rel="stylesheet">
   <link href="assets/css/ckeditor.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-
-
-
   <link href="assets/css/merged.css" rel="stylesheet">
   <style>
+    .multiSelect .btn-group>.btn {
+      padding: 7px 12px;
+      font-size: var(--font-size-14);
+    }
+
+    .multiSelect .dropdown-toggle::after {
+      top: 12px;
+    }
+
     .wizard-steps {
       display: flex;
       border-bottom: 2px solid #dee2e6;
@@ -378,6 +384,17 @@
       color: var(--primary-color);
       margin-bottom: 8px;
     }
+
+    /* Target Select2 styling within wizard forms specifically */
+    .fund-form .select2-container--default .select2-selection--multiple {
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      min-height: 38px;
+    }
+
+    .fund-form .select2-container--default.select2-container--focus .select2-selection--multiple {
+      border-color: var(--primary-color);
+    }
   </style>
 
 </head>
@@ -389,7 +406,6 @@
     <div class="txt"><img src="assets/images/logo.svg" width="200"></div>
   </div>
 
-  <!--Nav-start-->
   <header class="container-fluid">
     <nav class="navbar navbar-expand-lg">
       <ul class="navbar-nav">
@@ -399,7 +415,6 @@
               src="assets/images/logo.svg" style="height: 70px;"> </a></li>
       </ul>
       <div class="collapse navbar-collapse justify-content-end" id="">
-
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-2 mt-1 notification">
             <a class="nav-link notification" href="#" data-bs-toggle="dropdown" aria-expanded="false"> <i
@@ -416,12 +431,10 @@
                   <p class="notificationDate">notification Date</p>
                 </div>
               </div>
-
             </div>
           </li>
           <li class="nav-item ml-2 btn-group userMenu">
             <div class="userProfile" data-bs-toggle="dropdown" aria-expanded="false">
-              <!-- <div class="userPhoto"><span>JD</span></div> -->
               <a href="#" class="nav-link profile"> <span>John Doe</span> <span>Admin</span> </a>
               <div class="userArrow" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="assets/images/arrow.svg">
@@ -452,10 +465,7 @@
       </div>
     </nav>
   </header>
-  <!--Nav-end-->
-  <!--main-start-->
   <div class="d-flex">
-    <!--left-menu-start-->
     <aside class="main-sidebar sidebar-dark-primary elevation-4 leftMenu">
       <div class="sidebar" id="sidebar">
         <nav class="sidebar py-2 mb-4 scrollbar" id="navscrollbar">
@@ -475,7 +485,6 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="rulesSet.html">
-
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                   class="lucide lucide-cpu-rule-engine me-2" style="vertical-align: middle;">
@@ -492,8 +501,6 @@
         </nav>
       </div>
     </aside>
-    <!--left-menu-end-->
-    <!-- MAIN CONTENT -->
     <div class="main container-fluid p-4">
       <div class="d-flex justify-content-between align-items-center mb-2">
         <h1 class="page-heading">Funds Dashboard</h1>
@@ -504,7 +511,6 @@
       </div>
       <hr>
 
-      <!-- Dashboard Widgets -->
       <div class="row dashboard-widgets mb-4 g-3">
         <div class="col dashboard-widgets-4 w1">
           <div class="card">
@@ -586,9 +592,7 @@
         </div>
       </div>
 
-      <!-- Filters -->
       <div class="card mb-4">
-
         <div class="card-body pt-3">
           <div class="row g-3 align-items-end mb-3">
             <div class="col">
@@ -631,13 +635,11 @@
                 </div>
               </div>
             </div>
-
             <div class="col-auto text-end">
               <button class="btn btn-primary w-100">Search</button>
             </div>
           </div>
 
-          <!-- Funds Table -->
           <div class="table-responsive">
             <table class="table table-striped" id="fundsTable" style="width:100%">
               <thead>
@@ -968,7 +970,6 @@
       </div>
     </div>
 
-    <!-- Create New Fund modal -->
     <div class="modal fade" id="createFundModal" tabindex="-1" aria-labelledby="createFundModalLabel"
       aria-hidden="true">
       <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
@@ -993,10 +994,10 @@
                   <li><button class="wizard-step-btn" onclick="goToStep(4)" id="step-btn-4">
                       <div class="step-circle">4</div>Investment Logic
                     </button></li>
-
                 </ul>
               </div>
               <div class="card-body pt-4">
+
                 <div class="step-panel active" id="panel-1">
                   <div class="section-title"><i class="fas fa-info-circle" style="color:var(--primary-color)"></i> Fund
                     Information</div>
@@ -1007,12 +1008,8 @@
                       <div class="validation-msg">Fund name is required.</div>
                     </div>
                     <div class="col-lg-4 mb-3">
-                      <label class="form-label">
-                        Review Period <span class="required-star">*</span>
-                      </label>
-
+                      <label class="form-label">Review Period <span class="required-star">*</span></label>
                       <input type="hidden" id="fundId">
-
                       <div class="row g-2">
                         <div class="col-6">
                           <select class="form-select" id="reviewQuarter" required>
@@ -1023,7 +1020,6 @@
                             <option value="Q4">Q4</option>
                           </select>
                         </div>
-
                         <div class="col-6">
                           <select class="form-select" id="reviewYear" required>
                             <option value="">Select Year</option>
@@ -1038,10 +1034,7 @@
                           </select>
                         </div>
                       </div>
-
-                      <div class="validation-msg">
-                        Review Period is required.
-                      </div>
+                      <div class="validation-msg">Review Period is required.</div>
                     </div>
                     <div class="col-lg-4 mb-3">
                       <label class="form-label">KPI Type <span class="required-star">*</span></label>
@@ -1087,42 +1080,26 @@
                   </div>
 
                   <div class="section-title mt-3">
-                    <i class="fas fa-check-square" style="color:var(--primary-color)"></i> Application Types
+                    <i class="fas fa-check-square" style="color:var(--primary-color)"></i> Application
                   </div>
-                  <p class="text-muted small">Select all that apply to the fund's application types.</p>
+
                   <div class="row">
-                    <div class="col-auto mb-2">
-                      <label class="check-option">
-                        <input type="checkbox" name="appType" value="sharia"> Sharia-Compliant Fund
-                      </label>
-                    </div>
-                    <div class="col-auto mb-2">
-                      <label class="check-option">
-                        <input type="checkbox" name="appType" value="development"> Development Fund
-                      </label>
-                    </div>
-                    <div class="col-auto mb-2">
-                      <label class="check-option">
-                        <input type="checkbox" name="appType" value="income"> Income-Generating Fund
-                      </label>
-                    </div>
-                    <div class="col-auto mb-2">
-                      <label class="check-option">
-                        <input type="checkbox" name="appType" value="opportunity"> Opportunity Fund
-                      </label>
-                    </div>
-                    <div class="col-auto mb-2">
-                      <label class="check-option">
-                        <input type="checkbox" name="appType" value="blended"> Blended Finance
-                      </label>
-                    </div>
-                    <div class="col-auto mb-2">
-                      <label class="check-option">
-                        <input type="checkbox" name="appType" value="esg"> ESG-Aligned Fund
-                      </label>
+                    <div class="col-lg-6 mb-3">
+                      <div class="col-12 mb-3 multiSelect multiSelect4 propertyBx">
+                        <select id="" class="multiple-checkboxes" multiple="multiple">
+                          <option value="Sharia-Compliant Fund">Sharia-Compliant Fund</option>
+                          <option value="Development Fund">Development Fund</option>
+                          <option value="Income-Generating Fund">Income-Generating Fund</option>
+                          <option value="Opportunity Fund">Opportunity Fund</option>
+                          <option value="Blended Finance">Blended Finance</option>
+                          <option value="ESG-Aligned Fund">ESG-Aligned Fund</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
+
                 </div>
+
                 <div class="step-panel" id="panel-2">
                   <div class="section-title d-flex align-items-center justify-content-between">
                     <div><i class="fas fa-user-plus" style="color:var(--primary-color)"></i> Fund Board Members</div>
@@ -1166,6 +1143,7 @@
                         type="text" class="form-control" placeholder="Representative name / entity"></div>
                   </div>
                 </div>
+
                 <div class="step-panel" id="panel-3">
                   <div class="section-title"><i class="fas fa-certificate" style="color:var(--primary-color)"></i>
                     Documents, Certificates, and Policies</div>
@@ -1226,82 +1204,83 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="step-panel" id="panel-4">
                   <div class="section-title"><i class="fas fa-chart-line" style="color:var(--primary-color)"></i>
                     Investment Logic</div>
                   <div class="row">
                     <div class="col-lg-4 mb-3"><label class="form-label">Forecasted IRR <span
-                          class="required-star">*</span></label><select id="forecastIrr" class="form-select">
+                          class="required-star">*</span></label>
+                      <select id="forecastIrr" class="form-select">
                         <option value="">Select IRR range</option>
                         <option>Above SAIBOR + 2%</option>
                         <option>From SAIBOR to SAIBOR + 2%</option>
                         <option>Below SAIBOR</option>
-                      </select></div>
-                    <div class="col-lg-4 mb-3"><label class="form-label">Investor Appetite</label><select
-                        id="investorAppetite" class="form-select">
+                      </select>
+                    </div>
+                    <div class="col-lg-4 mb-3"><label class="form-label">Investor Appetite</label>
+                      <select id="investorAppetite" class="form-select">
                         <option value="">Select Investor Appetite</option>
                         <option>Positive</option>
                         <option>Negative</option>
                         <option>Neutral</option>
-                      </select></div>
-                    <div class="col-lg-4 mb-3"><label class="form-label">Lender Appetite</label><select
-                        id="lenderAppetite" class="form-select">
+                      </select>
+                    </div>
+                    <div class="col-lg-4 mb-3"><label class="form-label">Lender Appetite</label>
+                      <select id="lenderAppetite" class="form-select">
                         <option value="">Select Lender Appetite</option>
                         <option>Positive</option>
                         <option>Negative</option>
                         <option>Neutral</option>
-                      </select></div>
+                      </select>
+                    </div>
                     <div class="col-lg-4 mb-3">
                       <label class="form-label">Sensitivity Analysis</label>
                       <div class="d-flex gap-3 mt-2">
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="sensitivityAnalysis"
-                            id="sensitivityAnalysisYes" value="Yes">
-                          <label class="form-check-label" for="sensitivityAnalysisYes">Yes</label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="sensitivityAnalysis"
-                            id="sensitivityAnalysisNo" value="No">
-                          <label class="form-check-label" for="sensitivityAnalysisNo">No</label>
-                        </div>
+                        <div class="form-check"><input class="form-check-input" type="radio" name="sensitivityAnalysis"
+                            id="sensitivityAnalysisYes" value="Yes"><label class="form-check-label"
+                            for="sensitivityAnalysisYes">Yes</label></div>
+                        <div class="form-check"><input class="form-check-input" type="radio" name="sensitivityAnalysis"
+                            id="sensitivityAnalysisNo" value="No"><label class="form-check-label"
+                            for="sensitivityAnalysisNo">No</label></div>
                       </div>
                     </div>
-                    <div class="col-lg-4 mb-3"><label class="form-label">Up-front Equity</label><select
-                        id="upFrontEquity" class="form-select">
+                    <div class="col-lg-4 mb-3"><label class="form-label">Up-front Equity</label>
+                      <select id="upFrontEquity" class="form-select">
                         <option value="">Select Up-front Equity</option>
                         <option>70% or more</option>
                         <option>50% to 69%</option>
                         <option>Less than 50%</option>
-                      </select></div>
+                      </select>
+                    </div>
                     <div class="col-lg-4 mb-3">
                       <label class="form-label">Additional Equity to cover any shortfall</label>
                       <div class="d-flex gap-3 mt-2">
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="additionalEquity" id="additionalEquityYes"
-                            value="Yes">
-                          <label class="form-check-label" for="additionalEquityYes">Yes</label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="additionalEquity" id="additionalEquityNo"
-                            value="No">
-                          <label class="form-check-label" for="additionalEquityNo">No</label>
-                        </div>
+                        <div class="form-check"><input class="form-check-input" type="radio" name="additionalEquity"
+                            id="additionalEquityYes" value="Yes"><label class="form-check-label"
+                            for="additionalEquityYes">Yes</label></div>
+                        <div class="form-check"><input class="form-check-input" type="radio" name="additionalEquity"
+                            id="additionalEquityNo" value="No"><label class="form-check-label"
+                            for="additionalEquityNo">No</label></div>
                       </div>
                     </div>
-                    <div class="col-lg-4 mb-3"><label class="form-label">Off-Plan Sales</label><select id="offPlanSales"
-                        class="form-select">
+                    <div class="col-lg-4 mb-3"><label class="form-label">Off-Plan Sales</label>
+                      <select id="offPlanSales" class="form-select">
                         <option value="">Select Up-front Equity</option>
                         <option>35% or less</option>
                         <option>36% to 50%</option>
                         <option>More than 50%</option>
-                      </select></div>
+                      </select>
+                    </div>
                     <div class="col-lg-4 mb-3"><label class="form-label">Asset Location <span
-                          class="required-star">*</span></label><select id="assetLocation" class="form-select">
+                          class="required-star">*</span></label>
+                      <select id="assetLocation" class="form-select">
                         <option value="">Select region</option>
                         <option>Above 1 million</option>
                         <option>700K to 1 million</option>
                         <option>Below 700K</option>
-                      </select></div>
+                      </select>
+                    </div>
                   </div>
                 </div>
 
@@ -1347,14 +1326,12 @@
                               REIT</p>
                             <p style="font-size:10px;color:#aaa;margin:0">Jan 15, 2025</p>
                           </div>
-                          <div class="col-auto text-end">
-                            <i class="badge badge-approved">Approved</i>
-                          </div>
+                          <div class="col-auto text-end"><i class="badge badge-approved">Approved</i></div>
                         </div>
                       </a>
                     </li>
                     <li>
-                      <a class="nav-link " data-bs-toggle="tab" href="#nav-tab-f002">
+                      <a class="nav-link" data-bs-toggle="tab" href="#nav-tab-f002">
                         <div class="row">
                           <div class="col">
                             <div><span>FND-002</span></div>
@@ -1362,14 +1339,12 @@
                               Development Fund</p>
                             <p style="font-size:10px;color:#aaa;margin:0">Feb 3, 2025</p>
                           </div>
-                          <div class="col-auto text-end">
-                            <i class="badge badge-in-progress">In Progress</i>
-                          </div>
+                          <div class="col-auto text-end"><i class="badge badge-in-progress">In Progress</i></div>
                         </div>
                       </a>
                     </li>
                     <li>
-                      <a class="nav-link " data-bs-toggle="tab" href="#nav-tab-f003">
+                      <a class="nav-link" data-bs-toggle="tab" href="#nav-tab-f003">
                         <div class="row">
                           <div class="col">
                             <div><span>FND-003</span></div>
@@ -1377,14 +1352,12 @@
                               Trust</p>
                             <p style="font-size:10px;color:#aaa;margin:0">Feb 18, 2025</p>
                           </div>
-                          <div class="col-auto text-end">
-                            <i class="badge badge-approved">Approved</i>
-                          </div>
+                          <div class="col-auto text-end"><i class="badge badge-approved">Approved</i></div>
                         </div>
                       </a>
                     </li>
                     <li>
-                      <a class="nav-link " data-bs-toggle="tab" href="#nav-tab-f004">
+                      <a class="nav-link" data-bs-toggle="tab" href="#nav-tab-f004">
                         <div class="row">
                           <div class="col">
                             <div><span>FND-004</span></div>
@@ -1392,14 +1365,12 @@
                               Logistics Fund</p>
                             <p style="font-size:10px;color:#aaa;margin:0">Mar 5, 2025</p>
                           </div>
-                          <div class="col-auto text-end">
-                            <i class="badge badge-pending">Pending Review</i>
-                          </div>
+                          <div class="col-auto text-end"><i class="badge badge-pending">Pending Review</i></div>
                         </div>
                       </a>
                     </li>
                     <li>
-                      <a class="nav-link " data-bs-toggle="tab" href="#nav-tab-f005">
+                      <a class="nav-link" data-bs-toggle="tab" href="#nav-tab-f005">
                         <div class="row">
                           <div class="col">
                             <div><span>FND-005</span></div>
@@ -1407,14 +1378,12 @@
                               Fund</p>
                             <p style="font-size:10px;color:#aaa;margin:0">Mar 22, 2025</p>
                           </div>
-                          <div class="col-auto text-end">
-                            <i class="badge badge-in-progress">In Progress</i>
-                          </div>
+                          <div class="col-auto text-end"><i class="badge badge-in-progress">In Progress</i></div>
                         </div>
                       </a>
                     </li>
                     <li>
-                      <a class="nav-link " data-bs-toggle="tab" href="#nav-tab-f006">
+                      <a class="nav-link" data-bs-toggle="tab" href="#nav-tab-f006">
                         <div class="row">
                           <div class="col">
                             <div><span>FND-006</span></div>
@@ -1422,14 +1391,12 @@
                               REIT</p>
                             <p style="font-size:10px;color:#aaa;margin:0">Apr 1, 2025</p>
                           </div>
-                          <div class="col-auto text-end">
-                            <i class="badge badge-pending">Pending Review</i>
-                          </div>
+                          <div class="col-auto text-end"><i class="badge badge-pending">Pending Review</i></div>
                         </div>
                       </a>
                     </li>
                     <li>
-                      <a class="nav-link " data-bs-toggle="tab" href="#nav-tab-f007">
+                      <a class="nav-link" data-bs-toggle="tab" href="#nav-tab-f007">
                         <div class="row">
                           <div class="col">
                             <div><span>FND-007</span></div>
@@ -1437,14 +1404,12 @@
                               Park Fund</p>
                             <p style="font-size:10px;color:#aaa;margin:0">Apr 15, 2025</p>
                           </div>
-                          <div class="col-auto text-end">
-                            <i class="badge badge-approved">Approved</i>
-                          </div>
+                          <div class="col-auto text-end"><i class="badge badge-approved">Approved</i></div>
                         </div>
                       </a>
                     </li>
                     <li>
-                      <a class="nav-link " data-bs-toggle="tab" href="#nav-tab-f008">
+                      <a class="nav-link" data-bs-toggle="tab" href="#nav-tab-f008">
                         <div class="row">
                           <div class="col">
                             <div><span>FND-008</span></div>
@@ -1452,9 +1417,7 @@
                               Trust</p>
                             <p style="font-size:10px;color:#aaa;margin:0">Apr 22, 2025</p>
                           </div>
-                          <div class="col-auto text-end">
-                            <i class="badge badge-draft">Draft</i>
-                          </div>
+                          <div class="col-auto text-end"><i class="badge badge-draft">Draft</i></div>
                         </div>
                       </a>
                     </li>
@@ -1463,215 +1426,7 @@
               </aside>
               <main class="pt-0">
                 <div class="tab-content" id="nav-tabContent">
-                  <div class="tab-pane fade" id="nav-tab-dynamic">
-                    <div class="row">
-                      <div class="col-12 mb-3 p-0">
-                        <div class="card rounded-0">
-                          <div class="card-body px-3 py-2">
-                            <div class="row align-items-center">
-                              <div class="col-md-8">
-                                <h2><span id="viewFundId">FND-000</span></h2>
-                                <p class="dateBox mb-0" id="viewFundCreatedDateLabel">Created on N/A</p>
-                              </div>
-                              <div class="col-md-4 text-md-end">
-                                <span id="viewFundStatusBadge" class="badge badge-approved">Status</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="ticketMain">
-                      <div class="row">
-                        <div class="col-12">
-                          <div class="status-bar" style="background:#EAF3DE;border-color:#3B6D11">
-                            <i class="fas fa-check-circle" style="color:#3B6D11"></i>
-                            <span style="color:#3B6D11;font-size:13px;font-weight:600">Live fund details and review
-                              overview.</span>
-                          </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-info-circle"
-                                  style="color:var(--primary-color)"></i> Fund Information</div>
-                              <div class="row view-details">
-                                <div class="col-lg-4 col-md-6 mb-3">
-                                  <label class="col-form-label">Fund Name</label>
-                                  <h6 id="viewFundName">N/A</h6>
-                                </div>
-                                <div class="col-lg-4 col-md-6 mb-3">
-                                  <label class="col-form-label">Review Period</label>
-                                  <h6 id="viewReviewPeriod">N/A</h6>
-                                </div>
-                                <div class="col-lg-4 col-md-6 mb-3">
-                                  <label class="col-form-label">KPI Type</label>
-                                  <h6 id="viewFundType">N/A</h6>
-                                </div>
-                                <div class="col-lg-4 col-md-6 mb-3">
-                                  <label class="col-form-label">Fund Currency</label>
-                                  <h6 id="viewFundCurrency">N/A</h6>
-                                </div>
-                                <div class="col-12 mb-2">
-                                  <label class="col-form-label">Fund Description</label>
-                                  <h6 id="viewFundDescription" style="font-weight:400">N/A</h6>
-                                </div>
-                                <div class="col-12 mb-1">
-                                  <label class="col-form-label">Application Types</label>
-                                  <div id="viewApplicationTypes" class="d-flex flex-wrap gap-2 mt-1"><span
-                                      class="text-muted">N/A</span></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-users"
-                                  style="color:var(--primary-color)"></i> Stakeholders</div>
-                              <div class="row view-details">
-                                <div class="col-lg-4 col-md-6 mb-3">
-                                  <label class="col-form-label">Custodian</label>
-                                  <h6 id="viewCustodian">N/A</h6>
-                                </div>
-                                <div class="col-lg-4 col-md-6 mb-3">
-                                  <label class="col-form-label">Auditor</label>
-                                  <h6 id="viewAuditor">N/A</h6>
-                                </div>
-                                <div class="col-lg-4 col-md-6 mb-3">
-                                  <label class="col-form-label">Legal Counsel</label>
-                                  <h6 id="viewLegalCounsel">N/A</h6>
-                                </div>
-                                <div class="col-lg-4 col-md-6 mb-3">
-                                  <label class="col-form-label">Property Appraisers</label>
-                                  <h6 id="viewPropertyAppraisers">N/A</h6>
-                                </div>
-                                <div class="col-lg-4 col-md-6 mb-3">
-                                  <label class="col-form-label">Tax Advisor</label>
-                                  <h6 id="viewTaxAdvisor">N/A</h6>
-                                </div>
-                                <div class="col-12 mb-1">
-                                  <label class="col-form-label">Fund Board Members</label>
-                                  <div id="viewBoardMembers" class="d-flex flex-wrap gap-2 mt-1"><span
-                                      class="text-muted">N/A</span></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-file-alt"
-                                  style="color:var(--primary-color)"></i> Documentation</div>
-                              <div class="row row-cols-1 row-cols-md-2 g-3">
-                                <div class="col">
-                                  <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                      <div class="small text-muted">ENBDC</div>
-                                      <div id="viewUploadEnbdc" class="mt-1"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col">
-                                  <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                      <div class="small text-muted">Compliance</div>
-                                      <div id="viewUploadCompliance" class="mt-1"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col">
-                                  <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                      <div class="small text-muted">Risk</div>
-                                      <div id="viewUploadRisk" class="mt-1"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col">
-                                  <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                      <div class="small text-muted">Sharia</div>
-                                      <div id="viewUploadSharia" class="mt-1"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col">
-                                  <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                      <div class="small text-muted">Insurance</div>
-                                      <div id="viewUploadInsurance" class="mt-1"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col">
-                                  <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                      <div class="small text-muted">ZATCA</div>
-                                      <div id="viewUploadZatca" class="mt-1"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col">
-                                  <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                      <div class="small text-muted">Civil Defense</div>
-                                      <div id="viewUploadCivilDefense" class="mt-1"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col">
-                                  <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                      <div class="small text-muted">Building Compliance</div>
-                                      <div id="viewUploadBuildingCompliance" class="mt-1"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-chart-line"
-                                  style="color:var(--primary-color)"></i> Investment Logic</div>
-                              <div class="row view-details">
-                                <div class="col-lg-3 col-md-6 mb-3">
-                                  <label class="col-form-label">Forecasted IRR</label>
-                                  <h6 id="viewForecastIrr">N/A</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3">
-                                  <label class="col-form-label">Investor Appetite</label>
-                                  <h6 id="viewInvestorAppetite">N/A</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3">
-                                  <label class="col-form-label">Lender Appetite</label>
-                                  <h6 id="viewLenderAppetite">N/A</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3">
-                                  <label class="col-form-label">Sensitivity Analysis</label>
-                                  <h6 id="viewSensitivityAnalysis">N/A</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3">
-                                  <label class="col-form-label">Up-front Equity</label>
-                                  <h6 id="viewUpFrontEquity">N/A</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3">
-                                  <label class="col-form-label">Additional Equity</label>
-                                  <h6 id="viewAdditionalEquity">N/A</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3">
-                                  <label class="col-form-label">Off-Plan Sales</label>
-                                  <h6 id="viewOffPlanSales">N/A</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3">
-                                  <label class="col-form-label">Asset Location</label>
-                                  <h6 id="viewAssetLocation">N/A</h6>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
 
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <div class="tab-pane fade active show" id="nav-tab-f001">
                     <div class="row">
                       <div class="col-12 mb-3 p-0">
@@ -1693,7 +1448,6 @@
                     <div class="ticketMain">
                       <div class="row">
                         <div class="col-12">
-
                           <div class="status-bar" style="background:#EAF3DE;border-color:#3B6D11"><i
                               class="fas fa-check-circle" style="color:#3B6D11"></i><span
                               style="color:#3B6D11;font-size:13px;font-weight:600">This fund has been approved for the
@@ -1724,13 +1478,12 @@
                                     estate assets in Riyadh, targeting Grade-A office towers and retail complexes
                                     aligned with Vision 2030 urban development.</h6>
                                 </div>
-                                <div class="col-12 mb-1"><label class="col-form-label">Application Types</label>
+                                <div class="col-12 mb-1"><label class="col-form-label">Application </label>
                                   <div class="d-flex flex-wrap gap-2 mt-1"><span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">Sharia-Compliant</span>
-                                    <span class="badge"
+                                      style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">Sharia-Compliant</span><span
+                                      class="badge"
                                       style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">Income-Generating
-                                      Fund</span>
-                                  </div>
+                                      Fund</span></div>
                                 </div>
                               </div>
                             </div>
@@ -1747,7 +1500,7 @@
                                   <h6>KPMG Saudi Arabia</h6>
                                 </div>
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Legal Counsel</label>
-                                  <h6>Al Tamimi & Company</h6>
+                                  <h6>Al Tamimi &amp; Company</h6>
                                 </div>
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Property
                                     Appraisers</label>
@@ -1759,9 +1512,9 @@
                                 <div class="col-12 mb-1"><label class="col-form-label">Fund Board Members</label>
                                   <div class="d-flex flex-wrap gap-2 mt-1"><span class="badge bg-secondary me-2"
                                       style="font-size:12px;padding:5px 10px">Abdullah Al-Rashid (Chair)</span><span
-                                      class="badge bg-secondary me-2" style="font-size:12px;padding:5px 10px">Sara
-                                      Al-Ghamdi</span><span class="badge bg-secondary me-2"
-                                      style="font-size:12px;padding:5px 10px">Omar Khalid</span></div>
+                                      class="badge bg-secondary me-2;padding:5px 10px">Sara Al-Ghamdi</span><span
+                                      class="badge bg-secondary me-2" style="font-size:12px;padding:5px 10px">Omar
+                                      Khalid</span></div>
                                 </div>
                               </div>
                             </div>
@@ -1774,66 +1527,42 @@
                                 <div class="col-lg-6">
                                   <p style="font-size:13px;font-weight:600;color:#626367;margin-bottom:10px">Compliance
                                     Certificates</p>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">ENBDC_Application_FND001.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">ComplianceProgram_FND001.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">RiskMonitoring_FND001.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">Sharia_Fatwa_FND001.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
+                                  <div class="doc-row"><i class="fas fa-file-pdf"></i><span
+                                      class="doc-name">ENBDC_Application_FND001.pdf</span><span class="badge"
+                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span><a
+                                      href="#">View</a></div>
+                                  <div class="doc-row"><i class="fas fa-file-pdf"></i><span
+                                      class="doc-name">ComplianceProgram_FND001.pdf</span><span class="badge"
+                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span><a
+                                      href="#">View</a></div>
+                                  <div class="doc-row"><i class="fas fa-file-pdf"></i><span
+                                      class="doc-name">RiskMonitoring_FND001.pdf</span><span class="badge"
+                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span><a
+                                      href="#">View</a></div>
+                                  <div class="doc-row"><i class="fas fa-file-pdf"></i><span
+                                      class="doc-name">Sharia_Fatwa_FND001.pdf</span><span class="badge"
+                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span><a
+                                      href="#">View</a></div>
                                 </div>
                                 <div class="col-lg-6">
                                   <p style="font-size:13px;font-weight:600;color:#626367;margin-bottom:10px">Program
                                     Documents</p>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">Insurance_Policy_FND001.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">ZATCA_Certificate_2025.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">CivilDefense_Cert.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">BuildingCompliance_Cert.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
+                                  <div class="doc-row"><i class="fas fa-file-pdf"></i><span
+                                      class="doc-name">Insurance_Policy_FND001.pdf</span><span class="badge"
+                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span><a
+                                      href="#">View</a></div>
+                                  <div class="doc-row"><i class="fas fa-file-pdf"></i><span
+                                      class="doc-name">ZATCA_Certificate_2025.pdf</span><span class="badge"
+                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span><a
+                                      href="#">View</a></div>
+                                  <div class="doc-row"><i class="fas fa-file-pdf"></i><span
+                                      class="doc-name">CivilDefense_Cert.pdf</span><span class="badge"
+                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span><a
+                                      href="#">View</a></div>
+                                  <div class="doc-row"><i class="fas fa-file-pdf"></i><span
+                                      class="doc-name">BuildingCompliance_Cert.pdf</span><span class="badge"
+                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span><a
+                                      href="#">View</a></div>
                                 </div>
                               </div>
                             </div>
@@ -1875,12 +1604,12 @@
                               </div>
                             </div>
                           </div>
-
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="tab-pane fade " id="nav-tab-f002">
+
+                  <div class="tab-pane fade" id="nav-tab-f002">
                     <div class="row">
                       <div class="col-12 mb-3 p-0">
                         <div class="card rounded-0">
@@ -1902,11 +1631,9 @@
                     <div class="ticketMain">
                       <div class="row">
                         <div class="col-12">
-                          <div class="notice-bar mb-3">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <span><strong>Attention:</strong> Risk Monitoring Program and Civil Defense Certificate are
-                              missing.</span>
-                          </div>
+                          <div class="notice-bar mb-3"><i
+                              class="fas fa-exclamation-triangle"></i><span><strong>Attention:</strong> Risk Monitoring
+                              Program and Civil Defense Certificate are missing.</span></div>
                           <div class="status-bar"><i class="fas fa-spinner" style="color:var(--primary-color)"></i><span
                               style="font-size:13px;font-weight:600">This fund is currently in progress. Complete all
                               steps and submit for checker review.</span></div>
@@ -1936,14 +1663,12 @@
                                     Vision 2030 national transformation program, focusing on residential and commercial
                                     hubs in emerging cities.</h6>
                                 </div>
-                                <div class="col-12 mb-1"><label class="col-form-label">Application Types</label>
+                                <div class="col-12 mb-1"><label class="col-form-label">Application </label>
                                   <div class="d-flex flex-wrap gap-2 mt-1"><span class="badge"
                                       style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">Development
-                                      Fund</span>
-                                    <span class="badge"
+                                      Fund</span><span class="badge"
                                       style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">ESG-Aligned
-                                      Fund</span>
-                                  </div>
+                                      Fund</span></div>
                                 </div>
                               </div>
                             </div>
@@ -1957,10 +1682,10 @@
                                   <h6>Al Rajhi Bank</h6>
                                 </div>
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Auditor</label>
-                                  <h6>Ernst & Young Saudi Arabia</h6>
+                                  <h6>Ernst &amp; Young Saudi Arabia</h6>
                                 </div>
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Legal Counsel</label>
-                                  <h6>Clyde & Co Arabia</h6>
+                                  <h6>Clyde &amp; Co Arabia</h6>
                                 </div>
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Property
                                     Appraisers</label>
@@ -1987,62 +1712,42 @@
                                 <div class="col-lg-6">
                                   <p style="font-size:13px;font-weight:600;color:#626367;margin-bottom:10px">Compliance
                                     Certificates</p>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">ENBDC_Application_FND002.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">ComplianceProgram_FND002.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1">
-                                    <i class="fas fa-file-times" style="color:#854F0B"></i>
-                                    <span class="doc-name" style="color:#854F0B">RiskMonitoring_FND002.pdf</span>
-                                    <span class="badge"
-                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span>
-                                  </div>
-                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1">
-                                    <i class="fas fa-file-times" style="color:#854F0B"></i>
-                                    <span class="doc-name" style="color:#854F0B">Sharia_Fatwa_FND002.pdf</span>
-                                    <span class="badge"
-                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span>
-                                  </div>
+                                  <div class="doc-row"><i class="fas fa-file-pdf"></i><span
+                                      class="doc-name">ENBDC_Application_FND002.pdf</span><span class="badge"
+                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span><a
+                                      href="#">View</a></div>
+                                  <div class="doc-row"><i class="fas fa-file-pdf"></i><span
+                                      class="doc-name">ComplianceProgram_FND002.pdf</span><span class="badge"
+                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span><a
+                                      href="#">View</a></div>
+                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1"><i
+                                      class="fas fa-file-times" style="color:#854F0B"></i><span class="doc-name"
+                                      style="color:#854F0B">RiskMonitoring_FND002.pdf</span><span class="badge"
+                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span></div>
+                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1"><i
+                                      class="fas fa-file-times" style="color:#854F0B"></i><span class="doc-name"
+                                      style="color:#854F0B">Sharia_Fatwa_FND002.pdf</span><span class="badge"
+                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span></div>
                                 </div>
                                 <div class="col-lg-6">
                                   <p style="font-size:13px;font-weight:600;color:#626367;margin-bottom:10px">Program
                                     Documents</p>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">Insurance_Policy_FND002.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">ZATCA_Certificate_FND002.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1">
-                                    <i class="fas fa-file-times" style="color:#854F0B"></i>
-                                    <span class="doc-name" style="color:#854F0B">CivilDefense_FND002.pdf</span>
-                                    <span class="badge"
-                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span>
-                                  </div>
-                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1">
-                                    <i class="fas fa-file-times" style="color:#854F0B"></i>
-                                    <span class="doc-name" style="color:#854F0B">BuildingCompliance_FND002.pdf</span>
-                                    <span class="badge"
-                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span>
-                                  </div>
+                                  <div class="doc-row"><i class="fas fa-file-pdf"></i><span
+                                      class="doc-name">Insurance_Policy_FND002.pdf</span><span class="badge"
+                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span><a
+                                      href="#">View</a></div>
+                                  <div class="doc-row"><i class="fas fa-file-pdf"></i><span
+                                      class="doc-name">ZATCA_Certificate_FND002.pdf</span><span class="badge"
+                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span><a
+                                      href="#">View</a></div>
+                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1"><i
+                                      class="fas fa-file-times" style="color:#854F0B"></i><span class="doc-name"
+                                      style="color:#854F0B">CivilDefense_FND002.pdf</span><span class="badge"
+                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span></div>
+                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1"><i
+                                      class="fas fa-file-times" style="color:#854F0B"></i><span class="doc-name"
+                                      style="color:#854F0B">BuildingCompliance_FND002.pdf</span><span class="badge"
+                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span></div>
                                 </div>
                               </div>
                             </div>
@@ -2084,12 +1789,12 @@
                               </div>
                             </div>
                           </div>
-
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="tab-pane fade " id="nav-tab-f003">
+
+                  <div class="tab-pane fade" id="nav-tab-f003">
                     <div class="row">
                       <div class="col-12 mb-3 p-0">
                         <div class="card rounded-0">
@@ -2098,7 +1803,7 @@
                               <div class="col-md-12">
                                 <h2><span>FND-003</span></h2>
                               </div>
-                              <div class="col-md-6 text-start">
+                              <div class="col-md-6">
                                 <p class="dateBox mb-0">Feb 18, 2025</p>
                               </div>
                               <div class="col-md-6 text-end"><span class="badge badge-approved">Approved</span></div>
@@ -2110,7 +1815,6 @@
                     <div class="ticketMain">
                       <div class="row">
                         <div class="col-12">
-
                           <div class="status-bar" style="background:#EAF3DE;border-color:#3B6D11"><i
                               class="fas fa-check-circle" style="color:#3B6D11"></i><span
                               style="color:#3B6D11;font-size:13px;font-weight:600">This fund has been approved for the
@@ -2129,178 +1833,27 @@
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">KPI Type</label>
                                   <h6>Qualitative</h6>
                                 </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Establishment
-                                    Date</label>
-                                  <h6>Feb 18, 2025</h6>
-                                </div>
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Fund Currency</label>
                                   <h6>SAR – Saudi Riyal</h6>
                                 </div>
-                                <div class="col-12 mb-2"><label class="col-form-label">Fund Description</label>
-                                  <h6 style="font-weight:400">A qualitative residential trust investing in affordable
-                                    and mid-market housing projects across Riyadh and Jeddah, supporting Saudi Vision
-                                    2030 housing targets.</h6>
-                                </div>
-                                <div class="col-12 mb-1"><label class="col-form-label">Application Types</label>
+                                <div class="col-12 mb-1"><label class="col-form-label">Application </label>
                                   <div class="d-flex flex-wrap gap-2 mt-1"><span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">Sharia-Compliant</span>
-                                    <span class="badge"
+                                      style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">Sharia-Compliant</span><span
+                                      class="badge"
                                       style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">Income-Generating
-                                      Fund</span>
-                                    <span class="badge"
+                                      Fund</span><span class="badge"
                                       style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">ESG-Aligned
-                                      Fund</span>
-                                  </div>
+                                      Fund</span></div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-users"
-                                  style="color:var(--primary-color)"></i> Stakeholders</div>
-                              <div class="row view-details">
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Custodian</label>
-                                  <h6>Riyad Bank</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Auditor</label>
-                                  <h6>KPMG Saudi Arabia</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Legal Counsel</label>
-                                  <h6>Al Tamimi & Company</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Property
-                                    Appraisers</label>
-                                  <h6>Colliers Saudi Arabia</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Tax Advisor</label>
-                                  <h6>BDO Saudi Arabia</h6>
-                                </div>
-                                <div class="col-12 mb-1"><label class="col-form-label">Fund Board Members</label>
-                                  <div class="d-flex flex-wrap gap-2 mt-1"><span class="badge bg-secondary me-2"
-                                      style="font-size:12px;padding:5px 10px">Mohammed Al-Harbi (Chair)</span><span
-                                      class="badge bg-secondary me-2" style="font-size:12px;padding:5px 10px">Aisha
-                                      Al-Mansouri</span><span class="badge bg-secondary me-2"
-                                      style="font-size:12px;padding:5px 10px">Tariq Al-Ghamdi</span></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-file-alt"
-                                  style="color:var(--primary-color)"></i> Documentation</div>
-                              <div class="row">
-                                <div class="col-lg-6">
-                                  <p style="font-size:13px;font-weight:600;color:#626367;margin-bottom:10px">Compliance
-                                    Certificates</p>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">ENBDC_Application_FND003.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">ComplianceProgram_FND003.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">RiskMonitoring_FND003.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">Sharia_Fatwa_FND003.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                </div>
-                                <div class="col-lg-6">
-                                  <p style="font-size:13px;font-weight:600;color:#626367;margin-bottom:10px">Program
-                                    Documents</p>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">Insurance_Policy_FND003.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">ZATCA_Certificate_FND003.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">CivilDefense_FND003.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">BuildingCompliance_FND003.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-chart-line"
-                                  style="color:var(--primary-color)"></i> Investment Logic</div>
-                              <div class="row view-details">
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Forecasted IRR</label>
-                                  <h6>Above SAIBOR + 2%</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Investor
-                                    Appetite</label>
-                                  <h6>Positive</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Lender
-                                    Appetite</label>
-                                  <h6>Positive</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Sensitivity
-                                    Analysis</label>
-                                  <h6>Yes</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Up-front
-                                    Equity</label>
-                                  <h6>70% or more</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Additional
-                                    Equity</label>
-                                  <h6>Yes</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Off-Plan Sales</label>
-                                  <h6>35% or less</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Asset Location</label>
-                                  <h6>Above 1 million</h6>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="tab-pane fade " id="nav-tab-f004">
+
+                  <div class="tab-pane fade" id="nav-tab-f004">
                     <div class="row">
                       <div class="col-12 mb-3 p-0">
                         <div class="card rounded-0">
@@ -2309,7 +1862,7 @@
                               <div class="col-md-12">
                                 <h2><span>FND-004</span></h2>
                               </div>
-                              <div class="col-md-6 text-start">
+                              <div class="col-md-6">
                                 <p class="dateBox mb-0">Mar 5, 2025</p>
                               </div>
                               <div class="col-md-6 text-end"><span class="badge badge-pending">Pending Review</span>
@@ -2322,11 +1875,9 @@
                     <div class="ticketMain">
                       <div class="row">
                         <div class="col-12">
-                          <div class="notice-bar mb-3">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <span><strong>Attention:</strong> Building Compliance Certificate is missing — consider
-                              requesting revision from Maker before approval.</span>
-                          </div>
+                          <div class="notice-bar mb-3"><i
+                              class="fas fa-exclamation-triangle"></i><span><strong>Attention:</strong> Building
+                              Compliance Certificate is missing.</span></div>
                           <div class="status-bar" style="background:#EEF0FF;border-color:#6272FF"><i
                               class="fas fa-hourglass-half" style="color:#6272FF"></i><span
                               style="color:#3b4ab7;font-size:13px;font-weight:600">Awaiting checker review. No edits
@@ -2345,167 +1896,17 @@
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">KPI Type</label>
                                   <h6>Quantitative</h6>
                                 </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Establishment
-                                    Date</label>
-                                  <h6>Mar 5, 2025</h6>
-                                </div>
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Fund Currency</label>
                                   <h6>SAR – Saudi Riyal</h6>
                                 </div>
-                                <div class="col-12 mb-2"><label class="col-form-label">Fund Description</label>
-                                  <h6 style="font-weight:400">A Sharia-compliant logistics fund targeting industrial and
-                                    warehousing assets across the Eastern Province, aligned with Saudi Vision 2030
-                                    supply chain initiatives.</h6>
-                                </div>
-                                <div class="col-12 mb-1"><label class="col-form-label">Application Types</label>
+                                <div class="col-12 mb-1"><label class="col-form-label">Application </label>
                                   <div class="d-flex flex-wrap gap-2 mt-1"><span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">Sharia-Compliant</span>
-                                    <span class="badge"
+                                      style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">Sharia-Compliant</span><span
+                                      class="badge"
                                       style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">Income-Generating
-                                      Fund</span>
-                                    <span class="badge"
+                                      Fund</span><span class="badge"
                                       style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">ESG-Aligned
-                                      Fund</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-users"
-                                  style="color:var(--primary-color)"></i> Stakeholders</div>
-                              <div class="row view-details">
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Custodian</label>
-                                  <h6>Saudi National Bank</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Auditor</label>
-                                  <h6>KPMG Saudi Arabia</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Legal Counsel</label>
-                                  <h6>Al Tamimi & Company</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Property
-                                    Appraisers</label>
-                                  <h6>JLL Arabia</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Tax Advisor</label>
-                                  <h6>Deloitte Saudi Arabia</h6>
-                                </div>
-                                <div class="col-12 mb-1"><label class="col-form-label">Fund Board Members</label>
-                                  <div class="d-flex flex-wrap gap-2 mt-1"><span class="badge bg-secondary me-2"
-                                      style="font-size:12px;padding:5px 10px">Abdullah Al-Rashid (Chair)</span><span
-                                      class="badge bg-secondary me-2" style="font-size:12px;padding:5px 10px">Sara
-                                      Al-Ghamdi</span><span class="badge bg-secondary me-2"
-                                      style="font-size:12px;padding:5px 10px">Omar Khalid</span></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-file-alt"
-                                  style="color:var(--primary-color)"></i> Documentation</div>
-                              <div class="row">
-                                <div class="col-lg-6">
-                                  <p style="font-size:13px;font-weight:600;color:#626367;margin-bottom:10px">Compliance
-                                    Certificates</p>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">ENBDC_Application_FND004.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">ComplianceProgram_FND004.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">RiskMonitoring_FND004.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">Sharia_Fatwa_FND004.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                </div>
-                                <div class="col-lg-6">
-                                  <p style="font-size:13px;font-weight:600;color:#626367;margin-bottom:10px">Program
-                                    Documents</p>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">Insurance_Policy_FND004.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">ZATCA_Certificate_2025.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">CivilDefense_Certificate.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1">
-                                    <i class="fas fa-file-times" style="color:#854F0B"></i>
-                                    <span class="doc-name" style="color:#854F0B">BuildingCompliance_Cert.pdf</span>
-                                    <span class="badge"
-                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-chart-line"
-                                  style="color:var(--primary-color)"></i> Investment Logic</div>
-                              <div class="row view-details">
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Forecasted IRR</label>
-                                  <h6>Above SAIBOR + 4%</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Investor
-                                    Appetite</label>
-                                  <h6>Positive</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Lender
-                                    Appetite</label>
-                                  <h6>Positive</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Sensitivity
-                                    Analysis</label>
-                                  <h6>Yes</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Up-front
-                                    Equity</label>
-                                  <h6>70% or more</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Additional
-                                    Equity</label>
-                                  <h6>Yes</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Off-Plan Sales</label>
-                                  <h6>35% or less</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Asset Location</label>
-                                  <h6>Above 1 million</h6>
+                                      Fund</span></div>
                                 </div>
                               </div>
                             </div>
@@ -2514,7 +1915,8 @@
                       </div>
                     </div>
                   </div>
-                  <div class="tab-pane fade " id="nav-tab-f005">
+
+                  <div class="tab-pane fade" id="nav-tab-f005">
                     <div class="row">
                       <div class="col-12 mb-3 p-0">
                         <div class="card rounded-0">
@@ -2523,7 +1925,7 @@
                               <div class="col-md-12">
                                 <h2><span>FND-005</span></h2>
                               </div>
-                              <div class="col-md-6 text-start">
+                              <div class="col-md-6">
                                 <p class="dateBox mb-0">Mar 22, 2025</p>
                               </div>
                               <div class="col-md-6 text-end"><span class="badge badge-in-progress">In Progress</span>
@@ -2536,14 +1938,12 @@
                     <div class="ticketMain">
                       <div class="row">
                         <div class="col-12">
-                          <div class="notice-bar mb-3">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <span><strong>Attention:</strong> Compliance Program, Risk Monitoring, ZATCA, Civil Defense
-                              and Building Compliance documents are missing.</span>
-                          </div>
+                          <div class="notice-bar mb-3"><i
+                              class="fas fa-exclamation-triangle"></i><span><strong>Attention:</strong> Compliance
+                              Program, Risk Monitoring, ZATCA, Civil Defense and Building Compliance documents are
+                              missing.</span></div>
                           <div class="status-bar"><i class="fas fa-spinner" style="color:var(--primary-color)"></i><span
-                              style="font-size:13px;font-weight:600">This fund is currently in progress. Complete all
-                              steps and submit for checker review.</span></div>
+                              style="font-size:13px;font-weight:600">This fund is currently in progress.</span></div>
                           <div class="card mb-3">
                             <div class="card-body pt-3">
                               <div class="review-section-title"><i class="fas fa-info-circle"
@@ -2558,169 +1958,25 @@
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">KPI Type</label>
                                   <h6>Qualitative</h6>
                                 </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Establishment
-                                    Date</label>
-                                  <h6>Mar 22, 2025</h6>
-                                </div>
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Fund Currency</label>
                                   <h6>SAR – Saudi Riyal</h6>
                                 </div>
-                                <div class="col-12 mb-2"><label class="col-form-label">Fund Description</label>
-                                  <h6 style="font-weight:400">A hospitality-focused fund targeting hotels and serviced
-                                    accommodation developments in Makkah, capitalising on growing religious tourism
-                                    demand under Vision 2030.</h6>
-                                </div>
-                                <div class="col-12 mb-1"><label class="col-form-label">Application Types</label>
+                                <div class="col-12 mb-1"><label class="col-form-label">Application </label>
                                   <div class="d-flex flex-wrap gap-2 mt-1"><span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">Sharia-Compliant</span>
-                                    <span class="badge"
+                                      style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">Sharia-Compliant</span><span
+                                      class="badge"
                                       style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">Development
-                                      Fund</span>
-                                  </div>
+                                      Fund</span></div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-users"
-                                  style="color:var(--primary-color)"></i> Stakeholders</div>
-                              <div class="row view-details">
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Custodian</label>
-                                  <h6>Bank Albilad</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Auditor</label>
-                                  <h6>Deloitte Saudi Arabia</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Legal Counsel</label>
-                                  <h6>Freshfields Saudi Arabia</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Property
-                                    Appraisers</label>
-                                  <h6>CBRE Saudi Arabia</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Tax Advisor</label>
-                                  <h6>Grant Thornton Saudi Arabia</h6>
-                                </div>
-                                <div class="col-12 mb-1"><label class="col-form-label">Fund Board Members</label>
-                                  <div class="d-flex flex-wrap gap-2 mt-1"><span class="badge bg-secondary me-2"
-                                      style="font-size:12px;padding:5px 10px">Hamad Al-Qahtani (Chair)</span><span
-                                      class="badge bg-secondary me-2" style="font-size:12px;padding:5px 10px">Lulwa
-                                      Al-Shahrani</span></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-file-alt"
-                                  style="color:var(--primary-color)"></i> Documentation</div>
-                              <div class="row">
-                                <div class="col-lg-6">
-                                  <p style="font-size:13px;font-weight:600;color:#626367;margin-bottom:10px">Compliance
-                                    Certificates</p>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">ENBDC_Application_FND005.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1">
-                                    <i class="fas fa-file-times" style="color:#854F0B"></i>
-                                    <span class="doc-name" style="color:#854F0B">ComplianceProgram_FND005.pdf</span>
-                                    <span class="badge"
-                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span>
-                                  </div>
-                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1">
-                                    <i class="fas fa-file-times" style="color:#854F0B"></i>
-                                    <span class="doc-name" style="color:#854F0B">RiskMonitoring_FND005.pdf</span>
-                                    <span class="badge"
-                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">Sharia_Fatwa_FND005.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                </div>
-                                <div class="col-lg-6">
-                                  <p style="font-size:13px;font-weight:600;color:#626367;margin-bottom:10px">Program
-                                    Documents</p>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">Insurance_Policy_FND005.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1">
-                                    <i class="fas fa-file-times" style="color:#854F0B"></i>
-                                    <span class="doc-name" style="color:#854F0B">ZATCA_Certificate_FND005.pdf</span>
-                                    <span class="badge"
-                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span>
-                                  </div>
-                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1">
-                                    <i class="fas fa-file-times" style="color:#854F0B"></i>
-                                    <span class="doc-name" style="color:#854F0B">CivilDefense_FND005.pdf</span>
-                                    <span class="badge"
-                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span>
-                                  </div>
-                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1">
-                                    <i class="fas fa-file-times" style="color:#854F0B"></i>
-                                    <span class="doc-name" style="color:#854F0B">BuildingCompliance_FND005.pdf</span>
-                                    <span class="badge"
-                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-chart-line"
-                                  style="color:var(--primary-color)"></i> Investment Logic</div>
-                              <div class="row view-details">
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Forecasted IRR</label>
-                                  <h6>From SAIBOR to SAIBOR + 2%</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Investor
-                                    Appetite</label>
-                                  <h6>Neutral</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Lender
-                                    Appetite</label>
-                                  <h6>Neutral</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Sensitivity
-                                    Analysis</label>
-                                  <h6>No</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Up-front
-                                    Equity</label>
-                                  <h6>50% to 69%</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Additional
-                                    Equity</label>
-                                  <h6>No</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Off-Plan Sales</label>
-                                  <h6>36% to 50%</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Asset Location</label>
-                                  <h6>700K to 1 million</h6>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="tab-pane fade " id="nav-tab-f006">
+
+                  <div class="tab-pane fade" id="nav-tab-f006">
                     <div class="row">
                       <div class="col-12 mb-3 p-0">
                         <div class="card rounded-0">
@@ -2729,7 +1985,7 @@
                               <div class="col-md-12">
                                 <h2><span>FND-006</span></h2>
                               </div>
-                              <div class="col-md-6 text-start">
+                              <div class="col-md-6">
                                 <p class="dateBox mb-0">Apr 1, 2025</p>
                               </div>
                               <div class="col-md-6 text-end"><span class="badge badge-pending">Pending Review</span>
@@ -2742,15 +1998,12 @@
                     <div class="ticketMain">
                       <div class="row">
                         <div class="col-12">
-                          <div class="notice-bar mb-3">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <span><strong>Attention:</strong> Sharia Pronouncement (Fatwa) is missing — confirm with the
-                              Sharia board before final approval.</span>
-                          </div>
+                          <div class="notice-bar mb-3"><i
+                              class="fas fa-exclamation-triangle"></i><span><strong>Attention:</strong> Sharia
+                              Pronouncement (Fatwa) is missing.</span></div>
                           <div class="status-bar" style="background:#EEF0FF;border-color:#6272FF"><i
                               class="fas fa-hourglass-half" style="color:#6272FF"></i><span
-                              style="color:#3b4ab7;font-size:13px;font-weight:600">Awaiting checker review. No edits
-                              allowed until review is complete.</span></div>
+                              style="color:#3b4ab7;font-size:13px;font-weight:600">Awaiting checker review.</span></div>
                           <div class="card mb-3">
                             <div class="card-body pt-3">
                               <div class="review-section-title"><i class="fas fa-info-circle"
@@ -2765,168 +2018,17 @@
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">KPI Type</label>
                                   <h6>Quantitative</h6>
                                 </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Establishment
-                                    Date</label>
-                                  <h6>Apr 1, 2025</h6>
-                                </div>
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Fund Currency</label>
                                   <h6>SAR – Saudi Riyal</h6>
                                 </div>
-                                <div class="col-12 mb-2"><label class="col-form-label">Fund Description</label>
-                                  <h6 style="font-weight:400">A diversified mixed-use REIT encompassing retail,
-                                    residential, and hospitality assets across Jeddah's prime districts, targeting
-                                    stable income with long-term capital appreciation.</h6>
-                                </div>
-                                <div class="col-12 mb-1"><label class="col-form-label">Application Types</label>
+                                <div class="col-12 mb-1"><label class="col-form-label">Application </label>
                                   <div class="d-flex flex-wrap gap-2 mt-1"><span class="badge"
                                       style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">Income-Generating
-                                      Fund</span>
-                                    <span class="badge"
+                                      Fund</span><span class="badge"
                                       style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">Blended
-                                      Finance</span>
-                                    <span class="badge"
+                                      Finance</span><span class="badge"
                                       style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">ESG-Aligned
-                                      Fund</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-users"
-                                  style="color:var(--primary-color)"></i> Stakeholders</div>
-                              <div class="row view-details">
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Custodian</label>
-                                  <h6>Al Rajhi Bank</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Auditor</label>
-                                  <h6>Ernst & Young Saudi Arabia</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Legal Counsel</label>
-                                  <h6>Baker McKenzie Saudi Arabia</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Property
-                                    Appraisers</label>
-                                  <h6>JLL Arabia</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Tax Advisor</label>
-                                  <h6>KPMG Saudi Arabia</h6>
-                                </div>
-                                <div class="col-12 mb-1"><label class="col-form-label">Fund Board Members</label>
-                                  <div class="d-flex flex-wrap gap-2 mt-1"><span class="badge bg-secondary me-2"
-                                      style="font-size:12px;padding:5px 10px">Saleh Al-Otaibi (Chair)</span><span
-                                      class="badge bg-secondary me-2" style="font-size:12px;padding:5px 10px">Reem
-                                      Al-Dosari</span><span class="badge bg-secondary me-2"
-                                      style="font-size:12px;padding:5px 10px">Bassam Khalil</span></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-file-alt"
-                                  style="color:var(--primary-color)"></i> Documentation</div>
-                              <div class="row">
-                                <div class="col-lg-6">
-                                  <p style="font-size:13px;font-weight:600;color:#626367;margin-bottom:10px">Compliance
-                                    Certificates</p>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">ENBDC_Application_FND006.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">ComplianceProgram_FND006.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">RiskMonitoring_FND006.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1">
-                                    <i class="fas fa-file-times" style="color:#854F0B"></i>
-                                    <span class="doc-name" style="color:#854F0B">Sharia_Fatwa_FND006.pdf</span>
-                                    <span class="badge"
-                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span>
-                                  </div>
-                                </div>
-                                <div class="col-lg-6">
-                                  <p style="font-size:13px;font-weight:600;color:#626367;margin-bottom:10px">Program
-                                    Documents</p>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">Insurance_Policy_FND006.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">ZATCA_Certificate_FND006.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">CivilDefense_FND006.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">BuildingCompliance_FND006.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-chart-line"
-                                  style="color:var(--primary-color)"></i> Investment Logic</div>
-                              <div class="row view-details">
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Forecasted IRR</label>
-                                  <h6>Above SAIBOR + 2%</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Investor
-                                    Appetite</label>
-                                  <h6>Positive</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Lender
-                                    Appetite</label>
-                                  <h6>Positive</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Sensitivity
-                                    Analysis</label>
-                                  <h6>Yes</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Up-front
-                                    Equity</label>
-                                  <h6>70% or more</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Additional
-                                    Equity</label>
-                                  <h6>Yes</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Off-Plan Sales</label>
-                                  <h6>35% or less</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Asset Location</label>
-                                  <h6>Above 1 million</h6>
+                                      Fund</span></div>
                                 </div>
                               </div>
                             </div>
@@ -2935,7 +2037,8 @@
                       </div>
                     </div>
                   </div>
-                  <div class="tab-pane fade " id="nav-tab-f007">
+
+                  <div class="tab-pane fade" id="nav-tab-f007">
                     <div class="row">
                       <div class="col-12 mb-3 p-0">
                         <div class="card rounded-0">
@@ -2944,7 +2047,7 @@
                               <div class="col-md-12">
                                 <h2><span>FND-007</span></h2>
                               </div>
-                              <div class="col-md-6 text-start">
+                              <div class="col-md-6">
                                 <p class="dateBox mb-0">Apr 15, 2025</p>
                               </div>
                               <div class="col-md-6 text-end"><span class="badge badge-approved">Approved</span></div>
@@ -2956,7 +2059,6 @@
                     <div class="ticketMain">
                       <div class="row">
                         <div class="col-12">
-
                           <div class="status-bar" style="background:#EAF3DE;border-color:#3B6D11"><i
                               class="fas fa-check-circle" style="color:#3B6D11"></i><span
                               style="color:#3B6D11;font-size:13px;font-weight:600">This fund has been approved for the
@@ -2975,176 +2077,25 @@
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">KPI Type</label>
                                   <h6>Qualitative</h6>
                                 </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Establishment
-                                    Date</label>
-                                  <h6>Apr 15, 2025</h6>
-                                </div>
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Fund Currency</label>
                                   <h6>SAR – Saudi Riyal</h6>
                                 </div>
-                                <div class="col-12 mb-2"><label class="col-form-label">Fund Description</label>
-                                  <h6 style="font-weight:400">A qualitative industrial park fund targeting purpose-built
-                                    industrial facilities in Dammam's King Fahd Industrial Port zone, supporting Saudi
-                                    manufacturing diversification.</h6>
-                                </div>
-                                <div class="col-12 mb-1"><label class="col-form-label">Application Types</label>
+                                <div class="col-12 mb-1"><label class="col-form-label">Application </label>
                                   <div class="d-flex flex-wrap gap-2 mt-1"><span class="badge"
                                       style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">Income-Generating
-                                      Fund</span>
-                                    <span class="badge"
+                                      Fund</span><span class="badge"
                                       style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">ESG-Aligned
-                                      Fund</span>
-                                  </div>
+                                      Fund</span></div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-users"
-                                  style="color:var(--primary-color)"></i> Stakeholders</div>
-                              <div class="row view-details">
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Custodian</label>
-                                  <h6>Riyad Bank</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Auditor</label>
-                                  <h6>PwC Saudi Arabia</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Legal Counsel</label>
-                                  <h6>Al Tamimi & Company</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Property
-                                    Appraisers</label>
-                                  <h6>Colliers Saudi Arabia</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Tax Advisor</label>
-                                  <h6>Ernst & Young Saudi Arabia</h6>
-                                </div>
-                                <div class="col-12 mb-1"><label class="col-form-label">Fund Board Members</label>
-                                  <div class="d-flex flex-wrap gap-2 mt-1"><span class="badge bg-secondary me-2"
-                                      style="font-size:12px;padding:5px 10px">Turki Al-Faisal (Chair)</span><span
-                                      class="badge bg-secondary me-2" style="font-size:12px;padding:5px 10px">Huda
-                                      Al-Zahrani</span><span class="badge bg-secondary me-2"
-                                      style="font-size:12px;padding:5px 10px">Nawaf Al-Mutairi</span></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-file-alt"
-                                  style="color:var(--primary-color)"></i> Documentation</div>
-                              <div class="row">
-                                <div class="col-lg-6">
-                                  <p style="font-size:13px;font-weight:600;color:#626367;margin-bottom:10px">Compliance
-                                    Certificates</p>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">ENBDC_Application_FND007.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">ComplianceProgram_FND007.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">RiskMonitoring_FND007.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">Sharia_Fatwa_FND007.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                </div>
-                                <div class="col-lg-6">
-                                  <p style="font-size:13px;font-weight:600;color:#626367;margin-bottom:10px">Program
-                                    Documents</p>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">Insurance_Policy_FND007.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">ZATCA_Certificate_FND007.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">CivilDefense_FND007.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                  <div class="doc-row">
-                                    <i class="fas fa-file-pdf" style="color:var(--primary-color)"></i>
-                                    <span class="doc-name">BuildingCompliance_FND007.pdf</span>
-                                    <span class="badge"
-                                      style="background:#EAF3DE;color:#3B6D11;font-size:11px">Uploaded</span>
-                                    <a href="#">View</a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-chart-line"
-                                  style="color:var(--primary-color)"></i> Investment Logic</div>
-                              <div class="row view-details">
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Forecasted IRR</label>
-                                  <h6>Above SAIBOR + 4%</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Investor
-                                    Appetite</label>
-                                  <h6>Positive</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Lender
-                                    Appetite</label>
-                                  <h6>Positive</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Sensitivity
-                                    Analysis</label>
-                                  <h6>Yes</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Up-front
-                                    Equity</label>
-                                  <h6>70% or more</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Additional
-                                    Equity</label>
-                                  <h6>Yes</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Off-Plan Sales</label>
-                                  <h6>35% or less</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Asset Location</label>
-                                  <h6>Above 1 million</h6>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="tab-pane fade " id="nav-tab-f008">
+
+                  <div class="tab-pane fade" id="nav-tab-f008">
                     <div class="row">
                       <div class="col-12 mb-3 p-0">
                         <div class="card rounded-0">
@@ -3153,7 +2104,7 @@
                               <div class="col-md-12">
                                 <h2><span>FND-008</span></h2>
                               </div>
-                              <div class="col-md-6 text-start">
+                              <div class="col-md-6">
                                 <p class="dateBox mb-0">Apr 22, 2025</p>
                               </div>
                               <div class="col-md-6 text-end"><span class="badge badge-draft">Draft</span></div>
@@ -3165,11 +2116,9 @@
                     <div class="ticketMain">
                       <div class="row">
                         <div class="col-12">
-                          <div class="notice-bar mb-3">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <span><strong>Attention:</strong> This is a draft. All documents are pending
-                              submission.</span>
-                          </div>
+                          <div class="notice-bar mb-3"><i
+                              class="fas fa-exclamation-triangle"></i><span><strong>Attention:</strong> This is a draft.
+                              All documents are pending submission.</span></div>
                           <div class="status-bar" style="background:#f5f6fa;border-color:#dee2e6"><i
                               class="fas fa-pencil-alt" style="color:#626367"></i><span
                               style="color:#626367;font-size:13px;font-weight:600">Draft — complete all required fields
@@ -3188,171 +2137,26 @@
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">KPI Type</label>
                                   <h6>Quantitative</h6>
                                 </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Establishment
-                                    Date</label>
-                                  <h6>Apr 22, 2025</h6>
-                                </div>
                                 <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Fund Currency</label>
                                   <h6>SAR – Saudi Riyal</h6>
                                 </div>
-                                <div class="col-12 mb-2"><label class="col-form-label">Fund Description</label>
-                                  <h6 style="font-weight:400">An early-stage logistics trust targeting last-mile
-                                    delivery infrastructure within the NEOM smart city project, leveraging autonomous
-                                    logistics technology.</h6>
-                                </div>
-                                <div class="col-12 mb-1"><label class="col-form-label">Application Types</label>
+                                <div class="col-12 mb-1"><label class="col-form-label">Application </label>
                                   <div class="d-flex flex-wrap gap-2 mt-1"><span class="badge"
                                       style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">Development
-                                      Fund</span>
-                                    <span class="badge"
+                                      Fund</span><span class="badge"
                                       style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">ESG-Aligned
-                                      Fund</span>
-                                    <span class="badge"
+                                      Fund</span><span class="badge"
                                       style="background:#EAF3DE;color:#3B6D11;font-size:12px;padding:6px 12px">Opportunity
-                                      Fund</span>
-                                  </div>
+                                      Fund</span></div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-users"
-                                  style="color:var(--primary-color)"></i> Stakeholders</div>
-                              <div class="row view-details">
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Custodian</label>
-                                  <h6>TBD</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Auditor</label>
-                                  <h6>TBD</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Legal Counsel</label>
-                                  <h6>TBD</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Property
-                                    Appraisers</label>
-                                  <h6>TBD</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Tax Advisor</label>
-                                  <h6>TBD</h6>
-                                </div>
-                                <div class="col-12 mb-1"><label class="col-form-label">Fund Board Members</label>
-                                  <div class="d-flex flex-wrap gap-2 mt-1"><span class="badge bg-secondary me-2"
-                                      style="font-size:12px;padding:5px 10px">Ahmed Al-Ghamdi (Proposed Chair)</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-file-alt"
-                                  style="color:var(--primary-color)"></i> Documentation</div>
-                              <div class="row">
-                                <div class="col-lg-6">
-                                  <p style="font-size:13px;font-weight:600;color:#626367;margin-bottom:10px">Compliance
-                                    Certificates</p>
-                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1">
-                                    <i class="fas fa-file-times" style="color:#854F0B"></i>
-                                    <span class="doc-name" style="color:#854F0B">ENBDC_Application_FND008.pdf</span>
-                                    <span class="badge"
-                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span>
-                                  </div>
-                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1">
-                                    <i class="fas fa-file-times" style="color:#854F0B"></i>
-                                    <span class="doc-name" style="color:#854F0B">ComplianceProgram_FND008.pdf</span>
-                                    <span class="badge"
-                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span>
-                                  </div>
-                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1">
-                                    <i class="fas fa-file-times" style="color:#854F0B"></i>
-                                    <span class="doc-name" style="color:#854F0B">RiskMonitoring_FND008.pdf</span>
-                                    <span class="badge"
-                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span>
-                                  </div>
-                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1">
-                                    <i class="fas fa-file-times" style="color:#854F0B"></i>
-                                    <span class="doc-name" style="color:#854F0B">Sharia_Fatwa_FND008.pdf</span>
-                                    <span class="badge"
-                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span>
-                                  </div>
-                                </div>
-                                <div class="col-lg-6">
-                                  <p style="font-size:13px;font-weight:600;color:#626367;margin-bottom:10px">Program
-                                    Documents</p>
-                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1">
-                                    <i class="fas fa-file-times" style="color:#854F0B"></i>
-                                    <span class="doc-name" style="color:#854F0B">Insurance_Policy_FND008.pdf</span>
-                                    <span class="badge"
-                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span>
-                                  </div>
-                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1">
-                                    <i class="fas fa-file-times" style="color:#854F0B"></i>
-                                    <span class="doc-name" style="color:#854F0B">ZATCA_Certificate_FND008.pdf</span>
-                                    <span class="badge"
-                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span>
-                                  </div>
-                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1">
-                                    <i class="fas fa-file-times" style="color:#854F0B"></i>
-                                    <span class="doc-name" style="color:#854F0B">CivilDefense_FND008.pdf</span>
-                                    <span class="badge"
-                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span>
-                                  </div>
-                                  <div class="doc-row" style="border-color:#FFE082;background:#FFF8E1">
-                                    <i class="fas fa-file-times" style="color:#854F0B"></i>
-                                    <span class="doc-name" style="color:#854F0B">BuildingCompliance_FND008.pdf</span>
-                                    <span class="badge"
-                                      style="background:#FAEEDA;color:#854F0B;font-size:11px">Missing</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card mb-3">
-                            <div class="card-body pt-3">
-                              <div class="review-section-title"><i class="fas fa-chart-line"
-                                  style="color:var(--primary-color)"></i> Investment Logic</div>
-                              <div class="row view-details">
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Forecasted IRR</label>
-                                  <h6>Below SAIBOR</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Investor
-                                    Appetite</label>
-                                  <h6>Neutral</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Lender
-                                    Appetite</label>
-                                  <h6>Negative</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Sensitivity
-                                    Analysis</label>
-                                  <h6>No</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Up-front
-                                    Equity</label>
-                                  <h6>Less than 50%</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Additional
-                                    Equity</label>
-                                  <h6>No</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Off-Plan Sales</label>
-                                  <h6>More than 50%</h6>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mb-3"><label class="col-form-label">Asset Location</label>
-                                  <h6>Below 700K</h6>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
                           <div class="checker-action-bar">
                             <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
-                              <div class="d-flex gap-3 ms-auto">
-                                <button class="btn btn-primary btn-approve" onclick="checkerAction('approve')">
-                                  <i class="fas fa-check-circle me-2"></i>Submit for Review
-                                </button>
-                              </div>
+                              <div class="d-flex gap-3 ms-auto"><button class="btn btn-primary btn-approve"
+                                  onclick="checkerAction('approve')"><i class="fas fa-check-circle me-2"></i>Submit for
+                                  Review</button></div>
                             </div>
                           </div>
                         </div>
@@ -3360,15 +2164,15 @@
                     </div>
                   </div>
                 </div>
-              </main>
+
             </div>
+            </main>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-
+  </div>
 
   <div class="modal fade" id="submitReviewModal" tabindex="-1" aria-labelledby="submitReviewModalLabel"
     aria-hidden="true">
@@ -3389,18 +2193,17 @@
     </div>
   </div>
 
+  <div class="toast-container position-fixed top-0 end-0 p-3" id="toastContainer"></div>
+
   <script src="assets/js/jquery-3.5.1.js"></script>
   <script src="assets/js/slick.js"></script>
   <script src="assets/js/common.js"></script>
   <script>
     $(window).on('load', function () {
-      // setTimeout(function(){ // allowing 3 secs to fade out loader
       $('.page-loader').fadeOut('slow');
-      // },3500);
     });
   </script>
   <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
-
   <script src="assets/datatable/js/jquery.dataTables.min.js"></script>
   <script src="assets/datatable/js/dataTables.bootstrap5.min.js"></script>
   <script src="assets/datatable/js/dataTables.buttons.min.js"></script>
@@ -3411,48 +2214,291 @@
   <script src="assets/datatable/js/buttons.html5.min.js"></script>
   <script src="assets/datatable/js/buttons.print.min.js"></script>
   <script src="assets/datatable/js/buttons.colVis.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $("#menu").click(function () {
-        $("body").toggleClass("activeMenu");
-      });
-    });
+  <script src="assets/js/select2.min.js"></script>
+  <script src="assets/datatable/js/bootstrap-multiselect.js"></script>
+  <link rel="stylesheet" href="assets/datatable/css/bootstrap-multiselect.css">
+  <script src="https://cdn.ckeditor.com/ckeditor5/28.0.0/classic/ckeditor.js"></script>
 
+  <script>
+    /* ══════════════════════════════════════════
+       WIZARD ENGINE
+    ══════════════════════════════════════════ */
+    let currentStep = 1;
+    let fundFormMode = 'add';
+    let editingRow = null;
+
+    function getReviewPeriod() {
+      const quarter = document.getElementById('reviewQuarter')?.value || '';
+      const year = document.getElementById('reviewYear')?.value || '';
+      return quarter && year ? `${quarter} ${year}` : '';
+    }
+
+    function goToStep(n) {
+      const targetBtn = document.getElementById('step-btn-' + n);
+      if (!targetBtn) return;
+      if (!targetBtn.classList.contains('done') && !targetBtn.classList.contains('active')) return;
+      activateStep(n);
+    }
+
+    function activateStep(n) {
+      currentStep = n;
+      document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+      const activePanel = document.getElementById('panel-' + n);
+      if (activePanel) activePanel.classList.add('active');
+
+      for (let i = 1; i <= 4; i++) {
+        const btn = document.getElementById('step-btn-' + i);
+        if (!btn) continue;
+        btn.classList.remove('active', 'done');
+        if (i < n) btn.classList.add('done');
+        if (i === n) btn.classList.add('active');
+      }
+
+      const indicatorText = document.getElementById('step-indicator');
+      if (indicatorText) indicatorText.textContent = `Step ${n} of 4`;
+
+      const prevBtn = document.getElementById('btn-prev');
+      if (prevBtn) prevBtn.style.display = n > 1 ? '' : 'none';
+      const nextBtn = document.getElementById('btn-next');
+      if (nextBtn) {
+        nextBtn.innerHTML = n === 4
+          ? (fundFormMode === 'edit' ? '<i class="fas fa-save me-2"></i>Save Changes' : '<i class="fas fa-paper-plane me-2"></i>Submit for Review')
+          : 'Next Step <i class="fas fa-arrow-right ms-2"></i>';
+      }
+    }
+
+    function nextStep() {
+      if (!validateStep(currentStep)) {
+        showToast('Please complete the required fields before moving to the next step.', 'warning');
+        return;
+      }
+      if (currentStep < 4) {
+        activateStep(currentStep + 1);
+      } else {
+        $('#createFundModal').modal('hide');
+        setTimeout(() => {
+          showToast(fundFormMode === 'edit' ? 'Fund updated successfully.' : 'Fund submitted for review.', 'success');
+        }, 200);
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 1) activateStep(currentStep - 1);
+    }
+
+    function setFundFormMode(mode) {
+      fundFormMode = mode;
+      const title = document.getElementById('createFundModalLabel');
+      if (title) title.textContent = mode === 'edit' ? 'Edit Fund' : 'Create New Fund';
+    }
+
+    function resetFundForm() {
+      editingRow = null;
+      ['fundId', 'fundName', 'fundDate', 'fundCurrency', 'fundDescription', 'custodian', 'auditor',
+        'legalCounsel', 'propertyAppraisers', 'taxAdvisor', 'forecastIrr', 'investorAppetite',
+        'lenderAppetite', 'upFrontEquity', 'offPlanSales', 'assetLocation'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.value = '';
+        });
+      const rq = document.getElementById('reviewQuarter');
+      const ry = document.getElementById('reviewYear');
+      if (rq) rq.value = '';
+      if (ry) ry.value = '';
+      document.querySelectorAll('input[name="fundType"]').forEach(el => el.checked = false);
+      document.querySelectorAll('input[name="sensitivityAnalysis"]').forEach(el => el.checked = false);
+      document.querySelectorAll('input[name="additionalEquity"]').forEach(el => el.checked = false);
+      document.querySelectorAll('#board-members .form-control').forEach(el => el.value = '');
+      const boardMembers = document.getElementById('board-members');
+      if (boardMembers) {
+        while (boardMembers.children.length > 2) boardMembers.removeChild(boardMembers.lastChild);
+      }
+
+      // Select2 multi-select UI value reset sequence
+      // $('.applicationSelect').val(null).trigger('change');
+
+      activateStep(1);
+    }
+
+    function openEditFundModal(row) {
+      setFundFormMode('edit');
+      editingRow = row;
+      document.getElementById('fundId').value = row.find('td').eq(0).text().trim();
+      document.getElementById('fundName').value = row.find('td').eq(1).text().trim();
+      const reviewPeriod = row.find('td').eq(4).text().trim();
+      const parts = reviewPeriod.split(' ');
+      if (document.getElementById('reviewQuarter')) document.getElementById('reviewQuarter').value = parts[0] || '';
+      if (document.getElementById('reviewYear')) document.getElementById('reviewYear').value = parts[1] || '';
+      const type = row.find('td').eq(2).text().trim();
+      document.querySelectorAll('input[name="fundType"]').forEach(el => el.checked = el.value === type);
+      activateStep(1);
+    }
+
+    function validateStep(step) {
+      let valid = true;
+      if (step === 1) {
+        const fields = [
+          document.getElementById('fundName'),
+          document.getElementById('reviewQuarter'),
+          document.getElementById('reviewYear'),
+          document.getElementById('fundDate'),
+          document.getElementById('fundCurrency')
+        ];
+        fields.forEach(field => {
+          if (!field) return;
+          if (!field.value.trim()) { field.classList.add('is-invalid'); valid = false; }
+          else field.classList.remove('is-invalid');
+        });
+        if (!document.querySelector('input[name="fundType"]:checked')) valid = false;
+      }
+      return valid;
+    }
+
+    function saveDraft() {
+      showToast('Draft saved successfully.', 'success');
+    }
+
+    function showToast(message, type = 'primary') {
+      const container = document.getElementById('toastContainer');
+      if (!container) return;
+      const toastEl = document.createElement('div');
+      const toastClass = type === 'success' ? 'text-bg-success' : type === 'warning' ? 'text-bg-warning' : type === 'danger' ? 'text-bg-danger' : 'text-bg-primary';
+      toastEl.className = `toast align-items-center ${toastClass} border-0`;
+      toastEl.innerHTML = `<div class="d-flex"><div class="toast-body">${message}</div><button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button></div>`;
+      container.appendChild(toastEl);
+      const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+      toast.show();
+      toastEl.addEventListener('hidden.bs.toast', () => toastEl.remove());
+    }
+
+    function addMember() {
+      const wrap = document.getElementById('board-members');
+      const row = document.createElement('div');
+      row.className = 'board-row col-lg-4';
+      row.innerHTML = `<div class="input-group mb-3"><input type="text" class="form-control" placeholder="Member name &amp; designation"><div class="input-group-append"><span class="input-group-text"><button class="btn-remove-row" onclick="removeMember(this)" title="Remove"><i class="fas fa-trash"></i></button></span></div></div>`;
+      wrap.appendChild(row);
+    }
+
+    function removeMember(btn) {
+      btn.closest('.board-row')?.remove();
+    }
+
+    /* ══════════════════════════════════════════
+       DOCUMENT INITIALIZATION
+    ══════════════════════════════════════════ */
     $(document).ready(function () {
+      $("#menu").click(function () { $("body").toggleClass("activeMenu"); });
+
       var table = $('#fundsTable').DataTable({
         lengthChange: true,
-        language: {
-          search: '<i class="fa fa-search"></i>',
-          searchPlaceholder: "search"
-        },
+        language: { search: '<i class="fa fa-search"></i>', searchPlaceholder: "search" },
         lengthMenu: [[20, 25, 50, -1], [20, 25, 50, "All"]],
         dom: "<'row'<'col-sm-8'l f><'col-sm-4 text-end buttons'>>" +
           "<'row'<'col-sm-12'tr>>" +
           "<'row'<'col-sm-5'i><'col-sm-7 text-end table-pagination'p>>",
       });
 
-      table.buttons().container()
-        .appendTo('#fund_wrapper .col-md-6:eq(0)');
+      $('#fundsTableBody').on('click', '.edit-fund-btn', function (e) {
+        e.preventDefault();
+        const row = $(this).closest('tr');
+        openEditFundModal(row);
+        $('#createFundModal').modal('show');
+      });
+
+      $('#openCreateFundBtn').click(function () {
+        setFundFormMode('add');
+        resetFundForm();
+      });
+
+      $('#createFundModal').on('show.bs.modal', function () {
+        activateStep(1);
+      });
+
+      // Regular select tags fallback mappings
+      $(".propertyList").select2({ closeOnSelect: true, allowClear: false, placeholder: "Select" });
+
+      // Native Select2 multiple selection instance initialization mapping 
+      // Native Select2 multiple selection with dynamic checkboxes
+      /* ==========================================
+         APPLICATION MULTI SELECT
+      ========================================== */
+
+      $('.applicationSelect').select2({
+        dropdownParent: $('#createFundModal'),
+        placeholder: 'Select Application Types',
+        closeOnSelect: false,
+        allowClear: true,
+        width: '100%'
+      });
+
+      $('.applicationSelect').on('change', function () {
+
+        const $this = $(this);
+
+        let values = $this.val() || [];
+
+        const allValues = $this.find('option')
+          .map(function () {
+            return this.value;
+          })
+          .get();
+
+        const normalValues = allValues.filter(v => v !== 'ALL');
+
+        if (values.includes('ALL')) {
+
+          const allSelected =
+            normalValues.every(v => values.includes(v));
+
+          if (!allSelected) {
+
+            $this.val(['ALL', ...normalValues]).trigger('change.select2');
+          }
+        }
+        else {
+
+          const allSelected =
+            normalValues.every(v =>
+              values.includes(v)
+            );
+
+          if (allSelected) {
+
+            $this.val(['ALL', ...normalValues]).trigger('change.select2');
+          }
+        }
+      });
+
+      $('.applicationSelect').on('select2:unselect', function (e) {
+
+        const removed = e.params.data.id;
+
+        if (removed === 'ALL') {
+
+          $(this)
+            .val([])
+            .trigger('change.select2');
+
+          return;
+        }
+
+        let values = $(this).val() || [];
+
+        values = values.filter(v => v !== 'ALL');
+
+        $(this)
+          .val(values)
+          .trigger('change.select2');
+      });
+
+      try { ClassicEditor.create(document.querySelector(".editor")); } catch (e) { }
+      try { ClassicEditor.create(document.querySelector(".editor2")); } catch (e) { }
+      try { ClassicEditor.create(document.querySelector(".editor3")); } catch (e) { }
+      try { ClassicEditor.create(document.querySelector(".editor4")); } catch (e) { }
     });
-
-
-
-    $("#deleteRecord").click(function () {
-      $("#deleteRecordMsg").show();
-      setTimeout(function () {
-        $('.alertBox').hide();
-      }, 5000);
-    });
-    $("#addRecord").click(function () {
-      $("#addRecordMsg").show();
-      setTimeout(function () {
-        $('.alertBox').hide();
-      }, 5000);
-    });
-
   </script>
   <script src="assets/datatable/js/bootstrap-multiselect.js"></script>
-  <link rel="stylesheet" href="assets/datatable/css/bootstrap-multiselect.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
   <script>
 
     $(document).ready(function () {
@@ -3461,515 +2507,8 @@
         includeSelectAllOption: true,
         nonSelectedText: 'Select', // Placeholder for the second dropdown
       });
-      // Initialize the first multiselect dropdown
-      $('.dropdown1').multiselect({
-        includeSelectAllOption: true,
-        nonSelectedText: 'Select Dataset', // Placeholder for the first dropdown
-      });
-
-      // Initialize the second multiselect dropdown
-      $('.dropdown2').multiselect({
-        includeSelectAllOption: true,
-        nonSelectedText: 'Select Status', // Placeholder for the second dropdown
-      });
-    });
-    $(document).ready(function () {
-      $("#serviceBtn").click(function () {
-        $('.serviceProviderTab1').hide();
-        $('.serviceProviderTab2').show();
-        $(this).hide();
-        $('#addRecord').show();
-      });
-      $(".addSP").click(function () {
-        $('.serviceProviderTab1').show();
-        $('.serviceProviderTab2').hide();
-        $("#serviceBtn").show();
-        $('#addRecord').hide();
-      });
-
-
     });
   </script>
-
-
-  <script src="assets/js/select2.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $(".propertyList").select2({
-        closeOnSelect: true,
-        allowClear: false,
-        placeholder: "Select",
-      });
-    });
-
-    $("#historyModal4").on('shown.bs.modal', function (e) {
-      var tab = e.relatedTarget.hash;
-      $('.nav-tabs a[href="' + tab + '"]').tab('show')
-    })    
-  </script>
-  <script src="https://cdn.ckeditor.com/ckeditor5/28.0.0/classic/ckeditor.js"></script>
-  <script id="rendered-js">
-    ClassicEditor.create(document.querySelector(".editor"));
-
-    ClassicEditor.create(document.querySelector(".editor2"));
-    ClassicEditor.create(document.querySelector(".editor3"));
-    ClassicEditor.create(document.querySelector(".editor4"));
-
-  </script>
-
-  <script>
-    // Activate the appropriate tab when the modal is shown
-    $("#historyModal4").on('shown.bs.modal', function (e) {
-      var tab = e.relatedTarget.hash;
-      $('.nav-tabs a[href="' + tab + '"]').tab('show');
-    });
-  </script>
-
-  <script>
-    $(document).ready(function () {
-      // Add click event to table cells
-      $('td[contenteditable="true"]').click(function () {
-        $(this).addClass('editing');
-      });
-
-      // Handle Enter key and click outside to save changes
-      $(document).on('keydown', function (e) {
-        if (e.key === "Enter") {
-          $('td.editing').removeClass('editing');
-        }
-      });
-
-      $(document).on('click', function (e) {
-        if (!$(e.target).closest('td.editing').length) {
-          $('td.editing').removeClass('editing');
-        }
-      });
-    });
-  </script>
-  <script>
-    $(document).ready(function () {
-      // Add a click event to the button with class "btn-replay"
-      $(".btn-replay").click(function () {
-        // Toggle the visibility of the element with ID "replyBox"
-        $("#replyBox").toggle();
-      });
-    });
-
-
-    $(document).ready(function () {
-      // Add a click event handler for the "Report Package" tabs
-      $('#collapseOne li a').click(function () {
-        // Remove the "active" class from other "Report Package" tabs
-        $('#collapseOne li a').not(this).removeClass('active');
-        // Remove the "active" class from all "Dataset" tabs
-        $('#collapseTwo li a').removeClass('active');
-        // Add the "active" class to the clicked tab
-        $(this).addClass('active');
-      });
-
-      // Add a click event handler for the "Dataset" tabs
-      $('#collapseTwo li a').click(function () {
-        // Remove the "active" class from other "Dataset" tabs
-        $('#collapseTwo li a').not(this).removeClass('active');
-        // Remove the "active" class from all "Report Package" tabs
-        $('#collapseOne li a').removeClass('active');
-        // Add the "active" class to the clicked tab
-        $(this).addClass('active');
-      });
-    });
-
-  </script>
-  <script>
-let currentStep = 1;
-let fundFormMode = 'add';
-let editingRow = null;
-
-/* ===========================
-   REVIEW PERIOD
-=========================== */
-function getReviewPeriod() {
-    const quarter = document.getElementById('reviewQuarter')?.value || '';
-    const year = document.getElementById('reviewYear')?.value || '';
-    return quarter && year ? `${quarter} ${year}` : '';
-}
-
-/* ===========================
-   WIZARD
-=========================== */
-function goToStep(n) {
-    const targetBtn = document.getElementById('step-btn-' + n);
-    if (!targetBtn) return;
-
-    if (
-        !targetBtn.classList.contains('done') &&
-        !targetBtn.classList.contains('active')
-    ) return;
-
-    activateStep(n);
-}
-
-function activateStep(n) {
-    currentStep = n;
-
-    document.querySelectorAll('.step-panel').forEach(panel => {
-        panel.classList.remove('active');
-    });
-
-    const activePanel = document.getElementById('panel-' + n);
-    if (activePanel) {
-        activePanel.classList.add('active');
-    }
-
-    for (let i = 1; i <= 4; i++) {
-        const btn = document.getElementById('step-btn-' + i);
-
-        if (!btn) continue;
-
-        btn.classList.remove('active', 'done');
-
-        if (i < n) btn.classList.add('done');
-        if (i === n) btn.classList.add('active');
-    }
-
-    const indicator = document.getElementById('step-indicator');
-    if (indicator) {
-        indicator.textContent = `Step ${n} of 4`;
-    }
-
-    const prevBtn = document.getElementById('btn-prev');
-    if (prevBtn) {
-        prevBtn.style.display = n > 1 ? '' : 'none';
-    }
-
-    const nextBtn = document.getElementById('btn-next');
-
-    if (nextBtn) {
-        nextBtn.innerHTML =
-            n === 4
-                ? (
-                    fundFormMode === 'edit'
-                        ? '<i class="fas fa-save me-2"></i>Save Changes'
-                        : '<i class="fas fa-paper-plane me-2"></i>Submit for Review'
-                )
-                : 'Next Step <i class="fas fa-arrow-right ms-2"></i>';
-    }
-}
-
-function nextStep() {
-    if (!validateStep(currentStep)) {
-        showToast(
-            'Please complete the required fields before moving to the next step.',
-            'warning'
-        );
-        return;
-    }
-
-    if (currentStep < 4) {
-        activateStep(currentStep + 1);
-    } else {
-        $('#createFundModal').modal('hide');
-
-        setTimeout(() => {
-            showToast(
-                fundFormMode === 'edit'
-                    ? 'Fund updated successfully.'
-                    : 'Fund submitted for review.',
-                'success'
-            );
-        }, 200);
-    }
-}
-
-function prevStep() {
-    if (currentStep > 1) {
-        activateStep(currentStep - 1);
-    }
-}
-
-/* ===========================
-   MODE
-=========================== */
-function setFundFormMode(mode) {
-    fundFormMode = mode;
-
-    const title = document.getElementById('createFundModalLabel');
-
-    if (title) {
-        title.textContent =
-            mode === 'edit'
-                ? 'Edit Fund'
-                : 'Create New Fund';
-    }
-}
-
-/* ===========================
-   RESET FORM
-=========================== */
-function resetFundForm() {
-
-    editingRow = null;
-
-    const ids = [
-        'fundId',
-        'fundName',
-        'fundDate',
-        'fundCurrency',
-        'fundDescription',
-        'custodian',
-        'auditor',
-        'legalCounsel',
-        'propertyAppraisers',
-        'taxAdvisor',
-        'forecastIrr',
-        'investorAppetite',
-        'lenderAppetite',
-        'upFrontEquity',
-        'offPlanSales',
-        'assetLocation'
-    ];
-
-    ids.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.value = '';
-    });
-
-    const reviewQuarter = document.getElementById('reviewQuarter');
-    const reviewYear = document.getElementById('reviewYear');
-
-    if (reviewQuarter) reviewQuarter.value = '';
-    if (reviewYear) reviewYear.value = '';
-
-    document.querySelectorAll('input[name="fundType"]').forEach(el => {
-        el.checked = false;
-    });
-
-    document.querySelectorAll('input[name="appType"]').forEach(el => {
-        el.checked = false;
-    });
-
-    document.querySelectorAll('input[name="sensitivityAnalysis"]').forEach(el => {
-        el.checked = false;
-    });
-
-    document.querySelectorAll('input[name="additionalEquity"]').forEach(el => {
-        el.checked = false;
-    });
-
-    document.querySelectorAll('#board-members .form-control').forEach(el => {
-        el.value = '';
-    });
-
-    const boardMembers = document.getElementById('board-members');
-
-    if (boardMembers) {
-        while (boardMembers.children.length > 2) {
-            boardMembers.removeChild(boardMembers.lastChild);
-        }
-    }
-
-    activateStep(1);
-}
-
-/* ===========================
-   EDIT
-=========================== */
-function openEditFundModal(row) {
-
-    setFundFormMode('edit');
-    editingRow = row;
-
-    document.getElementById('fundId').value =
-        row.find('td').eq(0).text().trim();
-
-    document.getElementById('fundName').value =
-        row.find('td').eq(1).text().trim();
-
-    const reviewPeriod =
-        row.find('td').eq(4).text().trim();
-
-    const parts = reviewPeriod.split(' ');
-
-    if (document.getElementById('reviewQuarter')) {
-        document.getElementById('reviewQuarter').value =
-            parts[0] || '';
-    }
-
-    if (document.getElementById('reviewYear')) {
-        document.getElementById('reviewYear').value =
-            parts[1] || '';
-    }
-
-    const type =
-        row.find('td').eq(2).text().trim();
-
-    document.querySelectorAll('input[name="fundType"]').forEach(el => {
-        el.checked = el.value === type;
-    });
-
-    activateStep(1);
-}
-
-/* ===========================
-   VALIDATION
-=========================== */
-function validateStep(step) {
-
-    let valid = true;
-
-    if (step === 1) {
-
-        const fields = [
-            document.getElementById('fundName'),
-            document.getElementById('reviewQuarter'),
-            document.getElementById('reviewYear'),
-            document.getElementById('fundDate'),
-            document.getElementById('fundCurrency')
-        ];
-
-        fields.forEach(field => {
-
-            if (!field) return;
-
-            if (!field.value.trim()) {
-                field.classList.add('is-invalid');
-                valid = false;
-            } else {
-                field.classList.remove('is-invalid');
-            }
-        });
-
-        const type =
-            document.querySelector('input[name="fundType"]:checked');
-
-        if (!type) {
-            valid = false;
-        }
-    }
-
-    return valid;
-}
-
-/* ===========================
-   DRAFT
-=========================== */
-function saveDraft() {
-    showToast('Draft saved successfully.', 'success');
-}
-
-/* ===========================
-   TOAST
-=========================== */
-function showToast(message, type = 'primary') {
-
-    const container =
-        document.getElementById('toastContainer');
-
-    if (!container) return;
-
-    const toastEl = document.createElement('div');
-
-    const toastClass =
-        type === 'success'
-            ? 'text-bg-success'
-            : type === 'warning'
-                ? 'text-bg-warning'
-                : type === 'danger'
-                    ? 'text-bg-danger'
-                    : 'text-bg-primary';
-
-    toastEl.className =
-        `toast align-items-center ${toastClass} border-0`;
-
-    toastEl.innerHTML = `
-        <div class="d-flex">
-            <div class="toast-body">${message}</div>
-            <button
-                type="button"
-                class="btn-close btn-close-white me-2 m-auto"
-                data-bs-dismiss="toast">
-            </button>
-        </div>
-    `;
-
-    container.appendChild(toastEl);
-
-    const toast =
-        new bootstrap.Toast(toastEl, { delay: 3000 });
-
-    toast.show();
-
-    toastEl.addEventListener('hidden.bs.toast', () => {
-        toastEl.remove();
-    });
-}
-
-/* ===========================
-   BOARD MEMBERS
-=========================== */
-function addMember() {
-
-    const wrap =
-        document.getElementById('board-members');
-
-    const row = document.createElement('div');
-
-    row.className = 'board-row col-lg-4';
-
-    row.innerHTML = `
-        <div class="input-group mb-3">
-            <input type="text"
-                class="form-control"
-                placeholder="Member name & designation">
-
-            <div class="input-group-append">
-                <span class="input-group-text">
-                    <button
-                        class="btn-remove-row"
-                        onclick="removeMember(this)">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </span>
-            </div>
-        </div>
-    `;
-
-    wrap.appendChild(row);
-}
-
-function removeMember(btn) {
-    btn.closest('.board-row')?.remove();
-}
-
-/* ===========================
-   DOCUMENT READY
-=========================== */
-$(document).ready(function () {
-
-    $('#fundsTableBody').on('click', '.edit-fund-btn', function (e) {
-
-        e.preventDefault();
-
-        const row =
-            $(this).closest('tr');
-
-        openEditFundModal(row);
-
-        $('#createFundModal').modal('show');
-    });
-
-    $('#openCreateFundBtn').click(function () {
-
-        setFundFormMode('add');
-        resetFundForm();
-    });
-
-    $('#createFundModal').on('show.bs.modal', function () {
-        activateStep(1);
-    });
-});
-</script>
-
-  <div class="toast-container position-fixed top-0 end-0 p-3" id="toastContainer"></div>
 </body>
 
 </html>
